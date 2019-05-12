@@ -1,4 +1,4 @@
-Native = {}
+Native = require('lib.native.native')
 
 ---@param i integer
 ---@return race
@@ -505,68 +505,68 @@ function Native.SetTeams(teamCount) end
 ---@return void
 function Native.SetPlayers(playerCount) end
 
----@param whichStartLoc integer
+---@param startLoc integer
 ---@param x float
 ---@param y float
 ---@return void
-function Native.DefineStartLocation(whichStartLoc, x, y) end
+function Native.DefineStartLocation(startLoc, x, y) end
 
----@param whichStartLoc integer
----@param whichLocation location
+---@param startLoc integer
+---@param loc location
 ---@return void
-function Native.DefineStartLocationLoc(whichStartLoc, whichLocation) end
+function Native.DefineStartLocationLoc(startLoc, loc) end
 
----@param whichStartLoc integer
+---@param startLoc integer
 ---@param prioSlotCount integer
 ---@return void
-function Native.SetStartLocPrioCount(whichStartLoc, prioSlotCount) end
+function Native.SetStartLocPrioCount(startLoc, prioSlotCount) end
 
----@param whichStartLoc integer
+---@param startLoc integer
 ---@param prioSlotIndex integer
 ---@param otherStartLocIndex integer
 ---@param priority startlocprio
 ---@return void
-function Native.SetStartLocPrio(whichStartLoc, prioSlotIndex, otherStartLocIndex, priority) end
+function Native.SetStartLocPrio(startLoc, prioSlotIndex, otherStartLocIndex, priority) end
 
----@param whichStartLoc integer
+---@param startLoc integer
 ---@param prioSlotIndex integer
 ---@return integer
-function Native.GetStartLocPrioSlot(whichStartLoc, prioSlotIndex) end
+function Native.GetStartLocPrioSlot(startLoc, prioSlotIndex) end
 
----@param whichStartLoc integer
+---@param startLoc integer
 ---@param prioSlotIndex integer
 ---@return startlocprio
-function Native.GetStartLocPrio(whichStartLoc, prioSlotIndex) end
+function Native.GetStartLocPrio(startLoc, prioSlotIndex) end
 
----@param whichGameType gametype
+---@param gameType gametype
 ---@param value boolean
 ---@return void
-function Native.SetGameTypeSupported(whichGameType, value) end
+function Native.SetGameTypeSupported(gameType, value) end
 
----@param whichMapFlag mapflag
+---@param mapFlag mapflag
 ---@param value boolean
 ---@return void
-function Native.SetMapFlag(whichMapFlag, value) end
+function Native.SetMapFlag(mapFlag, value) end
 
----@param whichPlacementType placement
+---@param placementType placement
 ---@return void
-function Native.SetGamePlacement(whichPlacementType) end
+function Native.SetGamePlacement(placementType) end
 
----@param whichSpeed gamespeed
+---@param speed gamespeed
 ---@return void
-function Native.SetGameSpeed(whichSpeed) end
+function Native.SetGameSpeed(speed) end
 
----@param whichDifficulty gamedifficulty
+---@param difficulty gamedifficulty
 ---@return void
-function Native.SetGameDifficulty(whichDifficulty) end
+function Native.SetGameDifficulty(difficulty) end
 
----@param whichDensity mapdensity
+---@param density mapdensity
 ---@return void
-function Native.SetResourceDensity(whichDensity) end
+function Native.SetResourceDensity(density) end
 
----@param whichDensity mapdensity
+---@param density mapdensity
 ---@return void
-function Native.SetCreatureDensity(whichDensity) end
+function Native.SetCreatureDensity(density) end
 
 ---@return integer
 function Native.GetTeams() end
@@ -574,16 +574,16 @@ function Native.GetTeams() end
 ---@return integer
 function Native.GetPlayers() end
 
----@param whichGameType gametype
+---@param gameType gametype
 ---@return boolean
-function Native.IsGameTypeSupported(whichGameType) end
+function Native.IsGameTypeSupported(gameType) end
 
 ---@return gametype
 function Native.GetGameTypeSelected() end
 
----@param whichMapFlag mapflag
+---@param mapFlag mapflag
 ---@return boolean
-function Native.IsMapFlagSet(whichMapFlag) end
+function Native.IsMapFlagSet(mapFlag) end
 
 ---@return placement
 function Native.GetGamePlacement() end
@@ -600,149 +600,149 @@ function Native.GetResourceDensity() end
 ---@return mapdensity
 function Native.GetCreatureDensity() end
 
----@param whichStartLocation integer
+---@param startLocation integer
 ---@return float
-function Native.GetStartLocationX(whichStartLocation) end
+function Native.GetStartLocationX(startLocation) end
 
----@param whichStartLocation integer
+---@param startLocation integer
 ---@return float
-function Native.GetStartLocationY(whichStartLocation) end
+function Native.GetStartLocationY(startLocation) end
 
----@param whichStartLocation integer
+---@param startLocation integer
 ---@return location
-function Native.GetStartLocationLoc(whichStartLocation) end
+function Native.GetStartLocationLoc(startLocation) end
 
----@param whichPlayer player
----@param whichTeam integer
+---@param player player
+---@param team integer
 ---@return void
-function Native.SetPlayerTeam(whichPlayer, whichTeam) end
+function Native.SetPlayerTeam(player, team) end
 
----@param whichPlayer player
+---@param player player
 ---@param startLocIndex integer
 ---@return void
-function Native.SetPlayerStartLocation(whichPlayer, startLocIndex) end
+function Native.SetPlayerStartLocation(player, startLocIndex) end
 
----@param whichPlayer player
+---@param player player
 ---@param startLocIndex integer
 ---@return void
-function Native.ForcePlayerStartLocation(whichPlayer, startLocIndex) end
+function Native.ForcePlayerStartLocation(player, startLocIndex) end
 
----@param whichPlayer player
+---@param player player
 ---@param color playercolor
 ---@return void
-function Native.SetPlayerColor(whichPlayer, color) end
+function Native.SetPlayerColor(player, color) end
 
 ---@param sourcePlayer player
 ---@param otherPlayer player
----@param whichAllianceSetting alliancetype
+---@param allianceSetting alliancetype
 ---@param value boolean
 ---@return void
-function Native.SetPlayerAlliance(sourcePlayer, otherPlayer, whichAllianceSetting, value) end
+function Native.SetPlayerAlliance(sourcePlayer, otherPlayer, allianceSetting, value) end
 
 ---@param sourcePlayer player
 ---@param otherPlayer player
----@param whichResource playerstate
+---@param resource playerstate
 ---@param rate integer
 ---@return void
-function Native.SetPlayerTaxRate(sourcePlayer, otherPlayer, whichResource, rate) end
+function Native.SetPlayerTaxRate(sourcePlayer, otherPlayer, resource, rate) end
 
----@param whichPlayer player
----@param whichRacePreference racepreference
+---@param player player
+---@param racePreference racepreference
 ---@return void
-function Native.SetPlayerRacePreference(whichPlayer, whichRacePreference) end
+function Native.SetPlayerRacePreference(player, racePreference) end
 
----@param whichPlayer player
+---@param player player
 ---@param value boolean
 ---@return void
-function Native.SetPlayerRaceSelectable(whichPlayer, value) end
+function Native.SetPlayerRaceSelectable(player, value) end
 
----@param whichPlayer player
+---@param player player
 ---@param controlType mapcontrol
 ---@return void
-function Native.SetPlayerController(whichPlayer, controlType) end
+function Native.SetPlayerController(player, controlType) end
 
----@param whichPlayer player
+---@param player player
 ---@param name string
 ---@return void
-function Native.SetPlayerName(whichPlayer, name) end
+function Native.SetPlayerName(player, name) end
 
----@param whichPlayer player
+---@param player player
 ---@param flag boolean
 ---@return void
-function Native.SetPlayerOnScoreScreen(whichPlayer, flag) end
+function Native.SetPlayerOnScoreScreen(player, flag) end
 
----@param whichPlayer player
+---@param player player
 ---@return integer
-function Native.GetPlayerTeam(whichPlayer) end
+function Native.GetPlayerTeam(player) end
 
----@param whichPlayer player
+---@param player player
 ---@return integer
-function Native.GetPlayerStartLocation(whichPlayer) end
+function Native.GetPlayerStartLocation(player) end
 
----@param whichPlayer player
+---@param player player
 ---@return playercolor
-function Native.GetPlayerColor(whichPlayer) end
+function Native.GetPlayerColor(player) end
 
----@param whichPlayer player
+---@param player player
 ---@return boolean
-function Native.GetPlayerSelectable(whichPlayer) end
+function Native.GetPlayerSelectable(player) end
 
----@param whichPlayer player
+---@param player player
 ---@return mapcontrol
-function Native.GetPlayerController(whichPlayer) end
+function Native.GetPlayerController(player) end
 
----@param whichPlayer player
+---@param player player
 ---@return playerslotstate
-function Native.GetPlayerSlotState(whichPlayer) end
+function Native.GetPlayerSlotState(player) end
 
 ---@param sourcePlayer player
 ---@param otherPlayer player
----@param whichResource playerstate
+---@param resource playerstate
 ---@return integer
-function Native.GetPlayerTaxRate(sourcePlayer, otherPlayer, whichResource) end
+function Native.GetPlayerTaxRate(sourcePlayer, otherPlayer, resource) end
 
----@param whichPlayer player
+---@param player player
 ---@param pref racepreference
 ---@return boolean
-function Native.IsPlayerRacePrefSet(whichPlayer, pref) end
+function Native.IsPlayerRacePrefSet(player, pref) end
 
----@param whichPlayer player
+---@param player player
 ---@return string
-function Native.GetPlayerName(whichPlayer) end
+function Native.GetPlayerName(player) end
 
 ---@return timer
 function Native.CreateTimer() end
 
----@param whichTimer timer
+---@param timer timer
 ---@return void
-function Native.DestroyTimer(whichTimer) end
+function Native.DestroyTimer(timer) end
 
----@param whichTimer timer
+---@param timer timer
 ---@param timeout float
 ---@param periodic boolean
 ---@param handlerFunc function
 ---@return void
-function Native.TimerStart(whichTimer, timeout, periodic, handlerFunc) end
+function Native.TimerStart(timer, timeout, periodic, handlerFunc) end
 
----@param whichTimer timer
+---@param timer timer
 ---@return float
-function Native.TimerGetElapsed(whichTimer) end
+function Native.TimerGetElapsed(timer) end
 
----@param whichTimer timer
+---@param timer timer
 ---@return float
-function Native.TimerGetRemaining(whichTimer) end
+function Native.TimerGetRemaining(timer) end
 
----@param whichTimer timer
+---@param timer timer
 ---@return float
-function Native.TimerGetTimeout(whichTimer) end
+function Native.TimerGetTimeout(timer) end
 
----@param whichTimer timer
+---@param timer timer
 ---@return void
-function Native.PauseTimer(whichTimer) end
+function Native.PauseTimer(timer) end
 
----@param whichTimer timer
+---@param timer timer
 ---@return void
-function Native.ResumeTimer(whichTimer) end
+function Native.ResumeTimer(timer) end
 
 ---@return timer
 function Native.GetExpiredTimer() end
@@ -750,218 +750,218 @@ function Native.GetExpiredTimer() end
 ---@return group
 function Native.CreateGroup() end
 
----@param whichGroup group
+---@param group group
 ---@return void
-function Native.DestroyGroup(whichGroup) end
+function Native.DestroyGroup(group) end
 
----@param whichGroup group
----@param whichUnit unit
+---@param group group
+---@param unit unit
 ---@return boolean
-function Native.GroupAddUnit(whichGroup, whichUnit) end
+function Native.GroupAddUnit(group, unit) end
 
----@param whichGroup group
----@param whichUnit unit
+---@param group group
+---@param unit unit
 ---@return boolean
-function Native.GroupRemoveUnit(whichGroup, whichUnit) end
+function Native.GroupRemoveUnit(group, unit) end
 
----@param whichGroup group
+---@param group group
 ---@param addGroup group
 ---@return integer
-function Native.BlzGroupAddGroupFast(whichGroup, addGroup) end
+function Native.BlzGroupAddGroupFast(group, addGroup) end
 
----@param whichGroup group
+---@param group group
 ---@param removeGroup group
 ---@return integer
-function Native.BlzGroupRemoveGroupFast(whichGroup, removeGroup) end
+function Native.BlzGroupRemoveGroupFast(group, removeGroup) end
 
----@param whichGroup group
+---@param group group
 ---@return void
-function Native.GroupClear(whichGroup) end
+function Native.GroupClear(group) end
 
----@param whichGroup group
+---@param group group
 ---@return integer
-function Native.BlzGroupGetSize(whichGroup) end
+function Native.BlzGroupGetSize(group) end
 
----@param whichGroup group
+---@param group group
 ---@param index integer
 ---@return unit
-function Native.BlzGroupUnitAt(whichGroup, index) end
+function Native.BlzGroupUnitAt(group, index) end
 
----@param whichGroup group
+---@param group group
 ---@param unitName string
 ---@param filter boolexpr
 ---@return void
-function Native.GroupEnumUnitsOfType(whichGroup, unitName, filter) end
+function Native.GroupEnumUnitsOfType(group, unitName, filter) end
 
----@param whichGroup group
----@param whichPlayer player
+---@param group group
+---@param player player
 ---@param filter boolexpr
 ---@return void
-function Native.GroupEnumUnitsOfPlayer(whichGroup, whichPlayer, filter) end
+function Native.GroupEnumUnitsOfPlayer(group, player, filter) end
 
----@param whichGroup group
+---@param group group
 ---@param unitName string
 ---@param filter boolexpr
 ---@param countLimit integer
 ---@return void
-function Native.GroupEnumUnitsOfTypeCounted(whichGroup, unitName, filter, countLimit) end
+function Native.GroupEnumUnitsOfTypeCounted(group, unitName, filter, countLimit) end
 
----@param whichGroup group
+---@param group group
 ---@param r rect
 ---@param filter boolexpr
 ---@return void
-function Native.GroupEnumUnitsInRect(whichGroup, r, filter) end
+function Native.GroupEnumUnitsInRect(group, r, filter) end
 
----@param whichGroup group
+---@param group group
 ---@param r rect
 ---@param filter boolexpr
 ---@param countLimit integer
 ---@return void
-function Native.GroupEnumUnitsInRectCounted(whichGroup, r, filter, countLimit) end
+function Native.GroupEnumUnitsInRectCounted(group, r, filter, countLimit) end
 
----@param whichGroup group
+---@param group group
 ---@param x float
 ---@param y float
 ---@param radius float
 ---@param filter boolexpr
 ---@return void
-function Native.GroupEnumUnitsInRange(whichGroup, x, y, radius, filter) end
+function Native.GroupEnumUnitsInRange(group, x, y, radius, filter) end
 
----@param whichGroup group
----@param whichLocation location
+---@param group group
+---@param loc location
 ---@param radius float
 ---@param filter boolexpr
 ---@return void
-function Native.GroupEnumUnitsInRangeOfLoc(whichGroup, whichLocation, radius, filter) end
+function Native.GroupEnumUnitsInRangeOfLoc(group, loc, radius, filter) end
 
----@param whichGroup group
+---@param group group
 ---@param x float
 ---@param y float
 ---@param radius float
 ---@param filter boolexpr
 ---@param countLimit integer
 ---@return void
-function Native.GroupEnumUnitsInRangeCounted(whichGroup, x, y, radius, filter, countLimit) end
+function Native.GroupEnumUnitsInRangeCounted(group, x, y, radius, filter, countLimit) end
 
----@param whichGroup group
----@param whichLocation location
+---@param group group
+---@param loc location
 ---@param radius float
 ---@param filter boolexpr
 ---@param countLimit integer
 ---@return void
-function Native.GroupEnumUnitsInRangeOfLocCounted(whichGroup, whichLocation, radius, filter, countLimit) end
+function Native.GroupEnumUnitsInRangeOfLocCounted(group, loc, radius, filter, countLimit) end
 
----@param whichGroup group
----@param whichPlayer player
+---@param group group
+---@param player player
 ---@param filter boolexpr
 ---@return void
-function Native.GroupEnumUnitsSelected(whichGroup, whichPlayer, filter) end
+function Native.GroupEnumUnitsSelected(group, player, filter) end
 
----@param whichGroup group
+---@param group group
 ---@param order string
 ---@return boolean
-function Native.GroupImmediateOrder(whichGroup, order) end
+function Native.GroupImmediateOrder(group, order) end
 
----@param whichGroup group
+---@param group group
 ---@param order integer
 ---@return boolean
-function Native.GroupImmediateOrderById(whichGroup, order) end
+function Native.GroupImmediateOrderById(group, order) end
 
----@param whichGroup group
+---@param group group
 ---@param order string
 ---@param x float
 ---@param y float
 ---@return boolean
-function Native.GroupPointOrder(whichGroup, order, x, y) end
+function Native.GroupPointOrder(group, order, x, y) end
 
----@param whichGroup group
+---@param group group
 ---@param order string
----@param whichLocation location
+---@param loc location
 ---@return boolean
-function Native.GroupPointOrderLoc(whichGroup, order, whichLocation) end
+function Native.GroupPointOrderLoc(group, order, loc) end
 
----@param whichGroup group
+---@param group group
 ---@param order integer
 ---@param x float
 ---@param y float
 ---@return boolean
-function Native.GroupPointOrderById(whichGroup, order, x, y) end
+function Native.GroupPointOrderById(group, order, x, y) end
 
----@param whichGroup group
+---@param group group
 ---@param order integer
----@param whichLocation location
+---@param loc location
 ---@return boolean
-function Native.GroupPointOrderByIdLoc(whichGroup, order, whichLocation) end
+function Native.GroupPointOrderByIdLoc(group, order, loc) end
 
----@param whichGroup group
+---@param group group
 ---@param order string
 ---@param targetWidget widget
 ---@return boolean
-function Native.GroupTargetOrder(whichGroup, order, targetWidget) end
+function Native.GroupTargetOrder(group, order, targetWidget) end
 
----@param whichGroup group
+---@param group group
 ---@param order integer
 ---@param targetWidget widget
 ---@return boolean
-function Native.GroupTargetOrderById(whichGroup, order, targetWidget) end
+function Native.GroupTargetOrderById(group, order, targetWidget) end
 
----@param whichGroup group
+---@param group group
 ---@param callback function
 ---@return void
-function Native.ForGroup(whichGroup, callback) end
+function Native.ForGroup(group, callback) end
 
----@param whichGroup group
+---@param group group
 ---@return unit
-function Native.FirstOfGroup(whichGroup) end
+function Native.FirstOfGroup(group) end
 
 ---@return force
 function Native.CreateForce() end
 
----@param whichForce force
+---@param force force
 ---@return void
-function Native.DestroyForce(whichForce) end
+function Native.DestroyForce(force) end
 
----@param whichForce force
----@param whichPlayer player
+---@param force force
+---@param player player
 ---@return void
-function Native.ForceAddPlayer(whichForce, whichPlayer) end
+function Native.ForceAddPlayer(force, player) end
 
----@param whichForce force
----@param whichPlayer player
+---@param force force
+---@param player player
 ---@return void
-function Native.ForceRemovePlayer(whichForce, whichPlayer) end
+function Native.ForceRemovePlayer(force, player) end
 
----@param whichForce force
+---@param force force
 ---@return void
-function Native.ForceClear(whichForce) end
+function Native.ForceClear(force) end
 
----@param whichForce force
+---@param force force
 ---@param filter boolexpr
 ---@return void
-function Native.ForceEnumPlayers(whichForce, filter) end
+function Native.ForceEnumPlayers(force, filter) end
 
----@param whichForce force
+---@param force force
 ---@param filter boolexpr
 ---@param countLimit integer
 ---@return void
-function Native.ForceEnumPlayersCounted(whichForce, filter, countLimit) end
+function Native.ForceEnumPlayersCounted(force, filter, countLimit) end
 
----@param whichForce force
----@param whichPlayer player
+---@param force force
+---@param player player
 ---@param filter boolexpr
 ---@return void
-function Native.ForceEnumAllies(whichForce, whichPlayer, filter) end
+function Native.ForceEnumAllies(force, player, filter) end
 
----@param whichForce force
----@param whichPlayer player
+---@param force force
+---@param player player
 ---@param filter boolexpr
 ---@return void
-function Native.ForceEnumEnemies(whichForce, whichPlayer, filter) end
+function Native.ForceEnumEnemies(force, player, filter) end
 
----@param whichForce force
+---@param force force
 ---@param callback function
 ---@return void
-function Native.ForForce(whichForce, callback) end
+function Native.ForForce(force, callback) end
 
 ---@param minX float
 ---@param minY float
@@ -975,140 +975,140 @@ function Native.Rect(minX, minY, maxX, maxY) end
 ---@return rect
 function Native.RectFromLoc(min, max) end
 
----@param whichRect rect
+---@param rect rect
 ---@return void
-function Native.RemoveRect(whichRect) end
+function Native.RemoveRect(rect) end
 
----@param whichRect rect
+---@param rect rect
 ---@param minX float
 ---@param minY float
 ---@param maxX float
 ---@param maxY float
 ---@return void
-function Native.SetRect(whichRect, minX, minY, maxX, maxY) end
+function Native.SetRect(rect, minX, minY, maxX, maxY) end
 
----@param whichRect rect
+---@param rect rect
 ---@param min location
 ---@param max location
 ---@return void
-function Native.SetRectFromLoc(whichRect, min, max) end
+function Native.SetRectFromLoc(rect, min, max) end
 
----@param whichRect rect
----@param newCenterX float
----@param newCenterY float
+---@param rect rect
+---@param centerX float
+---@param centerY float
 ---@return void
-function Native.MoveRectTo(whichRect, newCenterX, newCenterY) end
+function Native.MoveRectTo(rect, centerX, centerY) end
 
----@param whichRect rect
----@param newCenterLoc location
+---@param rect rect
+---@param centerLoc location
 ---@return void
-function Native.MoveRectToLoc(whichRect, newCenterLoc) end
+function Native.MoveRectToLoc(rect, centerLoc) end
 
----@param whichRect rect
+---@param rect rect
 ---@return float
-function Native.GetRectCenterX(whichRect) end
+function Native.GetRectCenterX(rect) end
 
----@param whichRect rect
+---@param rect rect
 ---@return float
-function Native.GetRectCenterY(whichRect) end
+function Native.GetRectCenterY(rect) end
 
----@param whichRect rect
+---@param rect rect
 ---@return float
-function Native.GetRectMinX(whichRect) end
+function Native.GetRectMinX(rect) end
 
----@param whichRect rect
+---@param rect rect
 ---@return float
-function Native.GetRectMinY(whichRect) end
+function Native.GetRectMinY(rect) end
 
----@param whichRect rect
+---@param rect rect
 ---@return float
-function Native.GetRectMaxX(whichRect) end
+function Native.GetRectMaxX(rect) end
 
----@param whichRect rect
+---@param rect rect
 ---@return float
-function Native.GetRectMaxY(whichRect) end
+function Native.GetRectMaxY(rect) end
 
 ---@return region
 function Native.CreateRegion() end
 
----@param whichRegion region
+---@param region region
 ---@return void
-function Native.RemoveRegion(whichRegion) end
+function Native.RemoveRegion(region) end
 
----@param whichRegion region
+---@param region region
 ---@param r rect
 ---@return void
-function Native.RegionAddRect(whichRegion, r) end
+function Native.RegionAddRect(region, r) end
 
----@param whichRegion region
+---@param region region
 ---@param r rect
 ---@return void
-function Native.RegionClearRect(whichRegion, r) end
+function Native.RegionClearRect(region, r) end
 
----@param whichRegion region
+---@param region region
 ---@param x float
 ---@param y float
 ---@return void
-function Native.RegionAddCell(whichRegion, x, y) end
+function Native.RegionAddCell(region, x, y) end
 
----@param whichRegion region
----@param whichLocation location
+---@param region region
+---@param loc location
 ---@return void
-function Native.RegionAddCellAtLoc(whichRegion, whichLocation) end
+function Native.RegionAddCellAtLoc(region, loc) end
 
----@param whichRegion region
+---@param region region
 ---@param x float
 ---@param y float
 ---@return void
-function Native.RegionClearCell(whichRegion, x, y) end
+function Native.RegionClearCell(region, x, y) end
 
----@param whichRegion region
----@param whichLocation location
+---@param region region
+---@param loc location
 ---@return void
-function Native.RegionClearCellAtLoc(whichRegion, whichLocation) end
+function Native.RegionClearCellAtLoc(region, loc) end
 
 ---@param x float
 ---@param y float
 ---@return location
 function Native.Location(x, y) end
 
----@param whichLocation location
+---@param loc location
 ---@return void
-function Native.RemoveLocation(whichLocation) end
+function Native.RemoveLocation(loc) end
 
----@param whichLocation location
----@param newX float
----@param newY float
+---@param loc location
+---@param x float
+---@param y float
 ---@return void
-function Native.MoveLocation(whichLocation, newX, newY) end
+function Native.MoveLocation(loc, x, y) end
 
----@param whichLocation location
+---@param loc location
 ---@return float
-function Native.GetLocationX(whichLocation) end
+function Native.GetLocationX(loc) end
 
----@param whichLocation location
+---@param loc location
 ---@return float
-function Native.GetLocationY(whichLocation) end
+function Native.GetLocationY(loc) end
 
----@param whichLocation location
+---@param loc location
 ---@return float
-function Native.GetLocationZ(whichLocation) end
+function Native.GetLocationZ(loc) end
 
----@param whichRegion region
----@param whichUnit unit
+---@param region region
+---@param unit unit
 ---@return boolean
-function Native.IsUnitInRegion(whichRegion, whichUnit) end
+function Native.IsUnitInRegion(region, unit) end
 
----@param whichRegion region
+---@param region region
 ---@param x float
 ---@param y float
 ---@return boolean
-function Native.IsPointInRegion(whichRegion, x, y) end
+function Native.IsPointInRegion(region, x, y) end
 
----@param whichRegion region
----@param whichLocation location
+---@param region region
+---@param loc location
 ---@return boolean
-function Native.IsLocationInRegion(whichRegion, whichLocation) end
+function Native.IsLocationInRegion(region, loc) end
 
 ---@return rect
 function Native.GetWorldBounds() end
@@ -1116,34 +1116,34 @@ function Native.GetWorldBounds() end
 ---@return trigger
 function Native.CreateTrigger() end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@return void
-function Native.DestroyTrigger(whichTrigger) end
+function Native.DestroyTrigger(trigger) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@return void
-function Native.ResetTrigger(whichTrigger) end
+function Native.ResetTrigger(trigger) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@return void
-function Native.EnableTrigger(whichTrigger) end
+function Native.EnableTrigger(trigger) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@return void
-function Native.DisableTrigger(whichTrigger) end
+function Native.DisableTrigger(trigger) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@return boolean
-function Native.IsTriggerEnabled(whichTrigger) end
+function Native.IsTriggerEnabled(trigger) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@param flag boolean
 ---@return void
-function Native.TriggerWaitOnSleeps(whichTrigger, flag) end
+function Native.TriggerWaitOnSleeps(trigger, flag) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@return boolean
-function Native.IsTriggerWaitOnSleeps(whichTrigger) end
+function Native.IsTriggerWaitOnSleeps(trigger) end
 
 ---@return unit
 function Native.GetFilterUnit() end
@@ -1175,13 +1175,13 @@ function Native.GetTriggeringTrigger() end
 ---@return eventid
 function Native.GetTriggerEventId() end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@return integer
-function Native.GetTriggerEvalCount(whichTrigger) end
+function Native.GetTriggerEvalCount(trigger) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@return integer
-function Native.GetTriggerExecCount(whichTrigger) end
+function Native.GetTriggerExecCount(trigger) end
 
 ---@param funcName string
 ---@return void
@@ -1221,57 +1221,57 @@ function Native.DestroyFilter(f) end
 ---@return void
 function Native.DestroyBoolExpr(e) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@param varName string
 ---@param opcode limitop
 ---@param limitVal float
 ---@return event
-function Native.TriggerRegisterVariableEvent(whichTrigger, varName, opcode, limitVal) end
+function Native.TriggerRegisterVariableEvent(trigger, varName, opcode, limitVal) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@param timeout float
 ---@param periodic boolean
 ---@return event
-function Native.TriggerRegisterTimerEvent(whichTrigger, timeout, periodic) end
+function Native.TriggerRegisterTimerEvent(trigger, timeout, periodic) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@param t timer
 ---@return event
-function Native.TriggerRegisterTimerExpireEvent(whichTrigger, t) end
+function Native.TriggerRegisterTimerExpireEvent(trigger, t) end
 
----@param whichTrigger trigger
----@param whichState gamestate
+---@param trigger trigger
+---@param state gamestate
 ---@param opcode limitop
 ---@param limitVal float
 ---@return event
-function Native.TriggerRegisterGameStateEvent(whichTrigger, whichState, opcode, limitVal) end
+function Native.TriggerRegisterGameStateEvent(trigger, state, opcode, limitVal) end
 
----@param whichTrigger trigger
----@param whichDialog dialog
+---@param trigger trigger
+---@param dialog dialog
 ---@return event
-function Native.TriggerRegisterDialogEvent(whichTrigger, whichDialog) end
+function Native.TriggerRegisterDialogEvent(trigger, dialog) end
 
----@param whichTrigger trigger
----@param whichButton button
+---@param trigger trigger
+---@param button button
 ---@return event
-function Native.TriggerRegisterDialogButtonEvent(whichTrigger, whichButton) end
+function Native.TriggerRegisterDialogButtonEvent(trigger, button) end
 
 ---@return gamestate
 function Native.GetEventGameState() end
 
----@param whichTrigger trigger
----@param whichGameEvent gameevent
+---@param trigger trigger
+---@param gameEvent gameevent
 ---@return event
-function Native.TriggerRegisterGameEvent(whichTrigger, whichGameEvent) end
+function Native.TriggerRegisterGameEvent(trigger, gameEvent) end
 
 ---@return player
 function Native.GetWinningPlayer() end
 
----@param whichTrigger trigger
----@param whichRegion region
+---@param trigger trigger
+---@param region region
 ---@param filter boolexpr
 ---@return event
-function Native.TriggerRegisterEnterRegion(whichTrigger, whichRegion, filter) end
+function Native.TriggerRegisterEnterRegion(trigger, region, filter) end
 
 ---@return region
 function Native.GetTriggeringRegion() end
@@ -1279,24 +1279,24 @@ function Native.GetTriggeringRegion() end
 ---@return unit
 function Native.GetEnteringUnit() end
 
----@param whichTrigger trigger
----@param whichRegion region
+---@param trigger trigger
+---@param region region
 ---@param filter boolexpr
 ---@return event
-function Native.TriggerRegisterLeaveRegion(whichTrigger, whichRegion, filter) end
+function Native.TriggerRegisterLeaveRegion(trigger, region, filter) end
 
 ---@return unit
 function Native.GetLeavingUnit() end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@param t trackable
 ---@return event
-function Native.TriggerRegisterTrackableHitEvent(whichTrigger, t) end
+function Native.TriggerRegisterTrackableHitEvent(trigger, t) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@param t trackable
 ---@return event
-function Native.TriggerRegisterTrackableTrackEvent(whichTrigger, t) end
+function Native.TriggerRegisterTrackableTrackEvent(trigger, t) end
 
 ---@return trackable
 function Native.GetTriggeringTrackable() end
@@ -1316,28 +1316,28 @@ function Native.GetTournamentFinishNowRule() end
 ---@return player
 function Native.GetTournamentFinishNowPlayer() end
 
----@param whichPlayer player
+---@param player player
 ---@return integer
-function Native.GetTournamentScore(whichPlayer) end
+function Native.GetTournamentScore(player) end
 
 ---@return string
 function Native.GetSaveBasicFilename() end
 
----@param whichTrigger trigger
----@param whichPlayer player
----@param whichPlayerEvent playerevent
+---@param trigger trigger
+---@param player player
+---@param playerEvent playerevent
 ---@return event
-function Native.TriggerRegisterPlayerEvent(whichTrigger, whichPlayer, whichPlayerEvent) end
+function Native.TriggerRegisterPlayerEvent(trigger, player, playerEvent) end
 
 ---@return player
 function Native.GetTriggerPlayer() end
 
----@param whichTrigger trigger
----@param whichPlayer player
----@param whichPlayerUnitEvent playerunitevent
+---@param trigger trigger
+---@param player player
+---@param playerUnitEvent playerunitevent
 ---@param filter boolexpr
 ---@return event
-function Native.TriggerRegisterPlayerUnitEvent(whichTrigger, whichPlayer, whichPlayerUnitEvent, filter) end
+function Native.TriggerRegisterPlayerUnitEvent(trigger, player, playerUnitEvent, filter) end
 
 ---@return unit
 function Native.GetLevelingUnit() end
@@ -1486,29 +1486,29 @@ function Native.GetSpellTargetItem() end
 ---@return unit
 function Native.GetSpellTargetUnit() end
 
----@param whichTrigger trigger
----@param whichPlayer player
----@param whichAlliance alliancetype
+---@param trigger trigger
+---@param player player
+---@param alliance alliancetype
 ---@return event
-function Native.TriggerRegisterPlayerAllianceChange(whichTrigger, whichPlayer, whichAlliance) end
+function Native.TriggerRegisterPlayerAllianceChange(trigger, player, alliance) end
 
----@param whichTrigger trigger
----@param whichPlayer player
----@param whichState playerstate
+---@param trigger trigger
+---@param player player
+---@param state playerstate
 ---@param opcode limitop
 ---@param limitVal float
 ---@return event
-function Native.TriggerRegisterPlayerStateEvent(whichTrigger, whichPlayer, whichState, opcode, limitVal) end
+function Native.TriggerRegisterPlayerStateEvent(trigger, player, state, opcode, limitVal) end
 
 ---@return playerstate
 function Native.GetEventPlayerState() end
 
----@param whichTrigger trigger
----@param whichPlayer player
+---@param trigger trigger
+---@param player player
 ---@param chatMessageToDetect string
 ---@param exactMatchOnly boolean
 ---@return event
-function Native.TriggerRegisterPlayerChatEvent(whichTrigger, whichPlayer, chatMessageToDetect, exactMatchOnly) end
+function Native.TriggerRegisterPlayerChatEvent(trigger, player, chatMessageToDetect, exactMatchOnly) end
 
 ---@return string
 function Native.GetEventPlayerChatString() end
@@ -1516,30 +1516,30 @@ function Native.GetEventPlayerChatString() end
 ---@return string
 function Native.GetEventPlayerChatStringMatched() end
 
----@param whichTrigger trigger
----@param whichWidget widget
+---@param trigger trigger
+---@param widget widget
 ---@return event
-function Native.TriggerRegisterDeathEvent(whichTrigger, whichWidget) end
+function Native.TriggerRegisterDeathEvent(trigger, widget) end
 
 ---@return unit
 function Native.GetTriggerUnit() end
 
----@param whichTrigger trigger
----@param whichUnit unit
----@param whichState unitstate
+---@param trigger trigger
+---@param unit unit
+---@param state unitstate
 ---@param opcode limitop
 ---@param limitVal float
 ---@return event
-function Native.TriggerRegisterUnitStateEvent(whichTrigger, whichUnit, whichState, opcode, limitVal) end
+function Native.TriggerRegisterUnitStateEvent(trigger, unit, state, opcode, limitVal) end
 
 ---@return unitstate
 function Native.GetEventUnitState() end
 
----@param whichTrigger trigger
----@param whichUnit unit
----@param whichEvent unitevent
+---@param trigger trigger
+---@param unit unit
+---@param event unitevent
 ---@return event
-function Native.TriggerRegisterUnitEvent(whichTrigger, whichUnit, whichEvent) end
+function Native.TriggerRegisterUnitEvent(trigger, unit, event) end
 
 ---@return float
 function Native.GetEventDamage() end
@@ -1550,50 +1550,50 @@ function Native.GetEventDamageSource() end
 ---@return player
 function Native.GetEventDetectingPlayer() end
 
----@param whichTrigger trigger
----@param whichUnit unit
----@param whichEvent unitevent
+---@param trigger trigger
+---@param unit unit
+---@param event unitevent
 ---@param filter boolexpr
 ---@return event
-function Native.TriggerRegisterFilterUnitEvent(whichTrigger, whichUnit, whichEvent, filter) end
+function Native.TriggerRegisterFilterUnitEvent(trigger, unit, event, filter) end
 
 ---@return unit
 function Native.GetEventTargetUnit() end
 
----@param whichTrigger trigger
----@param whichUnit unit
+---@param trigger trigger
+---@param unit unit
 ---@param range float
 ---@param filter boolexpr
 ---@return event
-function Native.TriggerRegisterUnitInRange(whichTrigger, whichUnit, range, filter) end
+function Native.TriggerRegisterUnitInRange(trigger, unit, range, filter) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@param condition boolexpr
 ---@return triggercondition
-function Native.TriggerAddCondition(whichTrigger, condition) end
+function Native.TriggerAddCondition(trigger, condition) end
 
----@param whichTrigger trigger
----@param whichCondition triggercondition
+---@param trigger trigger
+---@param condition triggercondition
 ---@return void
-function Native.TriggerRemoveCondition(whichTrigger, whichCondition) end
+function Native.TriggerRemoveCondition(trigger, condition) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@return void
-function Native.TriggerClearConditions(whichTrigger) end
+function Native.TriggerClearConditions(trigger) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@param actionFunc function
 ---@return triggeraction
-function Native.TriggerAddAction(whichTrigger, actionFunc) end
+function Native.TriggerAddAction(trigger, actionFunc) end
 
----@param whichTrigger trigger
----@param whichAction triggeraction
+---@param trigger trigger
+---@param action triggeraction
 ---@return void
-function Native.TriggerRemoveAction(whichTrigger, whichAction) end
+function Native.TriggerRemoveAction(trigger, action) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@return void
-function Native.TriggerClearActions(whichTrigger) end
+function Native.TriggerClearActions(trigger) end
 
 ---@param timeout float
 ---@return void
@@ -1604,17 +1604,17 @@ function Native.TriggerSleepAction(timeout) end
 ---@return void
 function Native.TriggerWaitForSound(s, offset) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@return boolean
-function Native.TriggerEvaluate(whichTrigger) end
+function Native.TriggerEvaluate(trigger) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@return void
-function Native.TriggerExecute(whichTrigger) end
+function Native.TriggerExecute(trigger) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@return void
-function Native.TriggerExecuteWait(whichTrigger) end
+function Native.TriggerExecuteWait(trigger) end
 
 ---@return void
 function Native.TriggerSyncStart() end
@@ -1622,22 +1622,22 @@ function Native.TriggerSyncStart() end
 ---@return void
 function Native.TriggerSyncReady() end
 
----@param whichWidget widget
+---@param widget widget
 ---@return float
-function Native.GetWidgetLife(whichWidget) end
+function Native.GetWidgetLife(widget) end
 
----@param whichWidget widget
----@param newLife float
+---@param widget widget
+---@param life float
 ---@return void
-function Native.SetWidgetLife(whichWidget, newLife) end
+function Native.SetWidgetLife(widget, life) end
 
----@param whichWidget widget
+---@param widget widget
 ---@return float
-function Native.GetWidgetX(whichWidget) end
+function Native.GetWidgetX(widget) end
 
----@param whichWidget widget
+---@param widget widget
 ---@return float
-function Native.GetWidgetY(whichWidget) end
+function Native.GetWidgetY(widget) end
 
 ---@return widget
 function Native.GetTriggerWidget() end
@@ -1740,14 +1740,14 @@ function Native.GetDestructableMaxLife(d) end
 function Native.DestructableRestoreLife(d, life, birth) end
 
 ---@param d destructable
----@param whichAnimation string
+---@param animation string
 ---@return void
-function Native.QueueDestructableAnimation(d, whichAnimation) end
+function Native.QueueDestructableAnimation(d, animation) end
 
 ---@param d destructable
----@param whichAnimation string
+---@param animation string
 ---@return void
-function Native.SetDestructableAnimation(d, whichAnimation) end
+function Native.SetDestructableAnimation(d, animation) end
 
 ---@param d destructable
 ---@param speedFactor float
@@ -1781,13 +1781,13 @@ function Native.GetTriggerDestructable() end
 ---@return item
 function Native.CreateItem(itemId, x, y) end
 
----@param whichItem item
+---@param item item
 ---@return void
-function Native.RemoveItem(whichItem) end
+function Native.RemoveItem(item) end
 
----@param whichItem item
+---@param item item
 ---@return player
-function Native.GetItemPlayer(whichItem) end
+function Native.GetItemPlayer(item) end
 
 ---@param i item
 ---@return integer
@@ -1807,10 +1807,10 @@ function Native.GetItemY(i) end
 ---@return void
 function Native.SetItemPosition(i, x, y) end
 
----@param whichItem item
+---@param item item
 ---@param flag boolean
 ---@return void
-function Native.SetItemDropOnDeath(whichItem, flag) end
+function Native.SetItemDropOnDeath(item, flag) end
 
 ---@param i item
 ---@param flag boolean
@@ -1822,45 +1822,45 @@ function Native.SetItemDroppable(i, flag) end
 ---@return void
 function Native.SetItemPawnable(i, flag) end
 
----@param whichItem item
----@param whichPlayer player
+---@param item item
+---@param player player
 ---@param changeColor boolean
 ---@return void
-function Native.SetItemPlayer(whichItem, whichPlayer, changeColor) end
+function Native.SetItemPlayer(item, player, changeColor) end
 
----@param whichItem item
+---@param item item
 ---@param flag boolean
 ---@return void
-function Native.SetItemInvulnerable(whichItem, flag) end
+function Native.SetItemInvulnerable(item, flag) end
 
----@param whichItem item
+---@param item item
 ---@return boolean
-function Native.IsItemInvulnerable(whichItem) end
+function Native.IsItemInvulnerable(item) end
 
----@param whichItem item
+---@param item item
 ---@param show boolean
 ---@return void
-function Native.SetItemVisible(whichItem, show) end
+function Native.SetItemVisible(item, show) end
 
----@param whichItem item
+---@param item item
 ---@return boolean
-function Native.IsItemVisible(whichItem) end
+function Native.IsItemVisible(item) end
 
----@param whichItem item
+---@param item item
 ---@return boolean
-function Native.IsItemOwned(whichItem) end
+function Native.IsItemOwned(item) end
 
----@param whichItem item
+---@param item item
 ---@return boolean
-function Native.IsItemPowerup(whichItem) end
+function Native.IsItemPowerup(item) end
 
----@param whichItem item
+---@param item item
 ---@return boolean
-function Native.IsItemSellable(whichItem) end
+function Native.IsItemSellable(item) end
 
----@param whichItem item
+---@param item item
 ---@return boolean
-function Native.IsItemPawnable(whichItem) end
+function Native.IsItemPawnable(item) end
 
 ---@param itemId integer
 ---@return boolean
@@ -1880,578 +1880,578 @@ function Native.IsItemIdPawnable(itemId) end
 ---@return void
 function Native.EnumItemsInRect(r, filter, actionFunc) end
 
----@param whichItem item
+---@param item item
 ---@return integer
-function Native.GetItemLevel(whichItem) end
+function Native.GetItemLevel(item) end
 
----@param whichItem item
+---@param item item
 ---@return itemtype
-function Native.GetItemType(whichItem) end
+function Native.GetItemType(item) end
 
----@param whichItem item
+---@param item item
 ---@param unitId integer
 ---@return void
-function Native.SetItemDropID(whichItem, unitId) end
+function Native.SetItemDropID(item, unitId) end
 
----@param whichItem item
+---@param item item
 ---@return string
-function Native.GetItemName(whichItem) end
+function Native.GetItemName(item) end
 
----@param whichItem item
+---@param item item
 ---@return integer
-function Native.GetItemCharges(whichItem) end
+function Native.GetItemCharges(item) end
 
----@param whichItem item
+---@param item item
 ---@param charges integer
 ---@return void
-function Native.SetItemCharges(whichItem, charges) end
+function Native.SetItemCharges(item, charges) end
 
----@param whichItem item
+---@param item item
 ---@return integer
-function Native.GetItemUserData(whichItem) end
+function Native.GetItemUserData(item) end
 
----@param whichItem item
+---@param item item
 ---@param data integer
 ---@return void
-function Native.SetItemUserData(whichItem, data) end
+function Native.SetItemUserData(item, data) end
 
----@param whichPlayer player
+---@param player player
 ---@param unitId integer
 ---@param x float
 ---@param y float
 ---@param face float
 ---@return unit
-function Native.CreateUnit(whichPlayer, unitId, x, y, face) end
+function Native.CreateUnit(player, unitId, x, y, face) end
 
----@param whichPlayer player
+---@param player player
 ---@param unitName string
 ---@param x float
 ---@param y float
 ---@param face float
 ---@return unit
-function Native.CreateUnitByName(whichPlayer, unitName, x, y, face) end
+function Native.CreateUnitByName(player, unitName, x, y, face) end
 
----@param whichPlayer player
+---@param player player
 ---@param unitId integer
----@param whichLocation location
+---@param loc location
 ---@param face float
 ---@return unit
-function Native.CreateUnitAtLoc(whichPlayer, unitId, whichLocation, face) end
+function Native.CreateUnitAtLoc(player, unitId, loc, face) end
 
----@param whichPlayer player
+---@param player player
 ---@param unitName string
----@param whichLocation location
+---@param loc location
 ---@param face float
 ---@return unit
-function Native.CreateUnitAtLocByName(whichPlayer, unitName, whichLocation, face) end
+function Native.CreateUnitAtLocByName(player, unitName, loc, face) end
 
----@param whichPlayer player
+---@param player player
 ---@param unitId integer
 ---@param x float
 ---@param y float
 ---@param face float
 ---@return unit
-function Native.CreateCorpse(whichPlayer, unitId, x, y, face) end
+function Native.CreateCorpse(player, unitId, x, y, face) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return void
-function Native.KillUnit(whichUnit) end
+function Native.KillUnit(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return void
-function Native.RemoveUnit(whichUnit) end
+function Native.RemoveUnit(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param show boolean
 ---@return void
-function Native.ShowUnit(whichUnit, show) end
+function Native.ShowUnit(unit, show) end
 
----@param whichUnit unit
----@param whichUnitState unitstate
----@param newVal float
+---@param unit unit
+---@param unitState unitstate
+---@param val float
 ---@return void
-function Native.SetUnitState(whichUnit, whichUnitState, newVal) end
+function Native.SetUnitState(unit, unitState, val) end
 
----@param whichUnit unit
----@param newX float
+---@param unit unit
+---@param x float
 ---@return void
-function Native.SetUnitX(whichUnit, newX) end
+function Native.SetUnitX(unit, x) end
 
----@param whichUnit unit
----@param newY float
+---@param unit unit
+---@param y float
 ---@return void
-function Native.SetUnitY(whichUnit, newY) end
+function Native.SetUnitY(unit, y) end
 
----@param whichUnit unit
----@param newX float
----@param newY float
+---@param unit unit
+---@param x float
+---@param y float
 ---@return void
-function Native.SetUnitPosition(whichUnit, newX, newY) end
+function Native.SetUnitPosition(unit, x, y) end
 
----@param whichUnit unit
----@param whichLocation location
+---@param unit unit
+---@param loc location
 ---@return void
-function Native.SetUnitPositionLoc(whichUnit, whichLocation) end
+function Native.SetUnitPositionLoc(unit, loc) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param facingAngle float
 ---@return void
-function Native.SetUnitFacing(whichUnit, facingAngle) end
+function Native.SetUnitFacing(unit, facingAngle) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param facingAngle float
 ---@param duration float
 ---@return void
-function Native.SetUnitFacingTimed(whichUnit, facingAngle, duration) end
+function Native.SetUnitFacingTimed(unit, facingAngle, duration) end
 
----@param whichUnit unit
----@param newSpeed float
+---@param unit unit
+---@param speed float
 ---@return void
-function Native.SetUnitMoveSpeed(whichUnit, newSpeed) end
+function Native.SetUnitMoveSpeed(unit, speed) end
 
----@param whichUnit unit
----@param newHeight float
+---@param unit unit
+---@param height float
 ---@param rate float
 ---@return void
-function Native.SetUnitFlyHeight(whichUnit, newHeight, rate) end
+function Native.SetUnitFlyHeight(unit, height, rate) end
 
----@param whichUnit unit
----@param newTurnSpeed float
+---@param unit unit
+---@param turnSpeed float
 ---@return void
-function Native.SetUnitTurnSpeed(whichUnit, newTurnSpeed) end
+function Native.SetUnitTurnSpeed(unit, turnSpeed) end
 
----@param whichUnit unit
----@param newPropWindowAngle float
+---@param unit unit
+---@param propWindowAngle float
 ---@return void
-function Native.SetUnitPropWindow(whichUnit, newPropWindowAngle) end
+function Native.SetUnitPropWindow(unit, propWindowAngle) end
 
----@param whichUnit unit
----@param newAcquireRange float
+---@param unit unit
+---@param acquireRange float
 ---@return void
-function Native.SetUnitAcquireRange(whichUnit, newAcquireRange) end
+function Native.SetUnitAcquireRange(unit, acquireRange) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param creepGuard boolean
 ---@return void
-function Native.SetUnitCreepGuard(whichUnit, creepGuard) end
+function Native.SetUnitCreepGuard(unit, creepGuard) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return float
-function Native.GetUnitAcquireRange(whichUnit) end
+function Native.GetUnitAcquireRange(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return float
-function Native.GetUnitTurnSpeed(whichUnit) end
+function Native.GetUnitTurnSpeed(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return float
-function Native.GetUnitPropWindow(whichUnit) end
+function Native.GetUnitPropWindow(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return float
-function Native.GetUnitFlyHeight(whichUnit) end
+function Native.GetUnitFlyHeight(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return float
-function Native.GetUnitDefaultAcquireRange(whichUnit) end
+function Native.GetUnitDefaultAcquireRange(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return float
-function Native.GetUnitDefaultTurnSpeed(whichUnit) end
+function Native.GetUnitDefaultTurnSpeed(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return float
-function Native.GetUnitDefaultPropWindow(whichUnit) end
+function Native.GetUnitDefaultPropWindow(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return float
-function Native.GetUnitDefaultFlyHeight(whichUnit) end
+function Native.GetUnitDefaultFlyHeight(unit) end
 
----@param whichUnit unit
----@param whichPlayer player
+---@param unit unit
+---@param player player
 ---@param changeColor boolean
 ---@return void
-function Native.SetUnitOwner(whichUnit, whichPlayer, changeColor) end
+function Native.SetUnitOwner(unit, player, changeColor) end
 
----@param whichUnit unit
----@param whichColor playercolor
+---@param unit unit
+---@param color playercolor
 ---@return void
-function Native.SetUnitColor(whichUnit, whichColor) end
+function Native.SetUnitColor(unit, color) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param scaleX float
 ---@param scaleY float
 ---@param scaleZ float
 ---@return void
-function Native.SetUnitScale(whichUnit, scaleX, scaleY, scaleZ) end
+function Native.SetUnitScale(unit, scaleX, scaleY, scaleZ) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param timeScale float
 ---@return void
-function Native.SetUnitTimeScale(whichUnit, timeScale) end
+function Native.SetUnitTimeScale(unit, timeScale) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param blendTime float
 ---@return void
-function Native.SetUnitBlendTime(whichUnit, blendTime) end
+function Native.SetUnitBlendTime(unit, blendTime) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param red integer
 ---@param green integer
 ---@param blue integer
 ---@param alpha integer
 ---@return void
-function Native.SetUnitVertexColor(whichUnit, red, green, blue, alpha) end
+function Native.SetUnitVertexColor(unit, red, green, blue, alpha) end
 
----@param whichUnit unit
----@param whichAnimation string
+---@param unit unit
+---@param animation string
 ---@return void
-function Native.QueueUnitAnimation(whichUnit, whichAnimation) end
+function Native.QueueUnitAnimation(unit, animation) end
 
----@param whichUnit unit
----@param whichAnimation string
+---@param unit unit
+---@param animation string
 ---@return void
-function Native.SetUnitAnimation(whichUnit, whichAnimation) end
+function Native.SetUnitAnimation(unit, animation) end
 
----@param whichUnit unit
----@param whichAnimation integer
+---@param unit unit
+---@param animation integer
 ---@return void
-function Native.SetUnitAnimationByIndex(whichUnit, whichAnimation) end
+function Native.SetUnitAnimationByIndex(unit, animation) end
 
----@param whichUnit unit
----@param whichAnimation string
+---@param unit unit
+---@param animation string
 ---@param rarity raritycontrol
 ---@return void
-function Native.SetUnitAnimationWithRarity(whichUnit, whichAnimation, rarity) end
+function Native.SetUnitAnimationWithRarity(unit, animation, rarity) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param animProperties string
 ---@param add boolean
 ---@return void
-function Native.AddUnitAnimationProperties(whichUnit, animProperties, add) end
+function Native.AddUnitAnimationProperties(unit, animProperties, add) end
 
----@param whichUnit unit
----@param whichBone string
+---@param unit unit
+---@param bone string
 ---@param lookAtTarget unit
 ---@param offsetX float
 ---@param offsetY float
 ---@param offsetZ float
 ---@return void
-function Native.SetUnitLookAt(whichUnit, whichBone, lookAtTarget, offsetX, offsetY, offsetZ) end
+function Native.SetUnitLookAt(unit, bone, lookAtTarget, offsetX, offsetY, offsetZ) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return void
-function Native.ResetUnitLookAt(whichUnit) end
+function Native.ResetUnitLookAt(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param byWhichPlayer player
 ---@param flag boolean
 ---@return void
-function Native.SetUnitRescuable(whichUnit, byWhichPlayer, flag) end
+function Native.SetUnitRescuable(unit, byWhichPlayer, flag) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param range float
 ---@return void
-function Native.SetUnitRescueRange(whichUnit, range) end
+function Native.SetUnitRescueRange(unit, range) end
 
----@param whichHero unit
----@param newStr integer
+---@param hero unit
+---@param str integer
 ---@param permanent boolean
 ---@return void
-function Native.SetHeroStr(whichHero, newStr, permanent) end
+function Native.SetHeroStr(hero, str, permanent) end
 
----@param whichHero unit
----@param newAgi integer
+---@param hero unit
+---@param agi integer
 ---@param permanent boolean
 ---@return void
-function Native.SetHeroAgi(whichHero, newAgi, permanent) end
+function Native.SetHeroAgi(hero, agi, permanent) end
 
----@param whichHero unit
----@param newInt integer
+---@param hero unit
+---@param int integer
 ---@param permanent boolean
 ---@return void
-function Native.SetHeroInt(whichHero, newInt, permanent) end
+function Native.SetHeroInt(hero, int, permanent) end
 
----@param whichHero unit
+---@param hero unit
 ---@param includeBonuses boolean
 ---@return integer
-function Native.GetHeroStr(whichHero, includeBonuses) end
+function Native.GetHeroStr(hero, includeBonuses) end
 
----@param whichHero unit
+---@param hero unit
 ---@param includeBonuses boolean
 ---@return integer
-function Native.GetHeroAgi(whichHero, includeBonuses) end
+function Native.GetHeroAgi(hero, includeBonuses) end
 
----@param whichHero unit
+---@param hero unit
 ---@param includeBonuses boolean
 ---@return integer
-function Native.GetHeroInt(whichHero, includeBonuses) end
+function Native.GetHeroInt(hero, includeBonuses) end
 
----@param whichHero unit
+---@param hero unit
 ---@param howManyLevels integer
 ---@return boolean
-function Native.UnitStripHeroLevel(whichHero, howManyLevels) end
+function Native.UnitStripHeroLevel(hero, howManyLevels) end
 
----@param whichHero unit
+---@param hero unit
 ---@return integer
-function Native.GetHeroXP(whichHero) end
+function Native.GetHeroXP(hero) end
 
----@param whichHero unit
----@param newXpVal integer
+---@param hero unit
+---@param xpVal integer
 ---@param showEyeCandy boolean
 ---@return void
-function Native.SetHeroXP(whichHero, newXpVal, showEyeCandy) end
+function Native.SetHeroXP(hero, xpVal, showEyeCandy) end
 
----@param whichHero unit
+---@param hero unit
 ---@return integer
-function Native.GetHeroSkillPoints(whichHero) end
+function Native.GetHeroSkillPoints(hero) end
 
----@param whichHero unit
+---@param hero unit
 ---@param skillPointDelta integer
 ---@return boolean
-function Native.UnitModifySkillPoints(whichHero, skillPointDelta) end
+function Native.UnitModifySkillPoints(hero, skillPointDelta) end
 
----@param whichHero unit
+---@param hero unit
 ---@param xpToAdd integer
 ---@param showEyeCandy boolean
 ---@return void
-function Native.AddHeroXP(whichHero, xpToAdd, showEyeCandy) end
+function Native.AddHeroXP(hero, xpToAdd, showEyeCandy) end
 
----@param whichHero unit
+---@param hero unit
 ---@param level integer
 ---@param showEyeCandy boolean
 ---@return void
-function Native.SetHeroLevel(whichHero, level, showEyeCandy) end
+function Native.SetHeroLevel(hero, level, showEyeCandy) end
 
----@param whichHero unit
+---@param hero unit
 ---@return integer
-function Native.GetHeroLevel(whichHero) end
+function Native.GetHeroLevel(hero) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return integer
-function Native.GetUnitLevel(whichUnit) end
+function Native.GetUnitLevel(unit) end
 
----@param whichHero unit
+---@param hero unit
 ---@return string
-function Native.GetHeroProperName(whichHero) end
+function Native.GetHeroProperName(hero) end
 
----@param whichHero unit
+---@param hero unit
 ---@param flag boolean
 ---@return void
-function Native.SuspendHeroXP(whichHero, flag) end
+function Native.SuspendHeroXP(hero, flag) end
 
----@param whichHero unit
+---@param hero unit
 ---@return boolean
-function Native.IsSuspendedXP(whichHero) end
+function Native.IsSuspendedXP(hero) end
 
----@param whichHero unit
+---@param hero unit
 ---@param abilityCode integer
 ---@return void
-function Native.SelectHeroSkill(whichHero, abilityCode) end
+function Native.SelectHeroSkill(hero, abilityCode) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param abilityCode integer
 ---@return integer
-function Native.GetUnitAbilityLevel(whichUnit, abilityCode) end
+function Native.GetUnitAbilityLevel(unit, abilityCode) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param abilityCode integer
 ---@return integer
-function Native.DecUnitAbilityLevel(whichUnit, abilityCode) end
+function Native.DecUnitAbilityLevel(unit, abilityCode) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param abilityCode integer
 ---@return integer
-function Native.IncUnitAbilityLevel(whichUnit, abilityCode) end
+function Native.IncUnitAbilityLevel(unit, abilityCode) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param abilityCode integer
 ---@param level integer
 ---@return integer
-function Native.SetUnitAbilityLevel(whichUnit, abilityCode, level) end
+function Native.SetUnitAbilityLevel(unit, abilityCode, level) end
 
----@param whichHero unit
+---@param hero unit
 ---@param x float
 ---@param y float
 ---@param doEyeCandy boolean
 ---@return boolean
-function Native.ReviveHero(whichHero, x, y, doEyeCandy) end
+function Native.ReviveHero(hero, x, y, doEyeCandy) end
 
----@param whichHero unit
+---@param hero unit
 ---@param loc location
 ---@param doEyeCandy boolean
 ---@return boolean
-function Native.ReviveHeroLoc(whichHero, loc, doEyeCandy) end
+function Native.ReviveHeroLoc(hero, loc, doEyeCandy) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param exploded boolean
 ---@return void
-function Native.SetUnitExploded(whichUnit, exploded) end
+function Native.SetUnitExploded(unit, exploded) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param flag boolean
 ---@return void
-function Native.SetUnitInvulnerable(whichUnit, flag) end
+function Native.SetUnitInvulnerable(unit, flag) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param flag boolean
 ---@return void
-function Native.PauseUnit(whichUnit, flag) end
+function Native.PauseUnit(unit, flag) end
 
----@param whichHero unit
+---@param hero unit
 ---@return boolean
-function Native.IsUnitPaused(whichHero) end
+function Native.IsUnitPaused(hero) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param flag boolean
 ---@return void
-function Native.SetUnitPathing(whichUnit, flag) end
+function Native.SetUnitPathing(unit, flag) end
 
 ---@return void
 function Native.ClearSelection() end
 
----@param whichUnit unit
+---@param unit unit
 ---@param flag boolean
 ---@return void
-function Native.SelectUnit(whichUnit, flag) end
+function Native.SelectUnit(unit, flag) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return integer
-function Native.GetUnitPointValue(whichUnit) end
+function Native.GetUnitPointValue(unit) end
 
 ---@param unitType integer
 ---@return integer
 function Native.GetUnitPointValueByType(unitType) end
 
----@param whichUnit unit
----@param whichItem item
+---@param unit unit
+---@param item item
 ---@return boolean
-function Native.UnitAddItem(whichUnit, whichItem) end
+function Native.UnitAddItem(unit, item) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param itemId integer
 ---@return item
-function Native.UnitAddItemById(whichUnit, itemId) end
+function Native.UnitAddItemById(unit, itemId) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param itemId integer
 ---@param itemSlot integer
 ---@return boolean
-function Native.UnitAddItemToSlotById(whichUnit, itemId, itemSlot) end
+function Native.UnitAddItemToSlotById(unit, itemId, itemSlot) end
 
----@param whichUnit unit
----@param whichItem item
+---@param unit unit
+---@param item item
 ---@return void
-function Native.UnitRemoveItem(whichUnit, whichItem) end
+function Native.UnitRemoveItem(unit, item) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param itemSlot integer
 ---@return item
-function Native.UnitRemoveItemFromSlot(whichUnit, itemSlot) end
+function Native.UnitRemoveItemFromSlot(unit, itemSlot) end
 
----@param whichUnit unit
----@param whichItem item
+---@param unit unit
+---@param item item
 ---@return boolean
-function Native.UnitHasItem(whichUnit, whichItem) end
+function Native.UnitHasItem(unit, item) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param itemSlot integer
 ---@return item
-function Native.UnitItemInSlot(whichUnit, itemSlot) end
+function Native.UnitItemInSlot(unit, itemSlot) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return integer
-function Native.UnitInventorySize(whichUnit) end
+function Native.UnitInventorySize(unit) end
 
----@param whichUnit unit
----@param whichItem item
+---@param unit unit
+---@param item item
 ---@param x float
 ---@param y float
 ---@return boolean
-function Native.UnitDropItemPoint(whichUnit, whichItem, x, y) end
+function Native.UnitDropItemPoint(unit, item, x, y) end
 
----@param whichUnit unit
----@param whichItem item
+---@param unit unit
+---@param item item
 ---@param slot integer
 ---@return boolean
-function Native.UnitDropItemSlot(whichUnit, whichItem, slot) end
+function Native.UnitDropItemSlot(unit, item, slot) end
 
----@param whichUnit unit
----@param whichItem item
+---@param unit unit
+---@param item item
 ---@param target widget
 ---@return boolean
-function Native.UnitDropItemTarget(whichUnit, whichItem, target) end
+function Native.UnitDropItemTarget(unit, item, target) end
 
----@param whichUnit unit
----@param whichItem item
+---@param unit unit
+---@param item item
 ---@return boolean
-function Native.UnitUseItem(whichUnit, whichItem) end
+function Native.UnitUseItem(unit, item) end
 
----@param whichUnit unit
----@param whichItem item
+---@param unit unit
+---@param item item
 ---@param x float
 ---@param y float
 ---@return boolean
-function Native.UnitUseItemPoint(whichUnit, whichItem, x, y) end
+function Native.UnitUseItemPoint(unit, item, x, y) end
 
----@param whichUnit unit
----@param whichItem item
+---@param unit unit
+---@param item item
 ---@param target widget
 ---@return boolean
-function Native.UnitUseItemTarget(whichUnit, whichItem, target) end
+function Native.UnitUseItemTarget(unit, item, target) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return float
-function Native.GetUnitX(whichUnit) end
+function Native.GetUnitX(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return float
-function Native.GetUnitY(whichUnit) end
+function Native.GetUnitY(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return location
-function Native.GetUnitLoc(whichUnit) end
+function Native.GetUnitLoc(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return float
-function Native.GetUnitFacing(whichUnit) end
+function Native.GetUnitFacing(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return float
-function Native.GetUnitMoveSpeed(whichUnit) end
+function Native.GetUnitMoveSpeed(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return float
-function Native.GetUnitDefaultMoveSpeed(whichUnit) end
+function Native.GetUnitDefaultMoveSpeed(unit) end
 
----@param whichUnit unit
----@param whichUnitState unitstate
+---@param unit unit
+---@param unitState unitstate
 ---@return float
-function Native.GetUnitState(whichUnit, whichUnitState) end
+function Native.GetUnitState(unit, unitState) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return player
-function Native.GetOwningPlayer(whichUnit) end
+function Native.GetOwningPlayer(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return integer
-function Native.GetUnitTypeId(whichUnit) end
+function Native.GetUnitTypeId(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return race
-function Native.GetUnitRace(whichUnit) end
+function Native.GetUnitRace(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return string
-function Native.GetUnitName(whichUnit) end
+function Native.GetUnitName(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return integer
-function Native.GetUnitFoodUsed(whichUnit) end
+function Native.GetUnitFoodUsed(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return integer
-function Native.GetUnitFoodMade(whichUnit) end
+function Native.GetUnitFoodMade(unit) end
 
 ---@param unitId integer
 ---@return integer
@@ -2461,182 +2461,182 @@ function Native.GetFoodMade(unitId) end
 ---@return integer
 function Native.GetFoodUsed(unitId) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param useFood boolean
 ---@return void
-function Native.SetUnitUseFood(whichUnit, useFood) end
+function Native.SetUnitUseFood(unit, useFood) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return location
-function Native.GetUnitRallyPoint(whichUnit) end
+function Native.GetUnitRallyPoint(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return unit
-function Native.GetUnitRallyUnit(whichUnit) end
+function Native.GetUnitRallyUnit(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return destructable
-function Native.GetUnitRallyDestructable(whichUnit) end
+function Native.GetUnitRallyDestructable(unit) end
 
----@param whichUnit unit
----@param whichGroup group
+---@param unit unit
+---@param group group
 ---@return boolean
-function Native.IsUnitInGroup(whichUnit, whichGroup) end
+function Native.IsUnitInGroup(unit, group) end
 
----@param whichUnit unit
----@param whichForce force
+---@param unit unit
+---@param force force
 ---@return boolean
-function Native.IsUnitInForce(whichUnit, whichForce) end
+function Native.IsUnitInForce(unit, force) end
 
----@param whichUnit unit
----@param whichPlayer player
+---@param unit unit
+---@param player player
 ---@return boolean
-function Native.IsUnitOwnedByPlayer(whichUnit, whichPlayer) end
+function Native.IsUnitOwnedByPlayer(unit, player) end
 
----@param whichUnit unit
----@param whichPlayer player
+---@param unit unit
+---@param player player
 ---@return boolean
-function Native.IsUnitAlly(whichUnit, whichPlayer) end
+function Native.IsUnitAlly(unit, player) end
 
----@param whichUnit unit
----@param whichPlayer player
+---@param unit unit
+---@param player player
 ---@return boolean
-function Native.IsUnitEnemy(whichUnit, whichPlayer) end
+function Native.IsUnitEnemy(unit, player) end
 
----@param whichUnit unit
----@param whichPlayer player
+---@param unit unit
+---@param player player
 ---@return boolean
-function Native.IsUnitVisible(whichUnit, whichPlayer) end
+function Native.IsUnitVisible(unit, player) end
 
----@param whichUnit unit
----@param whichPlayer player
+---@param unit unit
+---@param player player
 ---@return boolean
-function Native.IsUnitDetected(whichUnit, whichPlayer) end
+function Native.IsUnitDetected(unit, player) end
 
----@param whichUnit unit
----@param whichPlayer player
+---@param unit unit
+---@param player player
 ---@return boolean
-function Native.IsUnitInvisible(whichUnit, whichPlayer) end
+function Native.IsUnitInvisible(unit, player) end
 
----@param whichUnit unit
----@param whichPlayer player
+---@param unit unit
+---@param player player
 ---@return boolean
-function Native.IsUnitFogged(whichUnit, whichPlayer) end
+function Native.IsUnitFogged(unit, player) end
 
----@param whichUnit unit
----@param whichPlayer player
+---@param unit unit
+---@param player player
 ---@return boolean
-function Native.IsUnitMasked(whichUnit, whichPlayer) end
+function Native.IsUnitMasked(unit, player) end
 
----@param whichUnit unit
----@param whichPlayer player
+---@param unit unit
+---@param player player
 ---@return boolean
-function Native.IsUnitSelected(whichUnit, whichPlayer) end
+function Native.IsUnitSelected(unit, player) end
 
----@param whichUnit unit
----@param whichRace race
+---@param unit unit
+---@param race race
 ---@return boolean
-function Native.IsUnitRace(whichUnit, whichRace) end
+function Native.IsUnitRace(unit, race) end
 
----@param whichUnit unit
----@param whichUnitType unittype
+---@param unit unit
+---@param unitType unittype
 ---@return boolean
-function Native.IsUnitType(whichUnit, whichUnitType) end
+function Native.IsUnitType(unit, unitType) end
 
----@param whichUnit unit
----@param whichSpecifiedUnit unit
+---@param unit unit
+---@param specifiedUnit unit
 ---@return boolean
-function Native.IsUnit(whichUnit, whichSpecifiedUnit) end
+function Native.IsUnit(unit, specifiedUnit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param otherUnit unit
 ---@param distance float
 ---@return boolean
-function Native.IsUnitInRange(whichUnit, otherUnit, distance) end
+function Native.IsUnitInRange(unit, otherUnit, distance) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param x float
 ---@param y float
 ---@param distance float
 ---@return boolean
-function Native.IsUnitInRangeXY(whichUnit, x, y, distance) end
+function Native.IsUnitInRangeXY(unit, x, y, distance) end
 
----@param whichUnit unit
----@param whichLocation location
+---@param unit unit
+---@param loc location
 ---@param distance float
 ---@return boolean
-function Native.IsUnitInRangeLoc(whichUnit, whichLocation, distance) end
+function Native.IsUnitInRangeLoc(unit, loc, distance) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return boolean
-function Native.IsUnitHidden(whichUnit) end
+function Native.IsUnitHidden(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return boolean
-function Native.IsUnitIllusion(whichUnit) end
+function Native.IsUnitIllusion(unit) end
 
----@param whichUnit unit
----@param whichTransport unit
+---@param unit unit
+---@param transport unit
 ---@return boolean
-function Native.IsUnitInTransport(whichUnit, whichTransport) end
+function Native.IsUnitInTransport(unit, transport) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return boolean
-function Native.IsUnitLoaded(whichUnit) end
+function Native.IsUnitLoaded(unit) end
 
 ---@param unitId integer
 ---@return boolean
 function Native.IsHeroUnitId(unitId) end
 
 ---@param unitId integer
----@param whichUnitType unittype
+---@param unitType unittype
 ---@return boolean
-function Native.IsUnitIdType(unitId, whichUnitType) end
+function Native.IsUnitIdType(unitId, unitType) end
 
----@param whichUnit unit
----@param whichPlayer player
+---@param unit unit
+---@param player player
 ---@param share boolean
 ---@return void
-function Native.UnitShareVision(whichUnit, whichPlayer, share) end
+function Native.UnitShareVision(unit, player, share) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param suspend boolean
 ---@return void
-function Native.UnitSuspendDecay(whichUnit, suspend) end
+function Native.UnitSuspendDecay(unit, suspend) end
 
----@param whichUnit unit
----@param whichUnitType unittype
+---@param unit unit
+---@param unitType unittype
 ---@return boolean
-function Native.UnitAddType(whichUnit, whichUnitType) end
+function Native.UnitAddType(unit, unitType) end
 
----@param whichUnit unit
----@param whichUnitType unittype
+---@param unit unit
+---@param unitType unittype
 ---@return boolean
-function Native.UnitRemoveType(whichUnit, whichUnitType) end
+function Native.UnitRemoveType(unit, unitType) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param abilityId integer
 ---@return boolean
-function Native.UnitAddAbility(whichUnit, abilityId) end
+function Native.UnitAddAbility(unit, abilityId) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param abilityId integer
 ---@return boolean
-function Native.UnitRemoveAbility(whichUnit, abilityId) end
+function Native.UnitRemoveAbility(unit, abilityId) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param permanent boolean
 ---@param abilityId integer
 ---@return boolean
-function Native.UnitMakeAbilityPermanent(whichUnit, permanent, abilityId) end
+function Native.UnitMakeAbilityPermanent(unit, permanent, abilityId) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param removePositive boolean
 ---@param removeNegative boolean
 ---@return void
-function Native.UnitRemoveBuffs(whichUnit, removePositive, removeNegative) end
+function Native.UnitRemoveBuffs(unit, removePositive, removeNegative) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param removePositive boolean
 ---@param removeNegative boolean
 ---@param magic boolean
@@ -2645,9 +2645,9 @@ function Native.UnitRemoveBuffs(whichUnit, removePositive, removeNegative) end
 ---@param aura boolean
 ---@param autoDispel boolean
 ---@return void
-function Native.UnitRemoveBuffsEx(whichUnit, removePositive, removeNegative, magic, physical, timedLife, aura, autoDispel) end
+function Native.UnitRemoveBuffsEx(unit, removePositive, removeNegative, magic, physical, timedLife, aura, autoDispel) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param removePositive boolean
 ---@param removeNegative boolean
 ---@param magic boolean
@@ -2656,9 +2656,9 @@ function Native.UnitRemoveBuffsEx(whichUnit, removePositive, removeNegative, mag
 ---@param aura boolean
 ---@param autoDispel boolean
 ---@return boolean
-function Native.UnitHasBuffsEx(whichUnit, removePositive, removeNegative, magic, physical, timedLife, aura, autoDispel) end
+function Native.UnitHasBuffsEx(unit, removePositive, removeNegative, magic, physical, timedLife, aura, autoDispel) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param removePositive boolean
 ---@param removeNegative boolean
 ---@param magic boolean
@@ -2667,74 +2667,74 @@ function Native.UnitHasBuffsEx(whichUnit, removePositive, removeNegative, magic,
 ---@param aura boolean
 ---@param autoDispel boolean
 ---@return integer
-function Native.UnitCountBuffsEx(whichUnit, removePositive, removeNegative, magic, physical, timedLife, aura, autoDispel) end
+function Native.UnitCountBuffsEx(unit, removePositive, removeNegative, magic, physical, timedLife, aura, autoDispel) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param add boolean
 ---@return void
-function Native.UnitAddSleep(whichUnit, add) end
+function Native.UnitAddSleep(unit, add) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return boolean
-function Native.UnitCanSleep(whichUnit) end
+function Native.UnitCanSleep(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param add boolean
 ---@return void
-function Native.UnitAddSleepPerm(whichUnit, add) end
+function Native.UnitAddSleepPerm(unit, add) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return boolean
-function Native.UnitCanSleepPerm(whichUnit) end
+function Native.UnitCanSleepPerm(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return boolean
-function Native.UnitIsSleeping(whichUnit) end
+function Native.UnitIsSleeping(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return void
-function Native.UnitWakeUp(whichUnit) end
+function Native.UnitWakeUp(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param buffId integer
 ---@param duration float
 ---@return void
-function Native.UnitApplyTimedLife(whichUnit, buffId, duration) end
+function Native.UnitApplyTimedLife(unit, buffId, duration) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param flag boolean
 ---@return boolean
-function Native.UnitIgnoreAlarm(whichUnit, flag) end
+function Native.UnitIgnoreAlarm(unit, flag) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return boolean
-function Native.UnitIgnoreAlarmToggled(whichUnit) end
+function Native.UnitIgnoreAlarmToggled(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return void
-function Native.UnitResetCooldown(whichUnit) end
+function Native.UnitResetCooldown(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param constructionPercentage integer
 ---@return void
-function Native.UnitSetConstructionProgress(whichUnit, constructionPercentage) end
+function Native.UnitSetConstructionProgress(unit, constructionPercentage) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param upgradePercentage integer
 ---@return void
-function Native.UnitSetUpgradeProgress(whichUnit, upgradePercentage) end
+function Native.UnitSetUpgradeProgress(unit, upgradePercentage) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param flag boolean
 ---@return void
-function Native.UnitPauseTimedLife(whichUnit, flag) end
+function Native.UnitPauseTimedLife(unit, flag) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param flag boolean
 ---@return void
-function Native.UnitSetUsesAltIcon(whichUnit, flag) end
+function Native.UnitSetUsesAltIcon(unit, flag) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param delay float
 ---@param radius float
 ---@param x float
@@ -2746,9 +2746,9 @@ function Native.UnitSetUsesAltIcon(whichUnit, flag) end
 ---@param damageType damagetype
 ---@param weaponType weapontype
 ---@return boolean
-function Native.UnitDamagePoint(whichUnit, delay, radius, x, y, amount, attack, ranged, attackType, damageType, weaponType) end
+function Native.UnitDamagePoint(unit, delay, radius, x, y, amount, attack, ranged, attackType, damageType, weaponType) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param target widget
 ---@param amount float
 ---@param attack boolean
@@ -2757,99 +2757,99 @@ function Native.UnitDamagePoint(whichUnit, delay, radius, x, y, amount, attack, 
 ---@param damageType damagetype
 ---@param weaponType weapontype
 ---@return boolean
-function Native.UnitDamageTarget(whichUnit, target, amount, attack, ranged, attackType, damageType, weaponType) end
+function Native.UnitDamageTarget(unit, target, amount, attack, ranged, attackType, damageType, weaponType) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param order string
 ---@return boolean
-function Native.IssueImmediateOrder(whichUnit, order) end
+function Native.IssueImmediateOrder(unit, order) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param order integer
 ---@return boolean
-function Native.IssueImmediateOrderById(whichUnit, order) end
+function Native.IssueImmediateOrderById(unit, order) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param order string
 ---@param x float
 ---@param y float
 ---@return boolean
-function Native.IssuePointOrder(whichUnit, order, x, y) end
+function Native.IssuePointOrder(unit, order, x, y) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param order string
----@param whichLocation location
+---@param loc location
 ---@return boolean
-function Native.IssuePointOrderLoc(whichUnit, order, whichLocation) end
+function Native.IssuePointOrderLoc(unit, order, loc) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param order integer
 ---@param x float
 ---@param y float
 ---@return boolean
-function Native.IssuePointOrderById(whichUnit, order, x, y) end
+function Native.IssuePointOrderById(unit, order, x, y) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param order integer
----@param whichLocation location
+---@param loc location
 ---@return boolean
-function Native.IssuePointOrderByIdLoc(whichUnit, order, whichLocation) end
+function Native.IssuePointOrderByIdLoc(unit, order, loc) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param order string
 ---@param targetWidget widget
 ---@return boolean
-function Native.IssueTargetOrder(whichUnit, order, targetWidget) end
+function Native.IssueTargetOrder(unit, order, targetWidget) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param order integer
 ---@param targetWidget widget
 ---@return boolean
-function Native.IssueTargetOrderById(whichUnit, order, targetWidget) end
+function Native.IssueTargetOrderById(unit, order, targetWidget) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param order string
----@param x float
----@param y float
----@param instantTargetWidget widget
----@return boolean
-function Native.IssueInstantPointOrder(whichUnit, order, x, y, instantTargetWidget) end
-
----@param whichUnit unit
----@param order integer
 ---@param x float
 ---@param y float
 ---@param instantTargetWidget widget
 ---@return boolean
-function Native.IssueInstantPointOrderById(whichUnit, order, x, y, instantTargetWidget) end
+function Native.IssueInstantPointOrder(unit, order, x, y, instantTargetWidget) end
 
----@param whichUnit unit
+---@param unit unit
+---@param order integer
+---@param x float
+---@param y float
+---@param instantTargetWidget widget
+---@return boolean
+function Native.IssueInstantPointOrderById(unit, order, x, y, instantTargetWidget) end
+
+---@param unit unit
 ---@param order string
 ---@param targetWidget widget
 ---@param instantTargetWidget widget
 ---@return boolean
-function Native.IssueInstantTargetOrder(whichUnit, order, targetWidget, instantTargetWidget) end
+function Native.IssueInstantTargetOrder(unit, order, targetWidget, instantTargetWidget) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param order integer
 ---@param targetWidget widget
 ---@param instantTargetWidget widget
 ---@return boolean
-function Native.IssueInstantTargetOrderById(whichUnit, order, targetWidget, instantTargetWidget) end
+function Native.IssueInstantTargetOrderById(unit, order, targetWidget, instantTargetWidget) end
 
----@param whichPeon unit
+---@param peon unit
 ---@param unitToBuild string
 ---@param x float
 ---@param y float
 ---@return boolean
-function Native.IssueBuildOrder(whichPeon, unitToBuild, x, y) end
+function Native.IssueBuildOrder(peon, unitToBuild, x, y) end
 
----@param whichPeon unit
+---@param peon unit
 ---@param unitId integer
 ---@param x float
 ---@param y float
 ---@return boolean
-function Native.IssueBuildOrderById(whichPeon, unitId, x, y) end
+function Native.IssueBuildOrderById(peon, unitId, x, y) end
 
 ---@param forWhichPlayer player
 ---@param neutralStructure unit
@@ -2893,23 +2893,23 @@ function Native.IssueNeutralTargetOrder(forWhichPlayer, neutralStructure, unitTo
 ---@return boolean
 function Native.IssueNeutralTargetOrderById(forWhichPlayer, neutralStructure, unitId, target) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return integer
-function Native.GetUnitCurrentOrder(whichUnit) end
+function Native.GetUnitCurrentOrder(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param amount integer
 ---@return void
-function Native.SetResourceAmount(whichUnit, amount) end
+function Native.SetResourceAmount(unit, amount) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param amount integer
 ---@return void
-function Native.AddResourceAmount(whichUnit, amount) end
+function Native.AddResourceAmount(unit, amount) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return integer
-function Native.GetResourceAmount(whichUnit) end
+function Native.GetResourceAmount(unit) end
 
 ---@param waygate unit
 ---@return float
@@ -2940,12 +2940,12 @@ function Native.WaygateIsActive(waygate) end
 ---@return void
 function Native.AddItemToAllStock(itemId, currentStock, stockMax) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param itemId integer
 ---@param currentStock integer
 ---@param stockMax integer
 ---@return void
-function Native.AddItemToStock(whichUnit, itemId, currentStock, stockMax) end
+function Native.AddItemToStock(unit, itemId, currentStock, stockMax) end
 
 ---@param unitId integer
 ---@param currentStock integer
@@ -2953,30 +2953,30 @@ function Native.AddItemToStock(whichUnit, itemId, currentStock, stockMax) end
 ---@return void
 function Native.AddUnitToAllStock(unitId, currentStock, stockMax) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param unitId integer
 ---@param currentStock integer
 ---@param stockMax integer
 ---@return void
-function Native.AddUnitToStock(whichUnit, unitId, currentStock, stockMax) end
+function Native.AddUnitToStock(unit, unitId, currentStock, stockMax) end
 
 ---@param itemId integer
 ---@return void
 function Native.RemoveItemFromAllStock(itemId) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param itemId integer
 ---@return void
-function Native.RemoveItemFromStock(whichUnit, itemId) end
+function Native.RemoveItemFromStock(unit, itemId) end
 
 ---@param unitId integer
 ---@return void
 function Native.RemoveUnitFromAllStock(unitId) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param unitId integer
 ---@return void
-function Native.RemoveUnitFromStock(whichUnit, unitId) end
+function Native.RemoveUnitFromStock(unit, unitId) end
 
 ---@param slots integer
 ---@return void
@@ -2986,24 +2986,24 @@ function Native.SetAllItemTypeSlots(slots) end
 ---@return void
 function Native.SetAllUnitTypeSlots(slots) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param slots integer
 ---@return void
-function Native.SetItemTypeSlots(whichUnit, slots) end
+function Native.SetItemTypeSlots(unit, slots) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param slots integer
 ---@return void
-function Native.SetUnitTypeSlots(whichUnit, slots) end
+function Native.SetUnitTypeSlots(unit, slots) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return integer
-function Native.GetUnitUserData(whichUnit) end
+function Native.GetUnitUserData(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param data integer
 ---@return void
-function Native.SetUnitUserData(whichUnit, data) end
+function Native.SetUnitUserData(unit, data) end
 
 ---@param number integer
 ---@return player
@@ -3012,207 +3012,207 @@ function Native.Player(number) end
 ---@return player
 function Native.GetLocalPlayer() end
 
----@param whichPlayer player
+---@param player player
 ---@param otherPlayer player
 ---@return boolean
-function Native.IsPlayerAlly(whichPlayer, otherPlayer) end
+function Native.IsPlayerAlly(player, otherPlayer) end
 
----@param whichPlayer player
+---@param player player
 ---@param otherPlayer player
 ---@return boolean
-function Native.IsPlayerEnemy(whichPlayer, otherPlayer) end
+function Native.IsPlayerEnemy(player, otherPlayer) end
 
----@param whichPlayer player
----@param whichForce force
+---@param player player
+---@param force force
 ---@return boolean
-function Native.IsPlayerInForce(whichPlayer, whichForce) end
+function Native.IsPlayerInForce(player, force) end
 
----@param whichPlayer player
+---@param player player
 ---@return boolean
-function Native.IsPlayerObserver(whichPlayer) end
+function Native.IsPlayerObserver(player) end
 
 ---@param x float
 ---@param y float
----@param whichPlayer player
+---@param player player
 ---@return boolean
-function Native.IsVisibleToPlayer(x, y, whichPlayer) end
+function Native.IsVisibleToPlayer(x, y, player) end
 
----@param whichLocation location
----@param whichPlayer player
+---@param loc location
+---@param player player
 ---@return boolean
-function Native.IsLocationVisibleToPlayer(whichLocation, whichPlayer) end
-
----@param x float
----@param y float
----@param whichPlayer player
----@return boolean
-function Native.IsFoggedToPlayer(x, y, whichPlayer) end
-
----@param whichLocation location
----@param whichPlayer player
----@return boolean
-function Native.IsLocationFoggedToPlayer(whichLocation, whichPlayer) end
+function Native.IsLocationVisibleToPlayer(loc, player) end
 
 ---@param x float
 ---@param y float
----@param whichPlayer player
+---@param player player
 ---@return boolean
-function Native.IsMaskedToPlayer(x, y, whichPlayer) end
+function Native.IsFoggedToPlayer(x, y, player) end
 
----@param whichLocation location
----@param whichPlayer player
+---@param loc location
+---@param player player
 ---@return boolean
-function Native.IsLocationMaskedToPlayer(whichLocation, whichPlayer) end
+function Native.IsLocationFoggedToPlayer(loc, player) end
 
----@param whichPlayer player
+---@param x float
+---@param y float
+---@param player player
+---@return boolean
+function Native.IsMaskedToPlayer(x, y, player) end
+
+---@param loc location
+---@param player player
+---@return boolean
+function Native.IsLocationMaskedToPlayer(loc, player) end
+
+---@param player player
 ---@return race
-function Native.GetPlayerRace(whichPlayer) end
+function Native.GetPlayerRace(player) end
 
----@param whichPlayer player
+---@param player player
 ---@return integer
-function Native.GetPlayerId(whichPlayer) end
+function Native.GetPlayerId(player) end
 
----@param whichPlayer player
+---@param player player
 ---@param includeIncomplete boolean
 ---@return integer
-function Native.GetPlayerUnitCount(whichPlayer, includeIncomplete) end
+function Native.GetPlayerUnitCount(player, includeIncomplete) end
 
----@param whichPlayer player
+---@param player player
 ---@param unitName string
 ---@param includeIncomplete boolean
 ---@param includeUpgrades boolean
 ---@return integer
-function Native.GetPlayerTypedUnitCount(whichPlayer, unitName, includeIncomplete, includeUpgrades) end
+function Native.GetPlayerTypedUnitCount(player, unitName, includeIncomplete, includeUpgrades) end
 
----@param whichPlayer player
+---@param player player
 ---@param includeIncomplete boolean
 ---@return integer
-function Native.GetPlayerStructureCount(whichPlayer, includeIncomplete) end
+function Native.GetPlayerStructureCount(player, includeIncomplete) end
 
----@param whichPlayer player
----@param whichPlayerState playerstate
+---@param player player
+---@param playerState playerstate
 ---@return integer
-function Native.GetPlayerState(whichPlayer, whichPlayerState) end
+function Native.GetPlayerState(player, playerState) end
 
----@param whichPlayer player
----@param whichPlayerScore playerscore
+---@param player player
+---@param playerScore playerscore
 ---@return integer
-function Native.GetPlayerScore(whichPlayer, whichPlayerScore) end
+function Native.GetPlayerScore(player, playerScore) end
 
 ---@param sourcePlayer player
 ---@param otherPlayer player
----@param whichAllianceSetting alliancetype
+---@param allianceSetting alliancetype
 ---@return boolean
-function Native.GetPlayerAlliance(sourcePlayer, otherPlayer, whichAllianceSetting) end
+function Native.GetPlayerAlliance(sourcePlayer, otherPlayer, allianceSetting) end
 
----@param whichPlayer player
+---@param player player
 ---@return float
-function Native.GetPlayerHandicap(whichPlayer) end
+function Native.GetPlayerHandicap(player) end
 
----@param whichPlayer player
+---@param player player
 ---@return float
-function Native.GetPlayerHandicapXP(whichPlayer) end
+function Native.GetPlayerHandicapXP(player) end
 
----@param whichPlayer player
+---@param player player
 ---@param handicap float
 ---@return void
-function Native.SetPlayerHandicap(whichPlayer, handicap) end
+function Native.SetPlayerHandicap(player, handicap) end
 
----@param whichPlayer player
+---@param player player
 ---@param handicap float
 ---@return void
-function Native.SetPlayerHandicapXP(whichPlayer, handicap) end
+function Native.SetPlayerHandicapXP(player, handicap) end
 
----@param whichPlayer player
+---@param player player
 ---@param techId integer
 ---@param maximum integer
 ---@return void
-function Native.SetPlayerTechMaxAllowed(whichPlayer, techId, maximum) end
+function Native.SetPlayerTechMaxAllowed(player, techId, maximum) end
 
----@param whichPlayer player
+---@param player player
 ---@param techId integer
 ---@return integer
-function Native.GetPlayerTechMaxAllowed(whichPlayer, techId) end
+function Native.GetPlayerTechMaxAllowed(player, techId) end
 
----@param whichPlayer player
+---@param player player
 ---@param techId integer
 ---@param levels integer
 ---@return void
-function Native.AddPlayerTechResearched(whichPlayer, techId, levels) end
+function Native.AddPlayerTechResearched(player, techId, levels) end
 
----@param whichPlayer player
+---@param player player
 ---@param techId integer
 ---@param setToLevel integer
 ---@return void
-function Native.SetPlayerTechResearched(whichPlayer, techId, setToLevel) end
+function Native.SetPlayerTechResearched(player, techId, setToLevel) end
 
----@param whichPlayer player
+---@param player player
 ---@param techId integer
 ---@param specificOnly boolean
 ---@return boolean
-function Native.GetPlayerTechResearched(whichPlayer, techId, specificOnly) end
+function Native.GetPlayerTechResearched(player, techId, specificOnly) end
 
----@param whichPlayer player
+---@param player player
 ---@param techId integer
 ---@param specificOnly boolean
 ---@return integer
-function Native.GetPlayerTechCount(whichPlayer, techId, specificOnly) end
+function Native.GetPlayerTechCount(player, techId, specificOnly) end
 
----@param whichPlayer player
----@param newOwner integer
+---@param player player
+---@param owner integer
 ---@return void
-function Native.SetPlayerUnitsOwner(whichPlayer, newOwner) end
+function Native.SetPlayerUnitsOwner(player, owner) end
 
----@param whichPlayer player
+---@param player player
 ---@param toWhichPlayers force
 ---@param flag boolean
 ---@return void
-function Native.CripplePlayer(whichPlayer, toWhichPlayers, flag) end
+function Native.CripplePlayer(player, toWhichPlayers, flag) end
 
----@param whichPlayer player
+---@param player player
 ---@param abilityId integer
 ---@param avail boolean
 ---@return void
-function Native.SetPlayerAbilityAvailable(whichPlayer, abilityId, avail) end
+function Native.SetPlayerAbilityAvailable(player, abilityId, avail) end
 
----@param whichPlayer player
----@param whichPlayerState playerstate
+---@param player player
+---@param playerState playerstate
 ---@param value integer
 ---@return void
-function Native.SetPlayerState(whichPlayer, whichPlayerState, value) end
+function Native.SetPlayerState(player, playerState, value) end
 
----@param whichPlayer player
+---@param player player
 ---@param gameResult playergameresult
 ---@return void
-function Native.RemovePlayer(whichPlayer, gameResult) end
+function Native.RemovePlayer(player, gameResult) end
 
----@param whichPlayer player
+---@param player player
 ---@return void
-function Native.CachePlayerHeroData(whichPlayer) end
+function Native.CachePlayerHeroData(player) end
 
 ---@param forWhichPlayer player
----@param whichState fogstate
+---@param state fogstate
 ---@param where rect
 ---@param useSharedVision boolean
 ---@return void
-function Native.SetFogStateRect(forWhichPlayer, whichState, where, useSharedVision) end
+function Native.SetFogStateRect(forWhichPlayer, state, where, useSharedVision) end
 
 ---@param forWhichPlayer player
----@param whichState fogstate
+---@param state fogstate
 ---@param centerX float
 ---@param centerY float
 ---@param radius float
 ---@param useSharedVision boolean
 ---@return void
-function Native.SetFogStateRadius(forWhichPlayer, whichState, centerX, centerY, radius, useSharedVision) end
+function Native.SetFogStateRadius(forWhichPlayer, state, centerX, centerY, radius, useSharedVision) end
 
 ---@param forWhichPlayer player
----@param whichState fogstate
+---@param state fogstate
 ---@param center location
 ---@param radius float
 ---@param useSharedVision boolean
 ---@return void
-function Native.SetFogStateRadiusLoc(forWhichPlayer, whichState, center, radius, useSharedVision) end
+function Native.SetFogStateRadiusLoc(forWhichPlayer, state, center, radius, useSharedVision) end
 
 ---@param enable boolean
 ---@return void
@@ -3229,63 +3229,63 @@ function Native.FogEnable(enable) end
 function Native.IsFogEnabled() end
 
 ---@param forWhichPlayer player
----@param whichState fogstate
+---@param state fogstate
 ---@param where rect
 ---@param useSharedVision boolean
 ---@param afterUnits boolean
 ---@return fogmodifier
-function Native.CreateFogModifierRect(forWhichPlayer, whichState, where, useSharedVision, afterUnits) end
+function Native.CreateFogModifierRect(forWhichPlayer, state, where, useSharedVision, afterUnits) end
 
 ---@param forWhichPlayer player
----@param whichState fogstate
+---@param state fogstate
 ---@param centerX float
 ---@param centerY float
 ---@param radius float
 ---@param useSharedVision boolean
 ---@param afterUnits boolean
 ---@return fogmodifier
-function Native.CreateFogModifierRadius(forWhichPlayer, whichState, centerX, centerY, radius, useSharedVision, afterUnits) end
+function Native.CreateFogModifierRadius(forWhichPlayer, state, centerX, centerY, radius, useSharedVision, afterUnits) end
 
 ---@param forWhichPlayer player
----@param whichState fogstate
+---@param state fogstate
 ---@param center location
 ---@param radius float
 ---@param useSharedVision boolean
 ---@param afterUnits boolean
 ---@return fogmodifier
-function Native.CreateFogModifierRadiusLoc(forWhichPlayer, whichState, center, radius, useSharedVision, afterUnits) end
+function Native.CreateFogModifierRadiusLoc(forWhichPlayer, state, center, radius, useSharedVision, afterUnits) end
 
----@param whichFogModifier fogmodifier
+---@param fogModifier fogmodifier
 ---@return void
-function Native.DestroyFogModifier(whichFogModifier) end
+function Native.DestroyFogModifier(fogModifier) end
 
----@param whichFogModifier fogmodifier
+---@param fogModifier fogmodifier
 ---@return void
-function Native.FogModifierStart(whichFogModifier) end
+function Native.FogModifierStart(fogModifier) end
 
----@param whichFogModifier fogmodifier
+---@param fogModifier fogmodifier
 ---@return void
-function Native.FogModifierStop(whichFogModifier) end
+function Native.FogModifierStop(fogModifier) end
 
 ---@return version
 function Native.VersionGet() end
 
----@param whichVersion version
+---@param version version
 ---@return boolean
-function Native.VersionCompatible(whichVersion) end
+function Native.VersionCompatible(version) end
 
----@param whichVersion version
+---@param version version
 ---@return boolean
-function Native.VersionSupported(whichVersion) end
+function Native.VersionSupported(version) end
 
 ---@param doScoreScreen boolean
 ---@return void
 function Native.EndGame(doScoreScreen) end
 
----@param newLevel string
+---@param level string
 ---@param doScoreScreen boolean
 ---@return void
-function Native.ChangeLevel(newLevel, doScoreScreen) end
+function Native.ChangeLevel(level, doScoreScreen) end
 
 ---@param doScoreScreen boolean
 ---@return void
@@ -3335,23 +3335,23 @@ function Native.SaveGameExists(saveName) end
 ---@return void
 function Native.SyncSelections() end
 
----@param whichFloatGameState fgamestate
+---@param floatGameState fgamestate
 ---@param value float
 ---@return void
-function Native.SetFloatGameState(whichFloatGameState, value) end
+function Native.SetFloatGameState(floatGameState, value) end
 
----@param whichFloatGameState fgamestate
+---@param floatGameState fgamestate
 ---@return float
-function Native.GetFloatGameState(whichFloatGameState) end
+function Native.GetFloatGameState(floatGameState) end
 
----@param whichIntegerGameState igamestate
+---@param integerGameState igamestate
 ---@param value integer
 ---@return void
-function Native.SetIntegerGameState(whichIntegerGameState, value) end
+function Native.SetIntegerGameState(integerGameState, value) end
 
----@param whichIntegerGameState igamestate
+---@param integerGameState igamestate
 ---@return integer
-function Native.GetIntegerGameState(whichIntegerGameState) end
+function Native.GetIntegerGameState(integerGameState) end
 
 ---@param cleared boolean
 ---@return void
@@ -3385,14 +3385,14 @@ function Native.GetDefaultDifficulty() end
 ---@return void
 function Native.SetDefaultDifficulty(g) end
 
----@param whichButton integer
+---@param button integer
 ---@param visible boolean
 ---@return void
-function Native.SetCustomCampaignButtonVisible(whichButton, visible) end
+function Native.SetCustomCampaignButtonVisible(button, visible) end
 
----@param whichButton integer
+---@param button integer
 ---@return boolean
-function Native.GetCustomCampaignButtonVisible(whichButton) end
+function Native.GetCustomCampaignButtonVisible(button) end
 
 ---@return void
 function Native.DoNotSaveReplay() end
@@ -3400,37 +3400,37 @@ function Native.DoNotSaveReplay() end
 ---@return dialog
 function Native.DialogCreate() end
 
----@param whichDialog dialog
+---@param dialog dialog
 ---@return void
-function Native.DialogDestroy(whichDialog) end
+function Native.DialogDestroy(dialog) end
 
----@param whichDialog dialog
+---@param dialog dialog
 ---@return void
-function Native.DialogClear(whichDialog) end
+function Native.DialogClear(dialog) end
 
----@param whichDialog dialog
+---@param dialog dialog
 ---@param messageText string
 ---@return void
-function Native.DialogSetMessage(whichDialog, messageText) end
+function Native.DialogSetMessage(dialog, messageText) end
 
----@param whichDialog dialog
+---@param dialog dialog
 ---@param buttonText string
 ---@param hotkey integer
 ---@return button
-function Native.DialogAddButton(whichDialog, buttonText, hotkey) end
+function Native.DialogAddButton(dialog, buttonText, hotkey) end
 
----@param whichDialog dialog
+---@param dialog dialog
 ---@param doScoreScreen boolean
 ---@param buttonText string
 ---@param hotkey integer
 ---@return button
-function Native.DialogAddQuitButton(whichDialog, doScoreScreen, buttonText, hotkey) end
+function Native.DialogAddQuitButton(dialog, doScoreScreen, buttonText, hotkey) end
 
----@param whichPlayer player
----@param whichDialog dialog
+---@param player player
+---@param dialog dialog
 ---@param flag boolean
 ---@return void
-function Native.DialogDisplay(whichPlayer, whichDialog, flag) end
+function Native.DialogDisplay(player, dialog, flag) end
 
 ---@return boolean
 function Native.ReloadGameCachesFromDisk() end
@@ -3439,9 +3439,9 @@ function Native.ReloadGameCachesFromDisk() end
 ---@return gamecache
 function Native.InitGameCache(campaignFile) end
 
----@param whichCache gamecache
+---@param cache gamecache
 ---@return boolean
-function Native.SaveGameCache(whichCache) end
+function Native.SaveGameCache(cache) end
 
 ---@param cache gamecache
 ---@param missionKey string
@@ -3467,9 +3467,9 @@ function Native.StoreBoolean(cache, missionKey, key, value) end
 ---@param cache gamecache
 ---@param missionKey string
 ---@param key string
----@param whichUnit unit
+---@param unit unit
 ---@return boolean
-function Native.StoreUnit(cache, missionKey, key, whichUnit) end
+function Native.StoreUnit(cache, missionKey, key, unit) end
 
 ---@param cache gamecache
 ---@param missionKey string
@@ -3645,282 +3645,282 @@ function Native.SaveStr(table, parentKey, childKey, value) end
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichPlayer player
+---@param player player
 ---@return boolean
-function Native.SavePlayerHandle(table, parentKey, childKey, whichPlayer) end
+function Native.SavePlayerHandle(table, parentKey, childKey, player) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichWidget widget
+---@param widget widget
 ---@return boolean
-function Native.SaveWidgetHandle(table, parentKey, childKey, whichWidget) end
+function Native.SaveWidgetHandle(table, parentKey, childKey, widget) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichDestructable destructable
+---@param destructable destructable
 ---@return boolean
-function Native.SaveDestructableHandle(table, parentKey, childKey, whichDestructable) end
+function Native.SaveDestructableHandle(table, parentKey, childKey, destructable) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichItem item
+---@param item item
 ---@return boolean
-function Native.SaveItemHandle(table, parentKey, childKey, whichItem) end
+function Native.SaveItemHandle(table, parentKey, childKey, item) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichUnit unit
+---@param unit unit
 ---@return boolean
-function Native.SaveUnitHandle(table, parentKey, childKey, whichUnit) end
+function Native.SaveUnitHandle(table, parentKey, childKey, unit) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichAbility ability
+---@param ability ability
 ---@return boolean
-function Native.SaveAbilityHandle(table, parentKey, childKey, whichAbility) end
+function Native.SaveAbilityHandle(table, parentKey, childKey, ability) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichTimer timer
+---@param timer timer
 ---@return boolean
-function Native.SaveTimerHandle(table, parentKey, childKey, whichTimer) end
+function Native.SaveTimerHandle(table, parentKey, childKey, timer) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichTrigger trigger
+---@param trigger trigger
 ---@return boolean
-function Native.SaveTriggerHandle(table, parentKey, childKey, whichTrigger) end
+function Native.SaveTriggerHandle(table, parentKey, childKey, trigger) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichTriggercondition triggercondition
+---@param triggercondition triggercondition
 ---@return boolean
-function Native.SaveTriggerConditionHandle(table, parentKey, childKey, whichTriggercondition) end
+function Native.SaveTriggerConditionHandle(table, parentKey, childKey, triggercondition) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichTriggeraction triggeraction
+---@param triggeraction triggeraction
 ---@return boolean
-function Native.SaveTriggerActionHandle(table, parentKey, childKey, whichTriggeraction) end
+function Native.SaveTriggerActionHandle(table, parentKey, childKey, triggeraction) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichEvent event
+---@param event event
 ---@return boolean
-function Native.SaveTriggerEventHandle(table, parentKey, childKey, whichEvent) end
+function Native.SaveTriggerEventHandle(table, parentKey, childKey, event) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichForce force
+---@param force force
 ---@return boolean
-function Native.SaveForceHandle(table, parentKey, childKey, whichForce) end
+function Native.SaveForceHandle(table, parentKey, childKey, force) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichGroup group
+---@param group group
 ---@return boolean
-function Native.SaveGroupHandle(table, parentKey, childKey, whichGroup) end
+function Native.SaveGroupHandle(table, parentKey, childKey, group) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichLocation location
+---@param loc location
 ---@return boolean
-function Native.SaveLocationHandle(table, parentKey, childKey, whichLocation) end
+function Native.SaveLocationHandle(table, parentKey, childKey, loc) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichRect rect
+---@param rect rect
 ---@return boolean
-function Native.SaveRectHandle(table, parentKey, childKey, whichRect) end
+function Native.SaveRectHandle(table, parentKey, childKey, rect) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichBoolexpr boolexpr
+---@param boolexpr boolexpr
 ---@return boolean
-function Native.SaveBooleanExprHandle(table, parentKey, childKey, whichBoolexpr) end
+function Native.SaveBooleanExprHandle(table, parentKey, childKey, boolexpr) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichSound sound
+---@param sound sound
 ---@return boolean
-function Native.SaveSoundHandle(table, parentKey, childKey, whichSound) end
+function Native.SaveSoundHandle(table, parentKey, childKey, sound) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichEffect effect
+---@param effect effect
 ---@return boolean
-function Native.SaveEffectHandle(table, parentKey, childKey, whichEffect) end
+function Native.SaveEffectHandle(table, parentKey, childKey, effect) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichUnitpool unitpool
+---@param unitpool unitpool
 ---@return boolean
-function Native.SaveUnitPoolHandle(table, parentKey, childKey, whichUnitpool) end
+function Native.SaveUnitPoolHandle(table, parentKey, childKey, unitpool) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichItempool itempool
+---@param itempool itempool
 ---@return boolean
-function Native.SaveItemPoolHandle(table, parentKey, childKey, whichItempool) end
+function Native.SaveItemPoolHandle(table, parentKey, childKey, itempool) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichQuest quest
+---@param quest quest
 ---@return boolean
-function Native.SaveQuestHandle(table, parentKey, childKey, whichQuest) end
+function Native.SaveQuestHandle(table, parentKey, childKey, quest) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichQuestitem questitem
+---@param questitem questitem
 ---@return boolean
-function Native.SaveQuestItemHandle(table, parentKey, childKey, whichQuestitem) end
+function Native.SaveQuestItemHandle(table, parentKey, childKey, questitem) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichDefeatcondition defeatcondition
+---@param defeatcondition defeatcondition
 ---@return boolean
-function Native.SaveDefeatConditionHandle(table, parentKey, childKey, whichDefeatcondition) end
+function Native.SaveDefeatConditionHandle(table, parentKey, childKey, defeatcondition) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichTimerdialog timerdialog
+---@param timerdialog timerdialog
 ---@return boolean
-function Native.SaveTimerDialogHandle(table, parentKey, childKey, whichTimerdialog) end
+function Native.SaveTimerDialogHandle(table, parentKey, childKey, timerdialog) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichLeaderboard leaderboard
+---@param leaderboard leaderboard
 ---@return boolean
-function Native.SaveLeaderboardHandle(table, parentKey, childKey, whichLeaderboard) end
+function Native.SaveLeaderboardHandle(table, parentKey, childKey, leaderboard) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichMultiboard multiboard
+---@param multiboard multiboard
 ---@return boolean
-function Native.SaveMultiboardHandle(table, parentKey, childKey, whichMultiboard) end
+function Native.SaveMultiboardHandle(table, parentKey, childKey, multiboard) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichMultiboarditem multiboarditem
+---@param multiboarditem multiboarditem
 ---@return boolean
-function Native.SaveMultiboardItemHandle(table, parentKey, childKey, whichMultiboarditem) end
+function Native.SaveMultiboardItemHandle(table, parentKey, childKey, multiboarditem) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichTrackable trackable
+---@param trackable trackable
 ---@return boolean
-function Native.SaveTrackableHandle(table, parentKey, childKey, whichTrackable) end
+function Native.SaveTrackableHandle(table, parentKey, childKey, trackable) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichDialog dialog
+---@param dialog dialog
 ---@return boolean
-function Native.SaveDialogHandle(table, parentKey, childKey, whichDialog) end
+function Native.SaveDialogHandle(table, parentKey, childKey, dialog) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichButton button
+---@param button button
 ---@return boolean
-function Native.SaveButtonHandle(table, parentKey, childKey, whichButton) end
+function Native.SaveButtonHandle(table, parentKey, childKey, button) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichTexttag texttag
+---@param texttag texttag
 ---@return boolean
-function Native.SaveTextTagHandle(table, parentKey, childKey, whichTexttag) end
+function Native.SaveTextTagHandle(table, parentKey, childKey, texttag) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichLightning lightning
+---@param lightning lightning
 ---@return boolean
-function Native.SaveLightningHandle(table, parentKey, childKey, whichLightning) end
+function Native.SaveLightningHandle(table, parentKey, childKey, lightning) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichImage image
+---@param image image
 ---@return boolean
-function Native.SaveImageHandle(table, parentKey, childKey, whichImage) end
+function Native.SaveImageHandle(table, parentKey, childKey, image) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichUbersplat ubersplat
+---@param ubersplat ubersplat
 ---@return boolean
-function Native.SaveUbersplatHandle(table, parentKey, childKey, whichUbersplat) end
+function Native.SaveUbersplatHandle(table, parentKey, childKey, ubersplat) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichRegion region
+---@param region region
 ---@return boolean
-function Native.SaveRegionHandle(table, parentKey, childKey, whichRegion) end
+function Native.SaveRegionHandle(table, parentKey, childKey, region) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichFogState fogstate
+---@param fogState fogstate
 ---@return boolean
-function Native.SaveFogStateHandle(table, parentKey, childKey, whichFogState) end
+function Native.SaveFogStateHandle(table, parentKey, childKey, fogState) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichFogModifier fogmodifier
+---@param fogModifier fogmodifier
 ---@return boolean
-function Native.SaveFogModifierHandle(table, parentKey, childKey, whichFogModifier) end
+function Native.SaveFogModifierHandle(table, parentKey, childKey, fogModifier) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichAgent agent
+---@param agent agent
 ---@return boolean
-function Native.SaveAgentHandle(table, parentKey, childKey, whichAgent) end
+function Native.SaveAgentHandle(table, parentKey, childKey, agent) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichHashtable hashtable
+---@param hashtable hashtable
 ---@return boolean
-function Native.SaveHashtableHandle(table, parentKey, childKey, whichHashtable) end
+function Native.SaveHashtableHandle(table, parentKey, childKey, hashtable) end
 
 ---@param table hashtable
 ---@param parentKey integer
 ---@param childKey integer
----@param whichFrameHandle framehandle
+---@param frameHandle framehandle
 ---@return boolean
-function Native.SaveFrameHandle(table, parentKey, childKey, whichFrameHandle) end
+function Native.SaveFrameHandle(table, parentKey, childKey, frameHandle) end
 
 ---@param table hashtable
 ---@param parentKey integer
@@ -4262,52 +4262,52 @@ function Native.GetRandomReal(lowBound, highBound) end
 ---@return unitpool
 function Native.CreateUnitPool() end
 
----@param whichPool unitpool
+---@param pool unitpool
 ---@return void
-function Native.DestroyUnitPool(whichPool) end
+function Native.DestroyUnitPool(pool) end
 
----@param whichPool unitpool
+---@param pool unitpool
 ---@param unitId integer
 ---@param weight float
 ---@return void
-function Native.UnitPoolAddUnitType(whichPool, unitId, weight) end
+function Native.UnitPoolAddUnitType(pool, unitId, weight) end
 
----@param whichPool unitpool
+---@param pool unitpool
 ---@param unitId integer
 ---@return void
-function Native.UnitPoolRemoveUnitType(whichPool, unitId) end
+function Native.UnitPoolRemoveUnitType(pool, unitId) end
 
----@param whichPool unitpool
+---@param pool unitpool
 ---@param forWhichPlayer player
 ---@param x float
 ---@param y float
 ---@param facing float
 ---@return unit
-function Native.PlaceRandomUnit(whichPool, forWhichPlayer, x, y, facing) end
+function Native.PlaceRandomUnit(pool, forWhichPlayer, x, y, facing) end
 
 ---@return itempool
 function Native.CreateItemPool() end
 
----@param whichItemPool itempool
+---@param itemPool itempool
 ---@return void
-function Native.DestroyItemPool(whichItemPool) end
+function Native.DestroyItemPool(itemPool) end
 
----@param whichItemPool itempool
+---@param itemPool itempool
 ---@param itemId integer
 ---@param weight float
 ---@return void
-function Native.ItemPoolAddItemType(whichItemPool, itemId, weight) end
+function Native.ItemPoolAddItemType(itemPool, itemId, weight) end
 
----@param whichItemPool itempool
+---@param itemPool itempool
 ---@param itemId integer
 ---@return void
-function Native.ItemPoolRemoveItemType(whichItemPool, itemId) end
+function Native.ItemPoolRemoveItemType(itemPool, itemId) end
 
----@param whichItemPool itempool
+---@param itemPool itempool
 ---@param x float
 ---@param y float
 ---@return item
-function Native.PlaceRandomItem(whichItemPool, x, y) end
+function Native.PlaceRandomItem(itemPool, x, y) end
 
 ---@param level integer
 ---@return integer
@@ -4320,10 +4320,10 @@ function Native.ChooseRandomNPBuilding() end
 ---@return integer
 function Native.ChooseRandomItem(level) end
 
----@param whichType itemtype
+---@param type itemtype
 ---@param level integer
 ---@return integer
-function Native.ChooseRandomItemEx(whichType, level) end
+function Native.ChooseRandomItemEx(type, level) end
 
 ---@param seed integer
 ---@return void
@@ -4421,21 +4421,21 @@ function Native.ShowInterface(flag, fadeDuration) end
 ---@return void
 function Native.PauseGame(flag) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param red integer
 ---@param green integer
 ---@param blue integer
 ---@param alpha integer
 ---@return void
-function Native.UnitAddIndicator(whichUnit, red, green, blue, alpha) end
+function Native.UnitAddIndicator(unit, red, green, blue, alpha) end
 
----@param whichWidget widget
+---@param widget widget
 ---@param red integer
 ---@param green integer
 ---@param blue integer
 ---@param alpha integer
 ---@return void
-function Native.AddIndicator(whichWidget, red, green, blue, alpha) end
+function Native.AddIndicator(widget, red, green, blue, alpha) end
 
 ---@param x float
 ---@param y float
@@ -4516,10 +4516,10 @@ function Native.SetTextTagText(t, s, height) end
 function Native.SetTextTagPos(t, x, y, heightOffset) end
 
 ---@param t texttag
----@param whichUnit unit
+---@param unit unit
 ---@param heightOffset float
 ---@return void
-function Native.SetTextTagPosUnit(t, whichUnit, heightOffset) end
+function Native.SetTextTagPosUnit(t, unit, heightOffset) end
 
 ---@param t texttag
 ---@param red integer
@@ -4613,99 +4613,99 @@ function Native.CreateTrackable(trackableModelPath, x, y, facing) end
 ---@return quest
 function Native.CreateQuest() end
 
----@param whichQuest quest
+---@param quest quest
 ---@return void
-function Native.DestroyQuest(whichQuest) end
+function Native.DestroyQuest(quest) end
 
----@param whichQuest quest
+---@param quest quest
 ---@param title string
 ---@return void
-function Native.QuestSetTitle(whichQuest, title) end
+function Native.QuestSetTitle(quest, title) end
 
----@param whichQuest quest
+---@param quest quest
 ---@param description string
 ---@return void
-function Native.QuestSetDescription(whichQuest, description) end
+function Native.QuestSetDescription(quest, description) end
 
----@param whichQuest quest
+---@param quest quest
 ---@param iconPath string
 ---@return void
-function Native.QuestSetIconPath(whichQuest, iconPath) end
+function Native.QuestSetIconPath(quest, iconPath) end
 
----@param whichQuest quest
+---@param quest quest
 ---@param required boolean
 ---@return void
-function Native.QuestSetRequired(whichQuest, required) end
+function Native.QuestSetRequired(quest, required) end
 
----@param whichQuest quest
+---@param quest quest
 ---@param completed boolean
 ---@return void
-function Native.QuestSetCompleted(whichQuest, completed) end
+function Native.QuestSetCompleted(quest, completed) end
 
----@param whichQuest quest
+---@param quest quest
 ---@param discovered boolean
 ---@return void
-function Native.QuestSetDiscovered(whichQuest, discovered) end
+function Native.QuestSetDiscovered(quest, discovered) end
 
----@param whichQuest quest
+---@param quest quest
 ---@param failed boolean
 ---@return void
-function Native.QuestSetFailed(whichQuest, failed) end
+function Native.QuestSetFailed(quest, failed) end
 
----@param whichQuest quest
+---@param quest quest
 ---@param enabled boolean
 ---@return void
-function Native.QuestSetEnabled(whichQuest, enabled) end
+function Native.QuestSetEnabled(quest, enabled) end
 
----@param whichQuest quest
+---@param quest quest
 ---@return boolean
-function Native.IsQuestRequired(whichQuest) end
+function Native.IsQuestRequired(quest) end
 
----@param whichQuest quest
+---@param quest quest
 ---@return boolean
-function Native.IsQuestCompleted(whichQuest) end
+function Native.IsQuestCompleted(quest) end
 
----@param whichQuest quest
+---@param quest quest
 ---@return boolean
-function Native.IsQuestDiscovered(whichQuest) end
+function Native.IsQuestDiscovered(quest) end
 
----@param whichQuest quest
+---@param quest quest
 ---@return boolean
-function Native.IsQuestFailed(whichQuest) end
+function Native.IsQuestFailed(quest) end
 
----@param whichQuest quest
+---@param quest quest
 ---@return boolean
-function Native.IsQuestEnabled(whichQuest) end
+function Native.IsQuestEnabled(quest) end
 
----@param whichQuest quest
+---@param quest quest
 ---@return questitem
-function Native.QuestCreateItem(whichQuest) end
+function Native.QuestCreateItem(quest) end
 
----@param whichQuestItem questitem
+---@param questItem questitem
 ---@param description string
 ---@return void
-function Native.QuestItemSetDescription(whichQuestItem, description) end
+function Native.QuestItemSetDescription(questItem, description) end
 
----@param whichQuestItem questitem
+---@param questItem questitem
 ---@param completed boolean
 ---@return void
-function Native.QuestItemSetCompleted(whichQuestItem, completed) end
+function Native.QuestItemSetCompleted(questItem, completed) end
 
----@param whichQuestItem questitem
+---@param questItem questitem
 ---@return boolean
-function Native.IsQuestItemCompleted(whichQuestItem) end
+function Native.IsQuestItemCompleted(questItem) end
 
 ---@return defeatcondition
 function Native.CreateDefeatCondition() end
 
----@param whichCondition defeatcondition
+---@param condition defeatcondition
 ---@return void
-function Native.DestroyDefeatCondition(whichCondition) end
+function Native.DestroyDefeatCondition(condition) end
 
----@param whichCondition defeatcondition
+---@param condition defeatcondition
 ---@param description string
 ---@return void
-function Native.DefeatConditionSetDescription(whichCondition, description) end
+function Native.DefeatConditionSetDescription(condition, description) end
 
 ---@return void
 function Native.FlashQuestDialogButton() end
@@ -4717,49 +4717,49 @@ function Native.ForceQuestDialogUpdate() end
 ---@return timerdialog
 function Native.CreateTimerDialog(t) end
 
----@param whichDialog timerdialog
+---@param dialog timerdialog
 ---@return void
-function Native.DestroyTimerDialog(whichDialog) end
+function Native.DestroyTimerDialog(dialog) end
 
----@param whichDialog timerdialog
+---@param dialog timerdialog
 ---@param title string
 ---@return void
-function Native.TimerDialogSetTitle(whichDialog, title) end
+function Native.TimerDialogSetTitle(dialog, title) end
 
----@param whichDialog timerdialog
+---@param dialog timerdialog
 ---@param red integer
 ---@param green integer
 ---@param blue integer
 ---@param alpha integer
 ---@return void
-function Native.TimerDialogSetTitleColor(whichDialog, red, green, blue, alpha) end
+function Native.TimerDialogSetTitleColor(dialog, red, green, blue, alpha) end
 
----@param whichDialog timerdialog
+---@param dialog timerdialog
 ---@param red integer
 ---@param green integer
 ---@param blue integer
 ---@param alpha integer
 ---@return void
-function Native.TimerDialogSetTimeColor(whichDialog, red, green, blue, alpha) end
+function Native.TimerDialogSetTimeColor(dialog, red, green, blue, alpha) end
 
----@param whichDialog timerdialog
+---@param dialog timerdialog
 ---@param speedMultFactor float
 ---@return void
-function Native.TimerDialogSetSpeed(whichDialog, speedMultFactor) end
+function Native.TimerDialogSetSpeed(dialog, speedMultFactor) end
 
----@param whichDialog timerdialog
+---@param dialog timerdialog
 ---@param display boolean
 ---@return void
-function Native.TimerDialogDisplay(whichDialog, display) end
+function Native.TimerDialogDisplay(dialog, display) end
 
----@param whichDialog timerdialog
+---@param dialog timerdialog
 ---@return boolean
-function Native.IsTimerDialogDisplayed(whichDialog) end
+function Native.IsTimerDialogDisplayed(dialog) end
 
----@param whichDialog timerdialog
+---@param dialog timerdialog
 ---@param timeRemaining float
 ---@return void
-function Native.TimerDialogSetRealTimeRemaining(whichDialog, timeRemaining) end
+function Native.TimerDialogSetRealTimeRemaining(dialog, timeRemaining) end
 
 ---@return leaderboard
 function Native.CreateLeaderboard() end
@@ -4875,42 +4875,42 @@ function Native.LeaderboardSetValueColor(lb, red, green, blue, alpha) end
 function Native.LeaderboardSetStyle(lb, showLabel, showNames, showValues, showIcons) end
 
 ---@param lb leaderboard
----@param whichItem integer
+---@param item integer
 ---@param val integer
 ---@return void
-function Native.LeaderboardSetItemValue(lb, whichItem, val) end
+function Native.LeaderboardSetItemValue(lb, item, val) end
 
 ---@param lb leaderboard
----@param whichItem integer
+---@param item integer
 ---@param val string
 ---@return void
-function Native.LeaderboardSetItemLabel(lb, whichItem, val) end
+function Native.LeaderboardSetItemLabel(lb, item, val) end
 
 ---@param lb leaderboard
----@param whichItem integer
+---@param item integer
 ---@param showLabel boolean
 ---@param showValue boolean
 ---@param showIcon boolean
 ---@return void
-function Native.LeaderboardSetItemStyle(lb, whichItem, showLabel, showValue, showIcon) end
+function Native.LeaderboardSetItemStyle(lb, item, showLabel, showValue, showIcon) end
 
 ---@param lb leaderboard
----@param whichItem integer
+---@param item integer
 ---@param red integer
 ---@param green integer
 ---@param blue integer
 ---@param alpha integer
 ---@return void
-function Native.LeaderboardSetItemLabelColor(lb, whichItem, red, green, blue, alpha) end
+function Native.LeaderboardSetItemLabelColor(lb, item, red, green, blue, alpha) end
 
 ---@param lb leaderboard
----@param whichItem integer
+---@param item integer
 ---@param red integer
 ---@param green integer
 ---@param blue integer
 ---@param alpha integer
 ---@return void
-function Native.LeaderboardSetItemValueColor(lb, whichItem, red, green, blue, alpha) end
+function Native.LeaderboardSetItemValueColor(lb, item, red, green, blue, alpha) end
 
 ---@return multiboard
 function Native.CreateMultiboard() end
@@ -5111,87 +5111,87 @@ function Native.SetCinematicCamera(cameraModelFile) end
 ---@return void
 function Native.SetCameraRotateMode(x, y, radiansToSweep, duration) end
 
----@param whichField camerafield
+---@param field camerafield
 ---@param value float
 ---@param duration float
 ---@return void
-function Native.SetCameraField(whichField, value, duration) end
+function Native.SetCameraField(field, value, duration) end
 
----@param whichField camerafield
+---@param field camerafield
 ---@param offset float
 ---@param duration float
 ---@return void
-function Native.AdjustCameraField(whichField, offset, duration) end
+function Native.AdjustCameraField(field, offset, duration) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param xOffset float
 ---@param yOffset float
 ---@param inheritOrientation boolean
 ---@return void
-function Native.SetCameraTargetController(whichUnit, xOffset, yOffset, inheritOrientation) end
+function Native.SetCameraTargetController(unit, xOffset, yOffset, inheritOrientation) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param xOffset float
 ---@param yOffset float
 ---@return void
-function Native.SetCameraOrientController(whichUnit, xOffset, yOffset) end
+function Native.SetCameraOrientController(unit, xOffset, yOffset) end
 
 ---@return camerasetup
 function Native.CreateCameraSetup() end
 
----@param whichSetup camerasetup
----@param whichField camerafield
+---@param setup camerasetup
+---@param field camerafield
 ---@param value float
 ---@param duration float
 ---@return void
-function Native.CameraSetupSetField(whichSetup, whichField, value, duration) end
+function Native.CameraSetupSetField(setup, field, value, duration) end
 
----@param whichSetup camerasetup
----@param whichField camerafield
+---@param setup camerasetup
+---@param field camerafield
 ---@return float
-function Native.CameraSetupGetField(whichSetup, whichField) end
+function Native.CameraSetupGetField(setup, field) end
 
----@param whichSetup camerasetup
+---@param setup camerasetup
 ---@param x float
 ---@param y float
 ---@param duration float
 ---@return void
-function Native.CameraSetupSetDestPosition(whichSetup, x, y, duration) end
+function Native.CameraSetupSetDestPosition(setup, x, y, duration) end
 
----@param whichSetup camerasetup
+---@param setup camerasetup
 ---@return location
-function Native.CameraSetupGetDestPositionLoc(whichSetup) end
+function Native.CameraSetupGetDestPositionLoc(setup) end
 
----@param whichSetup camerasetup
+---@param setup camerasetup
 ---@return float
-function Native.CameraSetupGetDestPositionX(whichSetup) end
+function Native.CameraSetupGetDestPositionX(setup) end
 
----@param whichSetup camerasetup
+---@param setup camerasetup
 ---@return float
-function Native.CameraSetupGetDestPositionY(whichSetup) end
+function Native.CameraSetupGetDestPositionY(setup) end
 
----@param whichSetup camerasetup
+---@param setup camerasetup
 ---@param doPan boolean
 ---@param panTimed boolean
 ---@return void
-function Native.CameraSetupApply(whichSetup, doPan, panTimed) end
+function Native.CameraSetupApply(setup, doPan, panTimed) end
 
----@param whichSetup camerasetup
+---@param setup camerasetup
 ---@param zDestOffset float
 ---@return void
-function Native.CameraSetupApplyWithZ(whichSetup, zDestOffset) end
+function Native.CameraSetupApplyWithZ(setup, zDestOffset) end
 
----@param whichSetup camerasetup
+---@param setup camerasetup
 ---@param doPan boolean
 ---@param forceDuration float
 ---@return void
-function Native.CameraSetupApplyForceDuration(whichSetup, doPan, forceDuration) end
+function Native.CameraSetupApplyForceDuration(setup, doPan, forceDuration) end
 
----@param whichSetup camerasetup
+---@param setup camerasetup
 ---@param zDestOffset float
 ---@param forceDuration float
 ---@return void
-function Native.CameraSetupApplyForceDurationWithZ(whichSetup, zDestOffset, forceDuration) end
+function Native.CameraSetupApplyForceDurationWithZ(setup, zDestOffset, forceDuration) end
 
 ---@param mag float
 ---@param velocity float
@@ -5223,13 +5223,13 @@ function Native.CameraSetSmoothingFactor(factor) end
 ---@return void
 function Native.SetCineFilterTexture(filename) end
 
----@param whichMode blendmode
+---@param mode blendmode
 ---@return void
-function Native.SetCineFilterBlendMode(whichMode) end
+function Native.SetCineFilterBlendMode(mode) end
 
----@param whichFlags texmapflags
+---@param flags texmapflags
 ---@return void
-function Native.SetCineFilterTexMapFlags(whichFlags) end
+function Native.SetCineFilterTexMapFlags(flags) end
 
 ---@param minU float
 ---@param minV float
@@ -5286,9 +5286,9 @@ function Native.EndCinematicScene() end
 ---@return void
 function Native.ForceCinematicSubtitles(flag) end
 
----@param whichMargin integer
+---@param margin integer
 ---@return float
-function Native.GetCameraMargin(whichMargin) end
+function Native.GetCameraMargin(margin) end
 
 ---@return float
 function Native.GetCameraBoundMinX() end
@@ -5302,9 +5302,9 @@ function Native.GetCameraBoundMaxX() end
 ---@return float
 function Native.GetCameraBoundMaxY() end
 
----@param whichField camerafield
+---@param field camerafield
 ---@return float
-function Native.GetCameraField(whichField) end
+function Native.GetCameraField(field) end
 
 ---@return float
 function Native.GetCameraTargetPositionX() end
@@ -5434,9 +5434,9 @@ function Native.SetSoundPosition(soundHandle, x, y, z) end
 function Native.SetSoundVelocity(soundHandle, x, y, z) end
 
 ---@param soundHandle sound
----@param whichUnit unit
+---@param unit unit
 ---@return void
-function Native.AttachSoundToUnit(soundHandle, whichUnit) end
+function Native.AttachSoundToUnit(soundHandle, unit) end
 
 ---@param soundHandle sound
 ---@return void
@@ -5550,14 +5550,14 @@ function Native.UnregisterStackedSound(soundHandle, byPosition, rectWidth, rectH
 ---@return weathereffect
 function Native.AddWeatherEffect(where, effectID) end
 
----@param whichEffect weathereffect
+---@param effect weathereffect
 ---@return void
-function Native.RemoveWeatherEffect(whichEffect) end
+function Native.RemoveWeatherEffect(effect) end
 
----@param whichEffect weathereffect
+---@param effect weathereffect
 ---@param enable boolean
 ---@return void
-function Native.EnableWeatherEffect(whichEffect, enable) end
+function Native.EnableWeatherEffect(effect, enable) end
 
 ---@param x float
 ---@param y float
@@ -5629,9 +5629,9 @@ function Native.AddSpecialEffectLoc(modelName, where) end
 ---@return effect
 function Native.AddSpecialEffectTarget(modelName, targetWidget, attachPointName) end
 
----@param whichEffect effect
+---@param effect effect
 ---@return void
-function Native.DestroyEffect(whichEffect) end
+function Native.DestroyEffect(effect) end
 
 ---@param abilityString string
 ---@param t effecttype
@@ -5693,20 +5693,20 @@ function Native.AddLightning(codeName, checkVisibility, x1, y1, x2, y2) end
 ---@return lightning
 function Native.AddLightningEx(codeName, checkVisibility, x1, y1, z1, x2, y2, z2) end
 
----@param whichBolt lightning
+---@param bolt lightning
 ---@return boolean
-function Native.DestroyLightning(whichBolt) end
+function Native.DestroyLightning(bolt) end
 
----@param whichBolt lightning
+---@param bolt lightning
 ---@param checkVisibility boolean
 ---@param x1 float
 ---@param y1 float
 ---@param x2 float
 ---@param y2 float
 ---@return boolean
-function Native.MoveLightning(whichBolt, checkVisibility, x1, y1, x2, y2) end
+function Native.MoveLightning(bolt, checkVisibility, x1, y1, x2, y2) end
 
----@param whichBolt lightning
+---@param bolt lightning
 ---@param checkVisibility boolean
 ---@param x1 float
 ---@param y1 float
@@ -5715,31 +5715,31 @@ function Native.MoveLightning(whichBolt, checkVisibility, x1, y1, x2, y2) end
 ---@param y2 float
 ---@param z2 float
 ---@return boolean
-function Native.MoveLightningEx(whichBolt, checkVisibility, x1, y1, z1, x2, y2, z2) end
+function Native.MoveLightningEx(bolt, checkVisibility, x1, y1, z1, x2, y2, z2) end
 
----@param whichBolt lightning
+---@param bolt lightning
 ---@return float
-function Native.GetLightningColorA(whichBolt) end
+function Native.GetLightningColorA(bolt) end
 
----@param whichBolt lightning
+---@param bolt lightning
 ---@return float
-function Native.GetLightningColorR(whichBolt) end
+function Native.GetLightningColorR(bolt) end
 
----@param whichBolt lightning
+---@param bolt lightning
 ---@return float
-function Native.GetLightningColorG(whichBolt) end
+function Native.GetLightningColorG(bolt) end
 
----@param whichBolt lightning
+---@param bolt lightning
 ---@return float
-function Native.GetLightningColorB(whichBolt) end
+function Native.GetLightningColorB(bolt) end
 
----@param whichBolt lightning
+---@param bolt lightning
 ---@param r float
 ---@param g float
 ---@param b float
 ---@param a float
 ---@return boolean
-function Native.SetLightningColor(whichBolt, r, g, b, a) end
+function Native.SetLightningColor(bolt, r, g, b, a) end
 
 ---@param abilityString string
 ---@param t effecttype
@@ -5825,56 +5825,56 @@ function Native.SetTerrainPathable(x, y, t, flag) end
 ---@return image
 function Native.CreateImage(file, sizeX, sizeY, sizeZ, posX, posY, posZ, originX, originY, originZ, imageType) end
 
----@param whichImage image
+---@param image image
 ---@return void
-function Native.DestroyImage(whichImage) end
+function Native.DestroyImage(image) end
 
----@param whichImage image
+---@param image image
 ---@param flag boolean
 ---@return void
-function Native.ShowImage(whichImage, flag) end
+function Native.ShowImage(image, flag) end
 
----@param whichImage image
+---@param image image
 ---@param flag boolean
 ---@param height float
 ---@return void
-function Native.SetImageConstantHeight(whichImage, flag, height) end
+function Native.SetImageConstantHeight(image, flag, height) end
 
----@param whichImage image
+---@param image image
 ---@param x float
 ---@param y float
 ---@param z float
 ---@return void
-function Native.SetImagePosition(whichImage, x, y, z) end
+function Native.SetImagePosition(image, x, y, z) end
 
----@param whichImage image
+---@param image image
 ---@param red integer
 ---@param green integer
 ---@param blue integer
 ---@param alpha integer
 ---@return void
-function Native.SetImageColor(whichImage, red, green, blue, alpha) end
+function Native.SetImageColor(image, red, green, blue, alpha) end
 
----@param whichImage image
+---@param image image
 ---@param flag boolean
 ---@return void
-function Native.SetImageRender(whichImage, flag) end
+function Native.SetImageRender(image, flag) end
 
----@param whichImage image
+---@param image image
 ---@param flag boolean
 ---@return void
-function Native.SetImageRenderAlways(whichImage, flag) end
+function Native.SetImageRenderAlways(image, flag) end
 
----@param whichImage image
+---@param image image
 ---@param flag boolean
 ---@param useWaterAlpha boolean
 ---@return void
-function Native.SetImageAboveWater(whichImage, flag, useWaterAlpha) end
+function Native.SetImageAboveWater(image, flag, useWaterAlpha) end
 
----@param whichImage image
+---@param image image
 ---@param imageType integer
 ---@return void
-function Native.SetImageType(whichImage, imageType) end
+function Native.SetImageType(image, imageType) end
 
 ---@param x float
 ---@param y float
@@ -5888,60 +5888,60 @@ function Native.SetImageType(whichImage, imageType) end
 ---@return ubersplat
 function Native.CreateUbersplat(x, y, name, red, green, blue, alpha, forcePaused, noBirthTime) end
 
----@param whichSplat ubersplat
+---@param splat ubersplat
 ---@return void
-function Native.DestroyUbersplat(whichSplat) end
+function Native.DestroyUbersplat(splat) end
 
----@param whichSplat ubersplat
+---@param splat ubersplat
 ---@return void
-function Native.ResetUbersplat(whichSplat) end
+function Native.ResetUbersplat(splat) end
 
----@param whichSplat ubersplat
+---@param splat ubersplat
 ---@return void
-function Native.FinishUbersplat(whichSplat) end
+function Native.FinishUbersplat(splat) end
 
----@param whichSplat ubersplat
+---@param splat ubersplat
 ---@param flag boolean
 ---@return void
-function Native.ShowUbersplat(whichSplat, flag) end
+function Native.ShowUbersplat(splat, flag) end
 
----@param whichSplat ubersplat
+---@param splat ubersplat
 ---@param flag boolean
 ---@return void
-function Native.SetUbersplatRender(whichSplat, flag) end
+function Native.SetUbersplatRender(splat, flag) end
 
----@param whichSplat ubersplat
+---@param splat ubersplat
 ---@param flag boolean
 ---@return void
-function Native.SetUbersplatRenderAlways(whichSplat, flag) end
+function Native.SetUbersplatRenderAlways(splat, flag) end
 
----@param whichPlayer player
+---@param player player
 ---@param x float
 ---@param y float
 ---@param radius float
 ---@param addBlight boolean
 ---@return void
-function Native.SetBlight(whichPlayer, x, y, radius, addBlight) end
+function Native.SetBlight(player, x, y, radius, addBlight) end
 
----@param whichPlayer player
+---@param player player
 ---@param r rect
 ---@param addBlight boolean
 ---@return void
-function Native.SetBlightRect(whichPlayer, r, addBlight) end
+function Native.SetBlightRect(player, r, addBlight) end
 
----@param whichPlayer player
+---@param player player
 ---@param x float
 ---@param y float
 ---@param addBlight boolean
 ---@return void
-function Native.SetBlightPoint(whichPlayer, x, y, addBlight) end
+function Native.SetBlightPoint(player, x, y, addBlight) end
 
----@param whichPlayer player
----@param whichLocation location
+---@param player player
+---@param loc location
 ---@param radius float
 ---@param addBlight boolean
 ---@return void
-function Native.SetBlightLoc(whichPlayer, whichLocation, radius, addBlight) end
+function Native.SetBlightLoc(player, loc, radius, addBlight) end
 
 ---@param id player
 ---@param x float
@@ -6196,287 +6196,287 @@ function Native.BlzSetAbilityActivatedPosX(abilityCode, x) end
 ---@return void
 function Native.BlzSetAbilityActivatedPosY(abilityCode, y) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return integer
-function Native.BlzGetUnitMaxHP(whichUnit) end
+function Native.BlzGetUnitMaxHP(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param hp integer
 ---@return void
-function Native.BlzSetUnitMaxHP(whichUnit, hp) end
+function Native.BlzSetUnitMaxHP(unit, hp) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return integer
-function Native.BlzGetUnitMaxMana(whichUnit) end
+function Native.BlzGetUnitMaxMana(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param mana integer
 ---@return void
-function Native.BlzSetUnitMaxMana(whichUnit, mana) end
+function Native.BlzSetUnitMaxMana(unit, mana) end
 
----@param whichItem item
+---@param item item
 ---@param name string
 ---@return void
-function Native.BlzSetItemName(whichItem, name) end
+function Native.BlzSetItemName(item, name) end
 
----@param whichItem item
+---@param item item
 ---@param description string
 ---@return void
-function Native.BlzSetItemDescription(whichItem, description) end
+function Native.BlzSetItemDescription(item, description) end
 
----@param whichItem item
+---@param item item
 ---@return string
-function Native.BlzGetItemDescription(whichItem) end
+function Native.BlzGetItemDescription(item) end
 
----@param whichItem item
+---@param item item
 ---@param tooltip string
 ---@return void
-function Native.BlzSetItemTooltip(whichItem, tooltip) end
+function Native.BlzSetItemTooltip(item, tooltip) end
 
----@param whichItem item
+---@param item item
 ---@return string
-function Native.BlzGetItemTooltip(whichItem) end
+function Native.BlzGetItemTooltip(item) end
 
----@param whichItem item
+---@param item item
 ---@param extendedTooltip string
 ---@return void
-function Native.BlzSetItemExtendedTooltip(whichItem, extendedTooltip) end
+function Native.BlzSetItemExtendedTooltip(item, extendedTooltip) end
 
----@param whichItem item
+---@param item item
 ---@return string
-function Native.BlzGetItemExtendedTooltip(whichItem) end
+function Native.BlzGetItemExtendedTooltip(item) end
 
----@param whichItem item
+---@param item item
 ---@param iconPath string
 ---@return void
-function Native.BlzSetItemIconPath(whichItem, iconPath) end
+function Native.BlzSetItemIconPath(item, iconPath) end
 
----@param whichItem item
+---@param item item
 ---@return string
-function Native.BlzGetItemIconPath(whichItem) end
+function Native.BlzGetItemIconPath(item) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param name string
 ---@return void
-function Native.BlzSetUnitName(whichUnit, name) end
+function Native.BlzSetUnitName(unit, name) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param heroProperName string
 ---@return void
-function Native.BlzSetHeroProperName(whichUnit, heroProperName) end
+function Native.BlzSetHeroProperName(unit, heroProperName) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param weaponIndex integer
 ---@return integer
-function Native.BlzGetUnitBaseDamage(whichUnit, weaponIndex) end
+function Native.BlzGetUnitBaseDamage(unit, weaponIndex) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param baseDamage integer
 ---@param weaponIndex integer
 ---@return void
-function Native.BlzSetUnitBaseDamage(whichUnit, baseDamage, weaponIndex) end
+function Native.BlzSetUnitBaseDamage(unit, baseDamage, weaponIndex) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param weaponIndex integer
 ---@return integer
-function Native.BlzGetUnitDiceNumber(whichUnit, weaponIndex) end
+function Native.BlzGetUnitDiceNumber(unit, weaponIndex) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param diceNumber integer
 ---@param weaponIndex integer
 ---@return void
-function Native.BlzSetUnitDiceNumber(whichUnit, diceNumber, weaponIndex) end
+function Native.BlzSetUnitDiceNumber(unit, diceNumber, weaponIndex) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param weaponIndex integer
 ---@return integer
-function Native.BlzGetUnitDiceSides(whichUnit, weaponIndex) end
+function Native.BlzGetUnitDiceSides(unit, weaponIndex) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param diceSides integer
 ---@param weaponIndex integer
 ---@return void
-function Native.BlzSetUnitDiceSides(whichUnit, diceSides, weaponIndex) end
+function Native.BlzSetUnitDiceSides(unit, diceSides, weaponIndex) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param weaponIndex integer
 ---@return float
-function Native.BlzGetUnitAttackCooldown(whichUnit, weaponIndex) end
+function Native.BlzGetUnitAttackCooldown(unit, weaponIndex) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param cooldown float
 ---@param weaponIndex integer
 ---@return void
-function Native.BlzSetUnitAttackCooldown(whichUnit, cooldown, weaponIndex) end
+function Native.BlzSetUnitAttackCooldown(unit, cooldown, weaponIndex) end
 
----@param whichEffect effect
----@param whichPlayer player
+---@param effect effect
+---@param player player
 ---@return void
-function Native.BlzSetSpecialEffectColorByPlayer(whichEffect, whichPlayer) end
+function Native.BlzSetSpecialEffectColorByPlayer(effect, player) end
 
----@param whichEffect effect
+---@param effect effect
 ---@param r integer
 ---@param g integer
 ---@param b integer
 ---@return void
-function Native.BlzSetSpecialEffectColor(whichEffect, r, g, b) end
+function Native.BlzSetSpecialEffectColor(effect, r, g, b) end
 
----@param whichEffect effect
+---@param effect effect
 ---@param alpha integer
 ---@return void
-function Native.BlzSetSpecialEffectAlpha(whichEffect, alpha) end
+function Native.BlzSetSpecialEffectAlpha(effect, alpha) end
 
----@param whichEffect effect
+---@param effect effect
 ---@param scale float
 ---@return void
-function Native.BlzSetSpecialEffectScale(whichEffect, scale) end
+function Native.BlzSetSpecialEffectScale(effect, scale) end
 
----@param whichEffect effect
+---@param effect effect
 ---@param x float
 ---@param y float
 ---@param z float
 ---@return void
-function Native.BlzSetSpecialEffectPosition(whichEffect, x, y, z) end
+function Native.BlzSetSpecialEffectPosition(effect, x, y, z) end
 
----@param whichEffect effect
+---@param effect effect
 ---@param height float
 ---@return void
-function Native.BlzSetSpecialEffectHeight(whichEffect, height) end
+function Native.BlzSetSpecialEffectHeight(effect, height) end
 
----@param whichEffect effect
+---@param effect effect
 ---@param timeScale float
 ---@return void
-function Native.BlzSetSpecialEffectTimeScale(whichEffect, timeScale) end
+function Native.BlzSetSpecialEffectTimeScale(effect, timeScale) end
 
----@param whichEffect effect
+---@param effect effect
 ---@param time float
 ---@return void
-function Native.BlzSetSpecialEffectTime(whichEffect, time) end
+function Native.BlzSetSpecialEffectTime(effect, time) end
 
----@param whichEffect effect
+---@param effect effect
 ---@param yaw float
 ---@param pitch float
 ---@param roll float
 ---@return void
-function Native.BlzSetSpecialEffectOrientation(whichEffect, yaw, pitch, roll) end
+function Native.BlzSetSpecialEffectOrientation(effect, yaw, pitch, roll) end
 
----@param whichEffect effect
+---@param effect effect
 ---@param yaw float
 ---@return void
-function Native.BlzSetSpecialEffectYaw(whichEffect, yaw) end
+function Native.BlzSetSpecialEffectYaw(effect, yaw) end
 
----@param whichEffect effect
+---@param effect effect
 ---@param pitch float
 ---@return void
-function Native.BlzSetSpecialEffectPitch(whichEffect, pitch) end
+function Native.BlzSetSpecialEffectPitch(effect, pitch) end
 
----@param whichEffect effect
+---@param effect effect
 ---@param roll float
 ---@return void
-function Native.BlzSetSpecialEffectRoll(whichEffect, roll) end
+function Native.BlzSetSpecialEffectRoll(effect, roll) end
 
----@param whichEffect effect
+---@param effect effect
 ---@param x float
 ---@return void
-function Native.BlzSetSpecialEffectX(whichEffect, x) end
+function Native.BlzSetSpecialEffectX(effect, x) end
 
----@param whichEffect effect
+---@param effect effect
 ---@param y float
 ---@return void
-function Native.BlzSetSpecialEffectY(whichEffect, y) end
+function Native.BlzSetSpecialEffectY(effect, y) end
 
----@param whichEffect effect
+---@param effect effect
 ---@param z float
 ---@return void
-function Native.BlzSetSpecialEffectZ(whichEffect, z) end
+function Native.BlzSetSpecialEffectZ(effect, z) end
 
----@param whichEffect effect
+---@param effect effect
 ---@param loc location
 ---@return void
-function Native.BlzSetSpecialEffectPositionLoc(whichEffect, loc) end
+function Native.BlzSetSpecialEffectPositionLoc(effect, loc) end
 
----@param whichEffect effect
+---@param effect effect
 ---@return float
-function Native.BlzGetLocalSpecialEffectX(whichEffect) end
+function Native.BlzGetLocalSpecialEffectX(effect) end
 
----@param whichEffect effect
+---@param effect effect
 ---@return float
-function Native.BlzGetLocalSpecialEffectY(whichEffect) end
+function Native.BlzGetLocalSpecialEffectY(effect) end
 
----@param whichEffect effect
+---@param effect effect
 ---@return float
-function Native.BlzGetLocalSpecialEffectZ(whichEffect) end
+function Native.BlzGetLocalSpecialEffectZ(effect) end
 
----@param whichEffect effect
+---@param effect effect
 ---@return void
-function Native.BlzSpecialEffectClearSubAnimations(whichEffect) end
+function Native.BlzSpecialEffectClearSubAnimations(effect) end
 
----@param whichEffect effect
----@param whichSubAnim subanimtype
+---@param effect effect
+---@param subAnim subanimtype
 ---@return void
-function Native.BlzSpecialEffectRemoveSubAnimation(whichEffect, whichSubAnim) end
+function Native.BlzSpecialEffectRemoveSubAnimation(effect, subAnim) end
 
----@param whichEffect effect
----@param whichSubAnim subanimtype
+---@param effect effect
+---@param subAnim subanimtype
 ---@return void
-function Native.BlzSpecialEffectAddSubAnimation(whichEffect, whichSubAnim) end
+function Native.BlzSpecialEffectAddSubAnimation(effect, subAnim) end
 
----@param whichEffect effect
----@param whichAnim animtype
+---@param effect effect
+---@param anim animtype
 ---@return void
-function Native.BlzPlaySpecialEffect(whichEffect, whichAnim) end
+function Native.BlzPlaySpecialEffect(effect, anim) end
 
----@param whichEffect effect
----@param whichAnim animtype
+---@param effect effect
+---@param anim animtype
 ---@param timeScale float
 ---@return void
-function Native.BlzPlaySpecialEffectWithTimeScale(whichEffect, whichAnim, timeScale) end
+function Native.BlzPlaySpecialEffectWithTimeScale(effect, anim, timeScale) end
 
----@param whichAnim animtype
+---@param anim animtype
 ---@return string
-function Native.BlzGetAnimName(whichAnim) end
+function Native.BlzGetAnimName(anim) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return float
-function Native.BlzGetUnitArmor(whichUnit) end
+function Native.BlzGetUnitArmor(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param armorAmount float
 ---@return void
-function Native.BlzSetUnitArmor(whichUnit, armorAmount) end
+function Native.BlzSetUnitArmor(unit, armorAmount) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param abilityId integer
 ---@param flag boolean
 ---@return void
-function Native.BlzUnitHideAbility(whichUnit, abilityId, flag) end
+function Native.BlzUnitHideAbility(unit, abilityId, flag) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param abilityId integer
 ---@param flag boolean
 ---@param hideUI boolean
 ---@return void
-function Native.BlzUnitDisableAbility(whichUnit, abilityId, flag, hideUI) end
+function Native.BlzUnitDisableAbility(unit, abilityId, flag, hideUI) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return void
-function Native.BlzUnitCancelTimedLife(whichUnit) end
+function Native.BlzUnitCancelTimedLife(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return boolean
-function Native.BlzIsUnitSelectable(whichUnit) end
+function Native.BlzIsUnitSelectable(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return boolean
-function Native.BlzIsUnitInvulnerable(whichUnit) end
+function Native.BlzIsUnitInvulnerable(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return void
-function Native.BlzUnitInterruptAttack(whichUnit) end
+function Native.BlzUnitInterruptAttack(unit) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return float
-function Native.BlzGetUnitCollisionSize(whichUnit) end
+function Native.BlzGetUnitCollisionSize(unit) end
 
 ---@param abilityId integer
 ---@param level integer
@@ -6488,51 +6488,51 @@ function Native.BlzGetAbilityManaCost(abilityId, level) end
 ---@return float
 function Native.BlzGetAbilityCooldown(abilityId, level) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param abilityId integer
 ---@param level integer
 ---@param cooldown float
 ---@return void
-function Native.BlzSetUnitAbilityCooldown(whichUnit, abilityId, level, cooldown) end
+function Native.BlzSetUnitAbilityCooldown(unit, abilityId, level, cooldown) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param abilityId integer
 ---@param level integer
 ---@return float
-function Native.BlzGetUnitAbilityCooldown(whichUnit, abilityId, level) end
+function Native.BlzGetUnitAbilityCooldown(unit, abilityId, level) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param abilityId integer
 ---@return float
-function Native.BlzGetUnitAbilityCooldownRemaining(whichUnit, abilityId) end
+function Native.BlzGetUnitAbilityCooldownRemaining(unit, abilityId) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param abilityCode integer
 ---@return void
-function Native.BlzEndUnitAbilityCooldown(whichUnit, abilityCode) end
+function Native.BlzEndUnitAbilityCooldown(unit, abilityCode) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param abilityId integer
 ---@param level integer
 ---@return integer
-function Native.BlzGetUnitAbilityManaCost(whichUnit, abilityId, level) end
+function Native.BlzGetUnitAbilityManaCost(unit, abilityId, level) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param abilityId integer
 ---@param level integer
 ---@param manaCost integer
 ---@return void
-function Native.BlzSetUnitAbilityManaCost(whichUnit, abilityId, level, manaCost) end
+function Native.BlzSetUnitAbilityManaCost(unit, abilityId, level, manaCost) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return float
-function Native.BlzGetLocalUnitZ(whichUnit) end
+function Native.BlzGetLocalUnitZ(unit) end
 
----@param whichPlayer player
+---@param player player
 ---@param techId integer
 ---@param levels integer
 ---@return void
-function Native.BlzDecPlayerTechResearched(whichPlayer, techId, levels) end
+function Native.BlzDecPlayerTechResearched(player, techId, levels) end
 
 ---@param damage float
 ---@return void
@@ -6563,7 +6563,7 @@ function Native.BlzSetEventDamageType(damageType) end
 function Native.BlzSetEventWeaponType(weaponType) end
 
 ---@param dataType integer
----@param whichPlayer player
+---@param player player
 ---@param param1 string
 ---@param param2 string
 ---@param param3 boolean
@@ -6571,10 +6571,10 @@ function Native.BlzSetEventWeaponType(weaponType) end
 ---@param param5 integer
 ---@param param6 integer
 ---@return integer
-function Native.RequestExtraIntegerData(dataType, whichPlayer, param1, param2, param3, param4, param5, param6) end
+function Native.RequestExtraIntegerData(dataType, player, param1, param2, param3, param4, param5, param6) end
 
 ---@param dataType integer
----@param whichPlayer player
+---@param player player
 ---@param param1 string
 ---@param param2 string
 ---@param param3 boolean
@@ -6582,10 +6582,10 @@ function Native.RequestExtraIntegerData(dataType, whichPlayer, param1, param2, p
 ---@param param5 integer
 ---@param param6 integer
 ---@return boolean
-function Native.RequestExtraBooleanData(dataType, whichPlayer, param1, param2, param3, param4, param5, param6) end
+function Native.RequestExtraBooleanData(dataType, player, param1, param2, param3, param4, param5, param6) end
 
 ---@param dataType integer
----@param whichPlayer player
+---@param player player
 ---@param param1 string
 ---@param param2 string
 ---@param param3 boolean
@@ -6593,10 +6593,10 @@ function Native.RequestExtraBooleanData(dataType, whichPlayer, param1, param2, p
 ---@param param5 integer
 ---@param param6 integer
 ---@return string
-function Native.RequestExtraStringData(dataType, whichPlayer, param1, param2, param3, param4, param5, param6) end
+function Native.RequestExtraStringData(dataType, player, param1, param2, param3, param4, param5, param6) end
 
 ---@param dataType integer
----@param whichPlayer player
+---@param player player
 ---@param param1 string
 ---@param param2 string
 ---@param param3 boolean
@@ -6604,11 +6604,11 @@ function Native.RequestExtraStringData(dataType, whichPlayer, param1, param2, pa
 ---@param param5 integer
 ---@param param6 integer
 ---@return float
-function Native.RequestExtraRealData(dataType, whichPlayer, param1, param2, param3, param4, param5, param6) end
+function Native.RequestExtraRealData(dataType, player, param1, param2, param3, param4, param5, param6) end
 
----@param whichUnit unit
+---@param unit unit
 ---@return float
-function Native.BlzGetUnitZ(whichUnit) end
+function Native.BlzGetUnitZ(unit) end
 
 ---@param enableSelection boolean
 ---@param enableSelectionCircle boolean
@@ -6621,14 +6621,14 @@ function Native.BlzIsSelectionEnabled() end
 ---@return boolean
 function Native.BlzIsSelectionCircleEnabled() end
 
----@param whichSetup camerasetup
+---@param setup camerasetup
 ---@param doPan boolean
 ---@param forcedDuration float
 ---@param easeInDuration float
 ---@param easeOutDuration float
 ---@param smoothFactor float
 ---@return void
-function Native.BlzCameraSetupApplyForceDurationSmooth(whichSetup, doPan, forcedDuration, easeInDuration, easeOutDuration, smoothFactor) end
+function Native.BlzCameraSetupApplyForceDurationSmooth(setup, doPan, forcedDuration, easeInDuration, easeOutDuration, smoothFactor) end
 
 ---@param enable boolean
 ---@return void
@@ -6879,11 +6879,11 @@ function Native.BlzFrameSetFont(frame, fileName, height, flags) end
 ---@return void
 function Native.BlzFrameSetTextAlignment(frame, vert, horz) end
 
----@param whichTrigger trigger
+---@param trigger trigger
 ---@param frame framehandle
 ---@param eventId frameeventtype
 ---@return event
-function Native.BlzTriggerRegisterFrameEvent(whichTrigger, frame, eventId) end
+function Native.BlzTriggerRegisterFrameEvent(trigger, frame, eventId) end
 
 ---@return framehandle
 function Native.BlzGetTriggerFrame() end
@@ -6891,12 +6891,12 @@ function Native.BlzGetTriggerFrame() end
 ---@return frameeventtype
 function Native.BlzGetTriggerFrameEvent() end
 
----@param whichTrigger trigger
----@param whichPlayer player
+---@param trigger trigger
+---@param player player
 ---@param prefix string
 ---@param fromServer boolean
 ---@return event
-function Native.BlzTriggerRegisterPlayerSyncEvent(whichTrigger, whichPlayer, prefix, fromServer) end
+function Native.BlzTriggerRegisterPlayerSyncEvent(trigger, player, prefix, fromServer) end
 
 ---@param prefix string
 ---@param data string
@@ -6909,13 +6909,13 @@ function Native.BlzGetTriggerSyncPrefix() end
 ---@return string
 function Native.BlzGetTriggerSyncData() end
 
----@param whichTrigger trigger
----@param whichPlayer player
+---@param trigger trigger
+---@param player player
 ---@param key oskeytype
 ---@param metaKey integer
 ---@param keyDown boolean
 ---@return event
-function Native.BlzTriggerRegisterPlayerKeyEvent(whichTrigger, whichPlayer, key, metaKey, keyDown) end
+function Native.BlzTriggerRegisterPlayerKeyEvent(trigger, player, key, metaKey, keyDown) end
 
 ---@return oskeytype
 function Native.BlzGetTriggerPlayerKey() end
@@ -6954,41 +6954,41 @@ function Native.BlzChangeMinimapTerrainTex(texFile) end
 ---@return string
 function Native.BlzGetLocale() end
 
----@param whichEffect effect
+---@param effect effect
 ---@return float
-function Native.BlzGetSpecialEffectScale(whichEffect) end
+function Native.BlzGetSpecialEffectScale(effect) end
 
----@param whichEffect effect
+---@param effect effect
 ---@param x float
 ---@param y float
 ---@param z float
 ---@return void
-function Native.BlzSetSpecialEffectMatrixScale(whichEffect, x, y, z) end
+function Native.BlzSetSpecialEffectMatrixScale(effect, x, y, z) end
 
----@param whichEffect effect
+---@param effect effect
 ---@return void
-function Native.BlzResetSpecialEffectMatrix(whichEffect) end
+function Native.BlzResetSpecialEffectMatrix(effect) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param abilityId integer
 ---@return ability
-function Native.BlzGetUnitAbility(whichUnit, abilityId) end
+function Native.BlzGetUnitAbility(unit, abilityId) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param index integer
 ---@return ability
-function Native.BlzGetUnitAbilityByIndex(whichUnit, index) end
+function Native.BlzGetUnitAbilityByIndex(unit, index) end
 
----@param whichPlayer player
+---@param player player
 ---@param recipient integer
 ---@param message string
 ---@return void
-function Native.BlzDisplayChatMessage(whichPlayer, recipient, message) end
+function Native.BlzDisplayChatMessage(player, recipient, message) end
 
----@param whichUnit unit
+---@param unit unit
 ---@param flag boolean
 ---@return void
-function Native.BlzPauseUnitEx(whichUnit, flag) end
+function Native.BlzPauseUnitEx(unit, flag) end
 
 ---@param x integer
 ---@param y integer
@@ -7005,374 +7005,374 @@ function Native.BlzBitAnd(x, y) end
 ---@return integer
 function Native.BlzBitXor(x, y) end
 
----@param whichAbility ability
----@param whichField abilitybooleanfield
+---@param ability ability
+---@param field abilitybooleanfield
 ---@return boolean
-function Native.BlzGetAbilityBooleanField(whichAbility, whichField) end
+function Native.BlzGetAbilityBooleanField(ability, field) end
 
----@param whichAbility ability
----@param whichField abilityintegerfield
+---@param ability ability
+---@param field abilityintegerfield
 ---@return integer
-function Native.BlzGetAbilityIntegerField(whichAbility, whichField) end
+function Native.BlzGetAbilityIntegerField(ability, field) end
 
----@param whichAbility ability
----@param whichField abilityrealfield
+---@param ability ability
+---@param field abilityrealfield
 ---@return float
-function Native.BlzGetAbilityRealField(whichAbility, whichField) end
+function Native.BlzGetAbilityRealField(ability, field) end
 
----@param whichAbility ability
----@param whichField abilitystringfield
+---@param ability ability
+---@param field abilitystringfield
 ---@return string
-function Native.BlzGetAbilityStringField(whichAbility, whichField) end
+function Native.BlzGetAbilityStringField(ability, field) end
 
----@param whichAbility ability
----@param whichField abilitybooleanlevelfield
+---@param ability ability
+---@param field abilitybooleanlevelfield
 ---@param level integer
 ---@return boolean
-function Native.BlzGetAbilityBooleanLevelField(whichAbility, whichField, level) end
+function Native.BlzGetAbilityBooleanLevelField(ability, field, level) end
 
----@param whichAbility ability
----@param whichField abilityintegerlevelfield
+---@param ability ability
+---@param field abilityintegerlevelfield
 ---@param level integer
 ---@return integer
-function Native.BlzGetAbilityIntegerLevelField(whichAbility, whichField, level) end
+function Native.BlzGetAbilityIntegerLevelField(ability, field, level) end
 
----@param whichAbility ability
----@param whichField abilityreallevelfield
+---@param ability ability
+---@param field abilityreallevelfield
 ---@param level integer
 ---@return float
-function Native.BlzGetAbilityRealLevelField(whichAbility, whichField, level) end
+function Native.BlzGetAbilityRealLevelField(ability, field, level) end
 
----@param whichAbility ability
----@param whichField abilitystringlevelfield
+---@param ability ability
+---@param field abilitystringlevelfield
 ---@param level integer
 ---@return string
-function Native.BlzGetAbilityStringLevelField(whichAbility, whichField, level) end
+function Native.BlzGetAbilityStringLevelField(ability, field, level) end
 
----@param whichAbility ability
----@param whichField abilitybooleanlevelarrayfield
+---@param ability ability
+---@param field abilitybooleanlevelarrayfield
 ---@param level integer
 ---@param index integer
 ---@return boolean
-function Native.BlzGetAbilityBooleanLevelArrayField(whichAbility, whichField, level, index) end
+function Native.BlzGetAbilityBooleanLevelArrayField(ability, field, level, index) end
 
----@param whichAbility ability
----@param whichField abilityintegerlevelarrayfield
+---@param ability ability
+---@param field abilityintegerlevelarrayfield
 ---@param level integer
 ---@param index integer
 ---@return integer
-function Native.BlzGetAbilityIntegerLevelArrayField(whichAbility, whichField, level, index) end
+function Native.BlzGetAbilityIntegerLevelArrayField(ability, field, level, index) end
 
----@param whichAbility ability
----@param whichField abilityreallevelarrayfield
+---@param ability ability
+---@param field abilityreallevelarrayfield
 ---@param level integer
 ---@param index integer
 ---@return float
-function Native.BlzGetAbilityRealLevelArrayField(whichAbility, whichField, level, index) end
+function Native.BlzGetAbilityRealLevelArrayField(ability, field, level, index) end
 
----@param whichAbility ability
----@param whichField abilitystringlevelarrayfield
+---@param ability ability
+---@param field abilitystringlevelarrayfield
 ---@param level integer
 ---@param index integer
 ---@return string
-function Native.BlzGetAbilityStringLevelArrayField(whichAbility, whichField, level, index) end
+function Native.BlzGetAbilityStringLevelArrayField(ability, field, level, index) end
 
----@param whichAbility ability
----@param whichField abilitybooleanfield
+---@param ability ability
+---@param field abilitybooleanfield
 ---@param value boolean
 ---@return boolean
-function Native.BlzSetAbilityBooleanField(whichAbility, whichField, value) end
+function Native.BlzSetAbilityBooleanField(ability, field, value) end
 
----@param whichAbility ability
----@param whichField abilityintegerfield
+---@param ability ability
+---@param field abilityintegerfield
 ---@param value integer
 ---@return boolean
-function Native.BlzSetAbilityIntegerField(whichAbility, whichField, value) end
+function Native.BlzSetAbilityIntegerField(ability, field, value) end
 
----@param whichAbility ability
----@param whichField abilityrealfield
+---@param ability ability
+---@param field abilityrealfield
 ---@param value float
 ---@return boolean
-function Native.BlzSetAbilityRealField(whichAbility, whichField, value) end
+function Native.BlzSetAbilityRealField(ability, field, value) end
 
----@param whichAbility ability
----@param whichField abilitystringfield
+---@param ability ability
+---@param field abilitystringfield
 ---@param value string
 ---@return boolean
-function Native.BlzSetAbilityStringField(whichAbility, whichField, value) end
+function Native.BlzSetAbilityStringField(ability, field, value) end
 
----@param whichAbility ability
----@param whichField abilitybooleanlevelfield
+---@param ability ability
+---@param field abilitybooleanlevelfield
 ---@param level integer
 ---@param value boolean
 ---@return boolean
-function Native.BlzSetAbilityBooleanLevelField(whichAbility, whichField, level, value) end
+function Native.BlzSetAbilityBooleanLevelField(ability, field, level, value) end
 
----@param whichAbility ability
----@param whichField abilityintegerlevelfield
+---@param ability ability
+---@param field abilityintegerlevelfield
 ---@param level integer
 ---@param value integer
 ---@return boolean
-function Native.BlzSetAbilityIntegerLevelField(whichAbility, whichField, level, value) end
+function Native.BlzSetAbilityIntegerLevelField(ability, field, level, value) end
 
----@param whichAbility ability
----@param whichField abilityreallevelfield
+---@param ability ability
+---@param field abilityreallevelfield
 ---@param level integer
 ---@param value float
 ---@return boolean
-function Native.BlzSetAbilityRealLevelField(whichAbility, whichField, level, value) end
+function Native.BlzSetAbilityRealLevelField(ability, field, level, value) end
 
----@param whichAbility ability
----@param whichField abilitystringlevelfield
+---@param ability ability
+---@param field abilitystringlevelfield
 ---@param level integer
 ---@param value string
 ---@return boolean
-function Native.BlzSetAbilityStringLevelField(whichAbility, whichField, level, value) end
+function Native.BlzSetAbilityStringLevelField(ability, field, level, value) end
 
----@param whichAbility ability
----@param whichField abilitybooleanlevelarrayfield
+---@param ability ability
+---@param field abilitybooleanlevelarrayfield
 ---@param level integer
 ---@param index integer
 ---@param value boolean
 ---@return boolean
-function Native.BlzSetAbilityBooleanLevelArrayField(whichAbility, whichField, level, index, value) end
+function Native.BlzSetAbilityBooleanLevelArrayField(ability, field, level, index, value) end
 
----@param whichAbility ability
----@param whichField abilityintegerlevelarrayfield
+---@param ability ability
+---@param field abilityintegerlevelarrayfield
 ---@param level integer
 ---@param index integer
 ---@param value integer
 ---@return boolean
-function Native.BlzSetAbilityIntegerLevelArrayField(whichAbility, whichField, level, index, value) end
+function Native.BlzSetAbilityIntegerLevelArrayField(ability, field, level, index, value) end
 
----@param whichAbility ability
----@param whichField abilityreallevelarrayfield
+---@param ability ability
+---@param field abilityreallevelarrayfield
 ---@param level integer
 ---@param index integer
 ---@param value float
 ---@return boolean
-function Native.BlzSetAbilityRealLevelArrayField(whichAbility, whichField, level, index, value) end
+function Native.BlzSetAbilityRealLevelArrayField(ability, field, level, index, value) end
 
----@param whichAbility ability
----@param whichField abilitystringlevelarrayfield
+---@param ability ability
+---@param field abilitystringlevelarrayfield
 ---@param level integer
 ---@param index integer
 ---@param value string
 ---@return boolean
-function Native.BlzSetAbilityStringLevelArrayField(whichAbility, whichField, level, index, value) end
+function Native.BlzSetAbilityStringLevelArrayField(ability, field, level, index, value) end
 
----@param whichAbility ability
----@param whichField abilitybooleanlevelarrayfield
+---@param ability ability
+---@param field abilitybooleanlevelarrayfield
 ---@param level integer
 ---@param value boolean
 ---@return boolean
-function Native.BlzAddAbilityBooleanLevelArrayField(whichAbility, whichField, level, value) end
+function Native.BlzAddAbilityBooleanLevelArrayField(ability, field, level, value) end
 
----@param whichAbility ability
----@param whichField abilityintegerlevelarrayfield
+---@param ability ability
+---@param field abilityintegerlevelarrayfield
 ---@param level integer
 ---@param value integer
 ---@return boolean
-function Native.BlzAddAbilityIntegerLevelArrayField(whichAbility, whichField, level, value) end
+function Native.BlzAddAbilityIntegerLevelArrayField(ability, field, level, value) end
 
----@param whichAbility ability
----@param whichField abilityreallevelarrayfield
+---@param ability ability
+---@param field abilityreallevelarrayfield
 ---@param level integer
 ---@param value float
 ---@return boolean
-function Native.BlzAddAbilityRealLevelArrayField(whichAbility, whichField, level, value) end
+function Native.BlzAddAbilityRealLevelArrayField(ability, field, level, value) end
 
----@param whichAbility ability
----@param whichField abilitystringlevelarrayfield
+---@param ability ability
+---@param field abilitystringlevelarrayfield
 ---@param level integer
 ---@param value string
 ---@return boolean
-function Native.BlzAddAbilityStringLevelArrayField(whichAbility, whichField, level, value) end
+function Native.BlzAddAbilityStringLevelArrayField(ability, field, level, value) end
 
----@param whichAbility ability
----@param whichField abilitybooleanlevelarrayfield
+---@param ability ability
+---@param field abilitybooleanlevelarrayfield
 ---@param level integer
 ---@param value boolean
 ---@return boolean
-function Native.BlzRemoveAbilityBooleanLevelArrayField(whichAbility, whichField, level, value) end
+function Native.BlzRemoveAbilityBooleanLevelArrayField(ability, field, level, value) end
 
----@param whichAbility ability
----@param whichField abilityintegerlevelarrayfield
+---@param ability ability
+---@param field abilityintegerlevelarrayfield
 ---@param level integer
 ---@param value integer
 ---@return boolean
-function Native.BlzRemoveAbilityIntegerLevelArrayField(whichAbility, whichField, level, value) end
+function Native.BlzRemoveAbilityIntegerLevelArrayField(ability, field, level, value) end
 
----@param whichAbility ability
----@param whichField abilityreallevelarrayfield
+---@param ability ability
+---@param field abilityreallevelarrayfield
 ---@param level integer
 ---@param value float
 ---@return boolean
-function Native.BlzRemoveAbilityRealLevelArrayField(whichAbility, whichField, level, value) end
+function Native.BlzRemoveAbilityRealLevelArrayField(ability, field, level, value) end
 
----@param whichAbility ability
----@param whichField abilitystringlevelarrayfield
+---@param ability ability
+---@param field abilitystringlevelarrayfield
 ---@param level integer
 ---@param value string
 ---@return boolean
-function Native.BlzRemoveAbilityStringLevelArrayField(whichAbility, whichField, level, value) end
+function Native.BlzRemoveAbilityStringLevelArrayField(ability, field, level, value) end
 
----@param whichItem item
+---@param item item
 ---@param index integer
 ---@return ability
-function Native.BlzGetItemAbilityByIndex(whichItem, index) end
+function Native.BlzGetItemAbilityByIndex(item, index) end
 
----@param whichItem item
+---@param item item
 ---@param abilityCode integer
 ---@return ability
-function Native.BlzGetItemAbility(whichItem, abilityCode) end
+function Native.BlzGetItemAbility(item, abilityCode) end
 
----@param whichItem item
+---@param item item
 ---@param abilityCode integer
 ---@return boolean
-function Native.BlzItemAddAbility(whichItem, abilityCode) end
+function Native.BlzItemAddAbility(item, abilityCode) end
 
----@param whichItem item
----@param whichField itembooleanfield
+---@param item item
+---@param field itembooleanfield
 ---@return boolean
-function Native.BlzGetItemBooleanField(whichItem, whichField) end
+function Native.BlzGetItemBooleanField(item, field) end
 
----@param whichItem item
----@param whichField itemintegerfield
+---@param item item
+---@param field itemintegerfield
 ---@return integer
-function Native.BlzGetItemIntegerField(whichItem, whichField) end
+function Native.BlzGetItemIntegerField(item, field) end
 
----@param whichItem item
----@param whichField itemrealfield
+---@param item item
+---@param field itemrealfield
 ---@return float
-function Native.BlzGetItemRealField(whichItem, whichField) end
+function Native.BlzGetItemRealField(item, field) end
 
----@param whichItem item
----@param whichField itemstringfield
+---@param item item
+---@param field itemstringfield
 ---@return string
-function Native.BlzGetItemStringField(whichItem, whichField) end
+function Native.BlzGetItemStringField(item, field) end
 
----@param whichItem item
----@param whichField itembooleanfield
+---@param item item
+---@param field itembooleanfield
 ---@param value boolean
 ---@return boolean
-function Native.BlzSetItemBooleanField(whichItem, whichField, value) end
+function Native.BlzSetItemBooleanField(item, field, value) end
 
----@param whichItem item
----@param whichField itemintegerfield
+---@param item item
+---@param field itemintegerfield
 ---@param value integer
 ---@return boolean
-function Native.BlzSetItemIntegerField(whichItem, whichField, value) end
+function Native.BlzSetItemIntegerField(item, field, value) end
 
----@param whichItem item
----@param whichField itemrealfield
+---@param item item
+---@param field itemrealfield
 ---@param value float
 ---@return boolean
-function Native.BlzSetItemRealField(whichItem, whichField, value) end
+function Native.BlzSetItemRealField(item, field, value) end
 
----@param whichItem item
----@param whichField itemstringfield
+---@param item item
+---@param field itemstringfield
 ---@param value string
 ---@return boolean
-function Native.BlzSetItemStringField(whichItem, whichField, value) end
+function Native.BlzSetItemStringField(item, field, value) end
 
----@param whichItem item
+---@param item item
 ---@param abilityCode integer
 ---@return boolean
-function Native.BlzItemRemoveAbility(whichItem, abilityCode) end
+function Native.BlzItemRemoveAbility(item, abilityCode) end
 
----@param whichUnit unit
----@param whichField unitbooleanfield
+---@param unit unit
+---@param field unitbooleanfield
 ---@return boolean
-function Native.BlzGetUnitBooleanField(whichUnit, whichField) end
+function Native.BlzGetUnitBooleanField(unit, field) end
 
----@param whichUnit unit
----@param whichField unitintegerfield
+---@param unit unit
+---@param field unitintegerfield
 ---@return integer
-function Native.BlzGetUnitIntegerField(whichUnit, whichField) end
+function Native.BlzGetUnitIntegerField(unit, field) end
 
----@param whichUnit unit
----@param whichField unitrealfield
+---@param unit unit
+---@param field unitrealfield
 ---@return float
-function Native.BlzGetUnitRealField(whichUnit, whichField) end
+function Native.BlzGetUnitRealField(unit, field) end
 
----@param whichUnit unit
----@param whichField unitstringfield
+---@param unit unit
+---@param field unitstringfield
 ---@return string
-function Native.BlzGetUnitStringField(whichUnit, whichField) end
+function Native.BlzGetUnitStringField(unit, field) end
 
----@param whichUnit unit
----@param whichField unitbooleanfield
+---@param unit unit
+---@param field unitbooleanfield
 ---@param value boolean
 ---@return boolean
-function Native.BlzSetUnitBooleanField(whichUnit, whichField, value) end
+function Native.BlzSetUnitBooleanField(unit, field, value) end
 
----@param whichUnit unit
----@param whichField unitintegerfield
+---@param unit unit
+---@param field unitintegerfield
 ---@param value integer
 ---@return boolean
-function Native.BlzSetUnitIntegerField(whichUnit, whichField, value) end
+function Native.BlzSetUnitIntegerField(unit, field, value) end
 
----@param whichUnit unit
----@param whichField unitrealfield
+---@param unit unit
+---@param field unitrealfield
 ---@param value float
 ---@return boolean
-function Native.BlzSetUnitRealField(whichUnit, whichField, value) end
+function Native.BlzSetUnitRealField(unit, field, value) end
 
----@param whichUnit unit
----@param whichField unitstringfield
+---@param unit unit
+---@param field unitstringfield
 ---@param value string
 ---@return boolean
-function Native.BlzSetUnitStringField(whichUnit, whichField, value) end
+function Native.BlzSetUnitStringField(unit, field, value) end
 
----@param whichUnit unit
----@param whichField unitweaponbooleanfield
+---@param unit unit
+---@param field unitweaponbooleanfield
 ---@param index integer
 ---@return boolean
-function Native.BlzGetUnitWeaponBooleanField(whichUnit, whichField, index) end
+function Native.BlzGetUnitWeaponBooleanField(unit, field, index) end
 
----@param whichUnit unit
----@param whichField unitweaponintegerfield
+---@param unit unit
+---@param field unitweaponintegerfield
 ---@param index integer
 ---@return integer
-function Native.BlzGetUnitWeaponIntegerField(whichUnit, whichField, index) end
+function Native.BlzGetUnitWeaponIntegerField(unit, field, index) end
 
----@param whichUnit unit
----@param whichField unitweaponrealfield
+---@param unit unit
+---@param field unitweaponrealfield
 ---@param index integer
 ---@return float
-function Native.BlzGetUnitWeaponRealField(whichUnit, whichField, index) end
+function Native.BlzGetUnitWeaponRealField(unit, field, index) end
 
----@param whichUnit unit
----@param whichField unitweaponstringfield
+---@param unit unit
+---@param field unitweaponstringfield
 ---@param index integer
 ---@return string
-function Native.BlzGetUnitWeaponStringField(whichUnit, whichField, index) end
+function Native.BlzGetUnitWeaponStringField(unit, field, index) end
 
----@param whichUnit unit
----@param whichField unitweaponbooleanfield
+---@param unit unit
+---@param field unitweaponbooleanfield
 ---@param index integer
 ---@param value boolean
 ---@return boolean
-function Native.BlzSetUnitWeaponBooleanField(whichUnit, whichField, index, value) end
+function Native.BlzSetUnitWeaponBooleanField(unit, field, index, value) end
 
----@param whichUnit unit
----@param whichField unitweaponintegerfield
+---@param unit unit
+---@param field unitweaponintegerfield
 ---@param index integer
 ---@param value integer
 ---@return boolean
-function Native.BlzSetUnitWeaponIntegerField(whichUnit, whichField, index, value) end
+function Native.BlzSetUnitWeaponIntegerField(unit, field, index, value) end
 
----@param whichUnit unit
----@param whichField unitweaponrealfield
+---@param unit unit
+---@param field unitweaponrealfield
 ---@param index integer
 ---@param value float
 ---@return boolean
-function Native.BlzSetUnitWeaponRealField(whichUnit, whichField, index, value) end
+function Native.BlzSetUnitWeaponRealField(unit, field, index, value) end
 
----@param whichUnit unit
----@param whichField unitweaponstringfield
+---@param unit unit
+---@param field unitweaponstringfield
 ---@param index integer
 ---@param value string
 ---@return boolean
-function Native.BlzSetUnitWeaponStringField(whichUnit, whichField, index, value) end
+function Native.BlzSetUnitWeaponStringField(unit, field, index, value) end
