@@ -497,13 +497,13 @@ function Native.SetMapName(name) end
 ---@return void
 function Native.SetMapDescription(description) end
 
----@param teamCount integer
+---@param teamcount integer
 ---@return void
-function Native.SetTeams(teamCount) end
+function Native.SetTeams(teamcount) end
 
----@param playerCount integer
+---@param playercount integer
 ---@return void
-function Native.SetPlayers(playerCount) end
+function Native.SetPlayers(playercount) end
 
 ---@param startLoc integer
 ---@param x float
@@ -788,10 +788,10 @@ function Native.BlzGroupGetSize(group) end
 function Native.BlzGroupUnitAt(group, index) end
 
 ---@param group group
----@param unitName string
+---@param unitname string
 ---@param filter boolexpr
 ---@return void
-function Native.GroupEnumUnitsOfType(group, unitName, filter) end
+function Native.GroupEnumUnitsOfType(group, unitname, filter) end
 
 ---@param group group
 ---@param player player
@@ -800,11 +800,11 @@ function Native.GroupEnumUnitsOfType(group, unitName, filter) end
 function Native.GroupEnumUnitsOfPlayer(group, player, filter) end
 
 ---@param group group
----@param unitName string
+---@param unitname string
 ---@param filter boolexpr
 ---@param countLimit integer
 ---@return void
-function Native.GroupEnumUnitsOfTypeCounted(group, unitName, filter, countLimit) end
+function Native.GroupEnumUnitsOfTypeCounted(group, unitname, filter, countLimit) end
 
 ---@param group group
 ---@param r rect
@@ -932,6 +932,11 @@ function Native.ForceAddPlayer(force, player) end
 function Native.ForceRemovePlayer(force, player) end
 
 ---@param force force
+---@param player player
+---@return boolean
+function Native.BlzForceHasPlayer(force, player) end
+
+---@param force force
 ---@return void
 function Native.ForceClear(force) end
 
@@ -963,12 +968,12 @@ function Native.ForceEnumEnemies(force, player, filter) end
 ---@return void
 function Native.ForForce(force, callback) end
 
----@param minX float
----@param minY float
----@param maxX float
----@param maxY float
+---@param minx float
+---@param miny float
+---@param maxx float
+---@param maxy float
 ---@return rect
-function Native.Rect(minX, minY, maxX, maxY) end
+function Native.Rect(minx, miny, maxx, maxy) end
 
 ---@param min location
 ---@param max location
@@ -980,12 +985,12 @@ function Native.RectFromLoc(min, max) end
 function Native.RemoveRect(rect) end
 
 ---@param rect rect
----@param minX float
----@param minY float
----@param maxX float
----@param maxY float
+---@param minx float
+---@param miny float
+---@param maxx float
+---@param maxy float
 ---@return void
-function Native.SetRect(rect, minX, minY, maxX, maxY) end
+function Native.SetRect(rect, minx, miny, maxx, maxy) end
 
 ---@param rect rect
 ---@param min location
@@ -1224,9 +1229,9 @@ function Native.DestroyBoolExpr(e) end
 ---@param trigger trigger
 ---@param varName string
 ---@param opcode limitop
----@param limitVal float
+---@param limitval float
 ---@return event
-function Native.TriggerRegisterVariableEvent(trigger, varName, opcode, limitVal) end
+function Native.TriggerRegisterVariableEvent(trigger, varName, opcode, limitval) end
 
 ---@param trigger trigger
 ---@param timeout float
@@ -1242,9 +1247,9 @@ function Native.TriggerRegisterTimerExpireEvent(trigger, t) end
 ---@param trigger trigger
 ---@param state gamestate
 ---@param opcode limitop
----@param limitVal float
+---@param limitval float
 ---@return event
-function Native.TriggerRegisterGameStateEvent(trigger, state, opcode, limitVal) end
+function Native.TriggerRegisterGameStateEvent(trigger, state, opcode, limitval) end
 
 ---@param trigger trigger
 ---@param dialog dialog
@@ -1496,9 +1501,9 @@ function Native.TriggerRegisterPlayerAllianceChange(trigger, player, alliance) e
 ---@param player player
 ---@param state playerstate
 ---@param opcode limitop
----@param limitVal float
+---@param limitval float
 ---@return event
-function Native.TriggerRegisterPlayerStateEvent(trigger, player, state, opcode, limitVal) end
+function Native.TriggerRegisterPlayerStateEvent(trigger, player, state, opcode, limitval) end
 
 ---@return playerstate
 function Native.GetEventPlayerState() end
@@ -1528,9 +1533,9 @@ function Native.GetTriggerUnit() end
 ---@param unit unit
 ---@param state unitstate
 ---@param opcode limitop
----@param limitVal float
+---@param limitval float
 ---@return event
-function Native.TriggerRegisterUnitStateEvent(trigger, unit, state, opcode, limitVal) end
+function Native.TriggerRegisterUnitStateEvent(trigger, unit, state, opcode, limitval) end
 
 ---@return unitstate
 function Native.GetEventUnitState() end
@@ -1642,16 +1647,16 @@ function Native.GetWidgetY(widget) end
 ---@return widget
 function Native.GetTriggerWidget() end
 
----@param objectId integer
+---@param objectid integer
 ---@param x float
 ---@param y float
 ---@param face float
 ---@param scale float
 ---@param variation integer
 ---@return destructable
-function Native.CreateDestructable(objectId, x, y, face, scale, variation) end
+function Native.CreateDestructable(objectid, x, y, face, scale, variation) end
 
----@param objectId integer
+---@param objectid integer
 ---@param x float
 ---@param y float
 ---@param z float
@@ -1659,18 +1664,18 @@ function Native.CreateDestructable(objectId, x, y, face, scale, variation) end
 ---@param scale float
 ---@param variation integer
 ---@return destructable
-function Native.CreateDestructableZ(objectId, x, y, z, face, scale, variation) end
+function Native.CreateDestructableZ(objectid, x, y, z, face, scale, variation) end
 
----@param objectId integer
+---@param objectid integer
 ---@param x float
 ---@param y float
 ---@param face float
 ---@param scale float
 ---@param variation integer
 ---@return destructable
-function Native.CreateDeadDestructable(objectId, x, y, face, scale, variation) end
+function Native.CreateDeadDestructable(objectid, x, y, face, scale, variation) end
 
----@param objectId integer
+---@param objectid integer
 ---@param x float
 ---@param y float
 ---@param z float
@@ -1678,7 +1683,7 @@ function Native.CreateDeadDestructable(objectId, x, y, face, scale, variation) e
 ---@param scale float
 ---@param variation integer
 ---@return destructable
-function Native.CreateDeadDestructableZ(objectId, x, y, z, face, scale, variation) end
+function Native.CreateDeadDestructableZ(objectid, x, y, z, face, scale, variation) end
 
 ---@param d destructable
 ---@return void
@@ -1775,11 +1780,11 @@ function Native.GetDestructableName(d) end
 ---@return destructable
 function Native.GetTriggerDestructable() end
 
----@param itemId integer
+---@param itemid integer
 ---@param x float
 ---@param y float
 ---@return item
-function Native.CreateItem(itemId, x, y) end
+function Native.CreateItem(itemid, x, y) end
 
 ---@param item item
 ---@return void
@@ -1915,43 +1920,43 @@ function Native.GetItemUserData(item) end
 ---@return void
 function Native.SetItemUserData(item, data) end
 
----@param player player
----@param unitId integer
+---@param id player
+---@param unitid integer
 ---@param x float
 ---@param y float
 ---@param face float
 ---@return unit
-function Native.CreateUnit(player, unitId, x, y, face) end
+function Native.CreateUnit(id, unitid, x, y, face) end
 
 ---@param player player
----@param unitName string
+---@param unitname string
 ---@param x float
 ---@param y float
 ---@param face float
 ---@return unit
-function Native.CreateUnitByName(player, unitName, x, y, face) end
+function Native.CreateUnitByName(player, unitname, x, y, face) end
 
----@param player player
----@param unitId integer
+---@param id player
+---@param unitid integer
 ---@param loc location
 ---@param face float
 ---@return unit
-function Native.CreateUnitAtLoc(player, unitId, loc, face) end
+function Native.CreateUnitAtLoc(id, unitid, loc, face) end
 
----@param player player
----@param unitName string
+---@param id player
+---@param unitname string
 ---@param loc location
 ---@param face float
 ---@return unit
-function Native.CreateUnitAtLocByName(player, unitName, loc, face) end
+function Native.CreateUnitAtLocByName(id, unitname, loc, face) end
 
 ---@param player player
----@param unitId integer
+---@param unitid integer
 ---@param x float
 ---@param y float
 ---@param face float
 ---@return unit
-function Native.CreateCorpse(player, unitId, x, y, face) end
+function Native.CreateCorpse(player, unitid, x, y, face) end
 
 ---@param unit unit
 ---@return void
@@ -2245,43 +2250,43 @@ function Native.SuspendHeroXP(hero, flag) end
 function Native.IsSuspendedXP(hero) end
 
 ---@param hero unit
----@param abilityCode integer
+---@param abilcode integer
 ---@return void
-function Native.SelectHeroSkill(hero, abilityCode) end
+function Native.SelectHeroSkill(hero, abilcode) end
 
 ---@param unit unit
----@param abilityCode integer
+---@param abilcode integer
 ---@return integer
-function Native.GetUnitAbilityLevel(unit, abilityCode) end
+function Native.GetUnitAbilityLevel(unit, abilcode) end
 
 ---@param unit unit
----@param abilityCode integer
+---@param abilcode integer
 ---@return integer
-function Native.DecUnitAbilityLevel(unit, abilityCode) end
+function Native.DecUnitAbilityLevel(unit, abilcode) end
 
 ---@param unit unit
----@param abilityCode integer
+---@param abilcode integer
 ---@return integer
-function Native.IncUnitAbilityLevel(unit, abilityCode) end
+function Native.IncUnitAbilityLevel(unit, abilcode) end
 
 ---@param unit unit
----@param abilityCode integer
+---@param abilcode integer
 ---@param level integer
 ---@return integer
-function Native.SetUnitAbilityLevel(unit, abilityCode, level) end
+function Native.SetUnitAbilityLevel(unit, abilcode, level) end
 
 ---@param hero unit
 ---@param x float
 ---@param y float
----@param doEyeCandy boolean
+---@param doEyecandy boolean
 ---@return boolean
-function Native.ReviveHero(hero, x, y, doEyeCandy) end
+function Native.ReviveHero(hero, x, y, doEyecandy) end
 
 ---@param hero unit
 ---@param loc location
----@param doEyeCandy boolean
+---@param doEyecandy boolean
 ---@return boolean
-function Native.ReviveHeroLoc(hero, loc, doEyeCandy) end
+function Native.ReviveHeroLoc(hero, loc, doEyecandy) end
 
 ---@param unit unit
 ---@param exploded boolean
@@ -3124,39 +3129,39 @@ function Native.SetPlayerHandicap(player, handicap) end
 function Native.SetPlayerHandicapXP(player, handicap) end
 
 ---@param player player
----@param techId integer
+---@param techid integer
 ---@param maximum integer
 ---@return void
-function Native.SetPlayerTechMaxAllowed(player, techId, maximum) end
+function Native.SetPlayerTechMaxAllowed(player, techid, maximum) end
 
 ---@param player player
----@param techId integer
+---@param techid integer
 ---@return integer
-function Native.GetPlayerTechMaxAllowed(player, techId) end
+function Native.GetPlayerTechMaxAllowed(player, techid) end
 
 ---@param player player
----@param techId integer
+---@param techid integer
 ---@param levels integer
 ---@return void
-function Native.AddPlayerTechResearched(player, techId, levels) end
+function Native.AddPlayerTechResearched(player, techid, levels) end
 
 ---@param player player
----@param techId integer
+---@param techid integer
 ---@param setToLevel integer
 ---@return void
-function Native.SetPlayerTechResearched(player, techId, setToLevel) end
+function Native.SetPlayerTechResearched(player, techid, setToLevel) end
 
 ---@param player player
----@param techId integer
----@param specificOnly boolean
+---@param techid integer
+---@param specificonly boolean
 ---@return boolean
-function Native.GetPlayerTechResearched(player, techId, specificOnly) end
+function Native.GetPlayerTechResearched(player, techid, specificonly) end
 
 ---@param player player
----@param techId integer
----@param specificOnly boolean
+---@param techid integer
+---@param specificonly boolean
 ---@return integer
-function Native.GetPlayerTechCount(player, techId, specificOnly) end
+function Native.GetPlayerTechCount(player, techid, specificonly) end
 
 ---@param player player
 ---@param owner integer
@@ -3170,10 +3175,10 @@ function Native.SetPlayerUnitsOwner(player, owner) end
 function Native.CripplePlayer(player, toWhichPlayers, flag) end
 
 ---@param player player
----@param abilityId integer
+---@param abilid integer
 ---@param avail boolean
 ---@return void
-function Native.SetPlayerAbilityAvailable(player, abilityId, avail) end
+function Native.SetPlayerAbilityAvailable(player, abilid, avail) end
 
 ---@param player player
 ---@param playerState playerstate
@@ -3199,12 +3204,12 @@ function Native.SetFogStateRect(forWhichPlayer, state, where, useSharedVision) e
 
 ---@param forWhichPlayer player
 ---@param state fogstate
----@param centerX float
+---@param centerx float
 ---@param centerY float
 ---@param radius float
 ---@param useSharedVision boolean
 ---@return void
-function Native.SetFogStateRadius(forWhichPlayer, state, centerX, centerY, radius, useSharedVision) end
+function Native.SetFogStateRadius(forWhichPlayer, state, centerx, centerY, radius, useSharedVision) end
 
 ---@param forWhichPlayer player
 ---@param state fogstate
@@ -3238,13 +3243,13 @@ function Native.CreateFogModifierRect(forWhichPlayer, state, where, useSharedVis
 
 ---@param forWhichPlayer player
 ---@param state fogstate
----@param centerX float
+---@param centerx float
 ---@param centerY float
 ---@param radius float
 ---@param useSharedVision boolean
 ---@param afterUnits boolean
 ---@return fogmodifier
-function Native.CreateFogModifierRadius(forWhichPlayer, state, centerX, centerY, radius, useSharedVision, afterUnits) end
+function Native.CreateFogModifierRadius(forWhichPlayer, state, centerx, centerY, radius, useSharedVision, afterUnits) end
 
 ---@param forWhichPlayer player
 ---@param state fogstate
@@ -4349,14 +4354,14 @@ function Native.ResetTerrainFog() end
 function Native.SetUnitFog(a, b, c, d, e) end
 
 ---@param style integer
----@param zStart float
----@param zEnd float
+---@param zstart float
+---@param zend float
 ---@param density float
 ---@param red float
 ---@param green float
 ---@param blue float
 ---@return void
-function Native.SetTerrainFogEx(style, zStart, zEnd, density, red, green, blue) end
+function Native.SetTerrainFogEx(style, zstart, zend, density, red, green, blue) end
 
 ---@param toPlayer player
 ---@param x float
@@ -4530,10 +4535,10 @@ function Native.SetTextTagPosUnit(t, unit, heightOffset) end
 function Native.SetTextTagColor(t, red, green, blue, alpha) end
 
 ---@param t texttag
----@param xVel float
----@param yVel float
+---@param xvel float
+---@param yvel float
 ---@return void
-function Native.SetTextTagVelocity(t, xVel, yVel) end
+function Native.SetTextTagVelocity(t, xvel, yvel) end
 
 ---@param t texttag
 ---@param flag boolean
@@ -5124,17 +5129,17 @@ function Native.SetCameraField(field, value, duration) end
 function Native.AdjustCameraField(field, offset, duration) end
 
 ---@param unit unit
----@param xOffset float
----@param yOffset float
+---@param xoffset float
+---@param yoffset float
 ---@param inheritOrientation boolean
 ---@return void
-function Native.SetCameraTargetController(unit, xOffset, yOffset, inheritOrientation) end
+function Native.SetCameraTargetController(unit, xoffset, yoffset, inheritOrientation) end
 
 ---@param unit unit
----@param xOffset float
----@param yOffset float
+---@param xoffset float
+---@param yoffset float
 ---@return void
-function Native.SetCameraOrientController(unit, xOffset, yOffset) end
+function Native.SetCameraOrientController(unit, xoffset, yoffset) end
 
 ---@return camerasetup
 function Native.CreateCameraSetup() end
@@ -5231,19 +5236,19 @@ function Native.SetCineFilterBlendMode(mode) end
 ---@return void
 function Native.SetCineFilterTexMapFlags(flags) end
 
----@param minU float
----@param minV float
----@param maxU float
----@param maxV float
+---@param minu float
+---@param minv float
+---@param maxu float
+---@param maxv float
 ---@return void
-function Native.SetCineFilterStartUV(minU, minV, maxU, maxV) end
+function Native.SetCineFilterStartUV(minu, minv, maxu, maxv) end
 
----@param minU float
----@param minV float
----@param maxU float
----@param maxV float
+---@param minu float
+---@param minv float
+---@param maxu float
+---@param maxv float
 ---@return void
-function Native.SetCineFilterEndUV(minU, minV, maxU, maxV) end
+function Native.SetCineFilterEndUV(minu, minv, maxu, maxv) end
 
 ---@param red integer
 ---@param green integer
@@ -5275,9 +5280,9 @@ function Native.IsCineFilterDisplayed() end
 ---@param speakerTitle string
 ---@param text string
 ---@param sceneDuration float
----@param voiceOverDuration float
+---@param voiceoverDuration float
 ---@return void
-function Native.SetCinematicScene(portraitUnitId, color, speakerTitle, text, sceneDuration, voiceOverDuration) end
+function Native.SetCinematicScene(portraitUnitId, color, speakerTitle, text, sceneDuration, voiceoverDuration) end
 
 ---@return void
 function Native.EndCinematicScene() end
@@ -5337,31 +5342,31 @@ function Native.NewSoundEnvironment(environmentName) end
 ---@param fileName string
 ---@param looping boolean
 ---@param is3D boolean
----@param stopWhenOutOfRange boolean
+---@param stopwhenoutofrange boolean
 ---@param fadeInRate integer
 ---@param fadeOutRate integer
 ---@param eaxSetting string
 ---@return sound
-function Native.CreateSound(fileName, looping, is3D, stopWhenOutOfRange, fadeInRate, fadeOutRate, eaxSetting) end
+function Native.CreateSound(fileName, looping, is3D, stopwhenoutofrange, fadeInRate, fadeOutRate, eaxSetting) end
 
 ---@param fileName string
 ---@param looping boolean
 ---@param is3D boolean
----@param stopWhenOutOfRange boolean
+---@param stopwhenoutofrange boolean
 ---@param fadeInRate integer
 ---@param fadeOutRate integer
 ---@param SLKEntryName string
 ---@return sound
-function Native.CreateSoundFilenameWithLabel(fileName, looping, is3D, stopWhenOutOfRange, fadeInRate, fadeOutRate, SLKEntryName) end
+function Native.CreateSoundFilenameWithLabel(fileName, looping, is3D, stopwhenoutofrange, fadeInRate, fadeOutRate, SLKEntryName) end
 
 ---@param soundLabel string
 ---@param looping boolean
 ---@param is3D boolean
----@param stopWhenOutOfRange boolean
+---@param stopwhenoutofrange boolean
 ---@param fadeInRate integer
 ---@param fadeOutRate integer
 ---@return sound
-function Native.CreateSoundFromLabel(soundLabel, looping, is3D, stopWhenOutOfRange, fadeInRate, fadeOutRate) end
+function Native.CreateSoundFromLabel(soundLabel, looping, is3D, stopwhenoutofrange, fadeInRate, fadeOutRate) end
 
 ---@param soundLabel string
 ---@param fadeInRate integer
@@ -5395,9 +5400,9 @@ function Native.SetSoundVolume(soundHandle, volume) end
 function Native.SetSoundPitch(soundHandle, pitch) end
 
 ---@param soundHandle sound
----@param milliSecs integer
+---@param millisecs integer
 ---@return void
-function Native.SetSoundPlayPosition(soundHandle, milliSecs) end
+function Native.SetSoundPlayPosition(soundHandle, millisecs) end
 
 ---@param soundHandle sound
 ---@param minDist float
@@ -5466,10 +5471,10 @@ function Native.ClearMapMusic() end
 function Native.PlayMusic(musicName) end
 
 ---@param musicName string
----@param fromMSecs integer
----@param fadeInMSecs integer
+---@param frommsecs integer
+---@param fadeinmsecs integer
 ---@return void
-function Native.PlayMusicEx(musicName, fromMSecs, fadeInMSecs) end
+function Native.PlayMusicEx(musicName, frommsecs, fadeinmsecs) end
 
 ---@param fadeOut boolean
 ---@return void
@@ -5483,9 +5488,9 @@ function Native.ResumeMusic() end
 function Native.PlayThematicMusic(musicFileName) end
 
 ---@param musicFileName string
----@param fromMSecs integer
+---@param frommsecs integer
 ---@return void
-function Native.PlayThematicMusicEx(musicFileName, fromMSecs) end
+function Native.PlayThematicMusicEx(musicFileName, frommsecs) end
 
 ---@return void
 function Native.EndThematicMusic() end
@@ -5494,13 +5499,13 @@ function Native.EndThematicMusic() end
 ---@return void
 function Native.SetMusicVolume(volume) end
 
----@param milliSecs integer
+---@param millisecs integer
 ---@return void
-function Native.SetMusicPlayPosition(milliSecs) end
+function Native.SetMusicPlayPosition(millisecs) end
 
----@param milliSecs integer
+---@param millisecs integer
 ---@return void
-function Native.SetThematicMusicPlayPosition(milliSecs) end
+function Native.SetThematicMusicPlayPosition(millisecs) end
 
 ---@param soundHandle sound
 ---@param duration integer
@@ -5515,10 +5520,10 @@ function Native.GetSoundDuration(soundHandle) end
 ---@return integer
 function Native.GetSoundFileDuration(musicFileName) end
 
----@param vGroup volumegroup
+---@param vgroup volumegroup
 ---@param scale float
 ---@return void
-function Native.VolumeGroupSetVolume(vGroup, scale) end
+function Native.VolumeGroupSetVolume(vgroup, scale) end
 
 ---@return void
 function Native.VolumeGroupReset() end
@@ -5533,17 +5538,17 @@ function Native.GetSoundIsLoading(soundHandle) end
 
 ---@param soundHandle sound
 ---@param byPosition boolean
----@param rectWidth float
----@param rectHeight float
+---@param rectwidth float
+---@param rectheight float
 ---@return void
-function Native.RegisterStackedSound(soundHandle, byPosition, rectWidth, rectHeight) end
+function Native.RegisterStackedSound(soundHandle, byPosition, rectwidth, rectheight) end
 
 ---@param soundHandle sound
 ---@param byPosition boolean
----@param rectWidth float
----@param rectHeight float
+---@param rectwidth float
+---@param rectheight float
 ---@return void
-function Native.UnregisterStackedSound(soundHandle, byPosition, rectWidth, rectHeight) end
+function Native.UnregisterStackedSound(soundHandle, byPosition, rectwidth, rectheight) end
 
 ---@param where rect
 ---@param effectID integer
@@ -6076,125 +6081,125 @@ function Native.BlzGetTriggerPlayerMousePosition() end
 ---@return mousebuttontype
 function Native.BlzGetTriggerPlayerMouseButton() end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@param tooltip string
 ---@param level integer
 ---@return void
-function Native.BlzSetAbilityTooltip(abilityCode, tooltip, level) end
+function Native.BlzSetAbilityTooltip(abilCode, tooltip, level) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@param tooltip string
 ---@param level integer
 ---@return void
-function Native.BlzSetAbilityActivatedTooltip(abilityCode, tooltip, level) end
+function Native.BlzSetAbilityActivatedTooltip(abilCode, tooltip, level) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@param extendedTooltip string
 ---@param level integer
 ---@return void
-function Native.BlzSetAbilityExtendedTooltip(abilityCode, extendedTooltip, level) end
+function Native.BlzSetAbilityExtendedTooltip(abilCode, extendedTooltip, level) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@param extendedTooltip string
 ---@param level integer
 ---@return void
-function Native.BlzSetAbilityActivatedExtendedTooltip(abilityCode, extendedTooltip, level) end
+function Native.BlzSetAbilityActivatedExtendedTooltip(abilCode, extendedTooltip, level) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@param researchTooltip string
 ---@param level integer
 ---@return void
-function Native.BlzSetAbilityResearchTooltip(abilityCode, researchTooltip, level) end
+function Native.BlzSetAbilityResearchTooltip(abilCode, researchTooltip, level) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@param researchExtendedTooltip string
 ---@param level integer
 ---@return void
-function Native.BlzSetAbilityResearchExtendedTooltip(abilityCode, researchExtendedTooltip, level) end
+function Native.BlzSetAbilityResearchExtendedTooltip(abilCode, researchExtendedTooltip, level) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@param level integer
 ---@return string
-function Native.BlzGetAbilityTooltip(abilityCode, level) end
+function Native.BlzGetAbilityTooltip(abilCode, level) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@param level integer
 ---@return string
-function Native.BlzGetAbilityActivatedTooltip(abilityCode, level) end
+function Native.BlzGetAbilityActivatedTooltip(abilCode, level) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@param level integer
 ---@return string
-function Native.BlzGetAbilityExtendedTooltip(abilityCode, level) end
+function Native.BlzGetAbilityExtendedTooltip(abilCode, level) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@param level integer
 ---@return string
-function Native.BlzGetAbilityActivatedExtendedTooltip(abilityCode, level) end
+function Native.BlzGetAbilityActivatedExtendedTooltip(abilCode, level) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@param level integer
 ---@return string
-function Native.BlzGetAbilityResearchTooltip(abilityCode, level) end
+function Native.BlzGetAbilityResearchTooltip(abilCode, level) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@param level integer
 ---@return string
-function Native.BlzGetAbilityResearchExtendedTooltip(abilityCode, level) end
+function Native.BlzGetAbilityResearchExtendedTooltip(abilCode, level) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@param iconPath string
 ---@return void
-function Native.BlzSetAbilityIcon(abilityCode, iconPath) end
+function Native.BlzSetAbilityIcon(abilCode, iconPath) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@return string
-function Native.BlzGetAbilityIcon(abilityCode) end
+function Native.BlzGetAbilityIcon(abilCode) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@param iconPath string
 ---@return void
-function Native.BlzSetAbilityActivatedIcon(abilityCode, iconPath) end
+function Native.BlzSetAbilityActivatedIcon(abilCode, iconPath) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@return string
-function Native.BlzGetAbilityActivatedIcon(abilityCode) end
+function Native.BlzGetAbilityActivatedIcon(abilCode) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@return integer
-function Native.BlzGetAbilityPosX(abilityCode) end
+function Native.BlzGetAbilityPosX(abilCode) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@return integer
-function Native.BlzGetAbilityPosY(abilityCode) end
+function Native.BlzGetAbilityPosY(abilCode) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@param x integer
 ---@return void
-function Native.BlzSetAbilityPosX(abilityCode, x) end
+function Native.BlzSetAbilityPosX(abilCode, x) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@param y integer
 ---@return void
-function Native.BlzSetAbilityPosY(abilityCode, y) end
+function Native.BlzSetAbilityPosY(abilCode, y) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@return integer
-function Native.BlzGetAbilityActivatedPosX(abilityCode) end
+function Native.BlzGetAbilityActivatedPosX(abilCode) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@return integer
-function Native.BlzGetAbilityActivatedPosY(abilityCode) end
+function Native.BlzGetAbilityActivatedPosY(abilCode) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@param x integer
 ---@return void
-function Native.BlzSetAbilityActivatedPosX(abilityCode, x) end
+function Native.BlzSetAbilityActivatedPosX(abilCode, x) end
 
----@param abilityCode integer
+---@param abilCode integer
 ---@param y integer
 ---@return void
-function Native.BlzSetAbilityActivatedPosY(abilityCode, y) end
+function Native.BlzSetAbilityActivatedPosY(abilCode, y) end
 
 ---@param unit unit
 ---@return integer
@@ -6446,17 +6451,17 @@ function Native.BlzGetUnitArmor(unit) end
 function Native.BlzSetUnitArmor(unit, armorAmount) end
 
 ---@param unit unit
----@param abilityId integer
+---@param abilId integer
 ---@param flag boolean
 ---@return void
-function Native.BlzUnitHideAbility(unit, abilityId, flag) end
+function Native.BlzUnitHideAbility(unit, abilId, flag) end
 
 ---@param unit unit
----@param abilityId integer
+---@param abilId integer
 ---@param flag boolean
 ---@param hideUI boolean
 ---@return void
-function Native.BlzUnitDisableAbility(unit, abilityId, flag, hideUI) end
+function Native.BlzUnitDisableAbility(unit, abilId, flag, hideUI) end
 
 ---@param unit unit
 ---@return void
@@ -6478,61 +6483,61 @@ function Native.BlzUnitInterruptAttack(unit) end
 ---@return float
 function Native.BlzGetUnitCollisionSize(unit) end
 
----@param abilityId integer
+---@param abilId integer
 ---@param level integer
 ---@return integer
-function Native.BlzGetAbilityManaCost(abilityId, level) end
+function Native.BlzGetAbilityManaCost(abilId, level) end
 
----@param abilityId integer
+---@param abilId integer
 ---@param level integer
 ---@return float
-function Native.BlzGetAbilityCooldown(abilityId, level) end
+function Native.BlzGetAbilityCooldown(abilId, level) end
 
 ---@param unit unit
----@param abilityId integer
+---@param abilId integer
 ---@param level integer
 ---@param cooldown float
 ---@return void
-function Native.BlzSetUnitAbilityCooldown(unit, abilityId, level, cooldown) end
+function Native.BlzSetUnitAbilityCooldown(unit, abilId, level, cooldown) end
 
 ---@param unit unit
----@param abilityId integer
+---@param abilId integer
 ---@param level integer
 ---@return float
-function Native.BlzGetUnitAbilityCooldown(unit, abilityId, level) end
+function Native.BlzGetUnitAbilityCooldown(unit, abilId, level) end
 
 ---@param unit unit
----@param abilityId integer
+---@param abilId integer
 ---@return float
-function Native.BlzGetUnitAbilityCooldownRemaining(unit, abilityId) end
+function Native.BlzGetUnitAbilityCooldownRemaining(unit, abilId) end
 
 ---@param unit unit
----@param abilityCode integer
+---@param abilCode integer
 ---@return void
-function Native.BlzEndUnitAbilityCooldown(unit, abilityCode) end
+function Native.BlzEndUnitAbilityCooldown(unit, abilCode) end
 
 ---@param unit unit
----@param abilityId integer
+---@param abilId integer
 ---@param level integer
 ---@return integer
-function Native.BlzGetUnitAbilityManaCost(unit, abilityId, level) end
+function Native.BlzGetUnitAbilityManaCost(unit, abilId, level) end
 
 ---@param unit unit
----@param abilityId integer
+---@param abilId integer
 ---@param level integer
 ---@param manaCost integer
 ---@return void
-function Native.BlzSetUnitAbilityManaCost(unit, abilityId, level, manaCost) end
+function Native.BlzSetUnitAbilityManaCost(unit, abilId, level, manaCost) end
 
 ---@param unit unit
 ---@return float
 function Native.BlzGetLocalUnitZ(unit) end
 
 ---@param player player
----@param techId integer
+---@param techid integer
 ---@param levels integer
 ---@return void
-function Native.BlzDecPlayerTechResearched(player, techId, levels) end
+function Native.BlzDecPlayerTechResearched(player, techid, levels) end
 
 ---@param damage float
 ---@return void
@@ -6970,9 +6975,9 @@ function Native.BlzSetSpecialEffectMatrixScale(effect, x, y, z) end
 function Native.BlzResetSpecialEffectMatrix(effect) end
 
 ---@param unit unit
----@param abilityId integer
+---@param abilId integer
 ---@return ability
-function Native.BlzGetUnitAbility(unit, abilityId) end
+function Native.BlzGetUnitAbility(unit, abilId) end
 
 ---@param unit unit
 ---@param index integer
@@ -7223,14 +7228,14 @@ function Native.BlzRemoveAbilityStringLevelArrayField(ability, field, level, val
 function Native.BlzGetItemAbilityByIndex(item, index) end
 
 ---@param item item
----@param abilityCode integer
+---@param abilCode integer
 ---@return ability
-function Native.BlzGetItemAbility(item, abilityCode) end
+function Native.BlzGetItemAbility(item, abilCode) end
 
 ---@param item item
----@param abilityCode integer
+---@param abilCode integer
 ---@return boolean
-function Native.BlzItemAddAbility(item, abilityCode) end
+function Native.BlzItemAddAbility(item, abilCode) end
 
 ---@param item item
 ---@param field itembooleanfield
@@ -7277,9 +7282,9 @@ function Native.BlzSetItemRealField(item, field, value) end
 function Native.BlzSetItemStringField(item, field, value) end
 
 ---@param item item
----@param abilityCode integer
+---@param abilCode integer
 ---@return boolean
-function Native.BlzItemRemoveAbility(item, abilityCode) end
+function Native.BlzItemRemoveAbility(item, abilCode) end
 
 ---@param unit unit
 ---@param field unitbooleanfield
@@ -7376,3 +7381,5019 @@ function Native.BlzSetUnitWeaponRealField(unit, field, index, value) end
 ---@param value string
 ---@return boolean
 function Native.BlzSetUnitWeaponStringField(unit, field, index, value) end
+
+---@type boolean
+Native.FALSE = nil
+
+---@type boolean
+Native.TRUE = nil
+
+---@type integer
+Native.JASS_MAX_ARRAY_SIZE = nil
+
+---@type integer
+Native.PLAYER_NEUTRAL_PASSIVE = nil
+
+---@type integer
+Native.PLAYER_NEUTRAL_AGGRESSIVE = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_RED = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_BLUE = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_CYAN = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_PURPLE = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_YELLOW = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_ORANGE = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_GREEN = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_PINK = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_LIGHT_GRAY = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_LIGHT_BLUE = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_AQUA = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_BROWN = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_MAROON = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_NAVY = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_TURQUOISE = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_VIOLET = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_WHEAT = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_PEACH = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_MINT = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_LAVENDER = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_COAL = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_SNOW = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_EMERALD = nil
+
+---@type playercolor
+Native.PLAYER_COLOR_PEANUT = nil
+
+---@type race
+Native.RACE_HUMAN = nil
+
+---@type race
+Native.RACE_ORC = nil
+
+---@type race
+Native.RACE_UNDEAD = nil
+
+---@type race
+Native.RACE_NIGHTELF = nil
+
+---@type race
+Native.RACE_DEMON = nil
+
+---@type race
+Native.RACE_OTHER = nil
+
+---@type playergameresult
+Native.PLAYER_GAME_RESULT_VICTORY = nil
+
+---@type playergameresult
+Native.PLAYER_GAME_RESULT_DEFEAT = nil
+
+---@type playergameresult
+Native.PLAYER_GAME_RESULT_TIE = nil
+
+---@type playergameresult
+Native.PLAYER_GAME_RESULT_NEUTRAL = nil
+
+---@type alliancetype
+Native.ALLIANCE_PASSIVE = nil
+
+---@type alliancetype
+Native.ALLIANCE_HELP_REQUEST = nil
+
+---@type alliancetype
+Native.ALLIANCE_HELP_RESPONSE = nil
+
+---@type alliancetype
+Native.ALLIANCE_SHARED_XP = nil
+
+---@type alliancetype
+Native.ALLIANCE_SHARED_SPELLS = nil
+
+---@type alliancetype
+Native.ALLIANCE_SHARED_VISION = nil
+
+---@type alliancetype
+Native.ALLIANCE_SHARED_CONTROL = nil
+
+---@type alliancetype
+Native.ALLIANCE_SHARED_ADVANCED_CONTROL = nil
+
+---@type alliancetype
+Native.ALLIANCE_RESCUABLE = nil
+
+---@type alliancetype
+Native.ALLIANCE_SHARED_VISION_FORCED = nil
+
+---@type version
+Native.VERSION_REIGN_OF_CHAOS = nil
+
+---@type version
+Native.VERSION_FROZEN_THRONE = nil
+
+---@type attacktype
+Native.ATTACK_TYPE_NORMAL = nil
+
+---@type attacktype
+Native.ATTACK_TYPE_MELEE = nil
+
+---@type attacktype
+Native.ATTACK_TYPE_PIERCE = nil
+
+---@type attacktype
+Native.ATTACK_TYPE_SIEGE = nil
+
+---@type attacktype
+Native.ATTACK_TYPE_MAGIC = nil
+
+---@type attacktype
+Native.ATTACK_TYPE_CHAOS = nil
+
+---@type attacktype
+Native.ATTACK_TYPE_HERO = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_UNKNOWN = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_NORMAL = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_ENHANCED = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_FIRE = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_COLD = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_LIGHTNING = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_POISON = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_DISEASE = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_DIVINE = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_MAGIC = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_SONIC = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_ACID = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_FORCE = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_DEATH = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_MIND = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_PLANT = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_DEFENSIVE = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_DEMOLITION = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_SLOW_POISON = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_SPIRIT_LINK = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_SHADOW_STRIKE = nil
+
+---@type damagetype
+Native.DAMAGE_TYPE_UNIVERSAL = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_WHOKNOWS = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_METAL_LIGHT_CHOP = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_METAL_MEDIUM_CHOP = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_METAL_HEAVY_CHOP = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_METAL_LIGHT_SLICE = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_METAL_MEDIUM_SLICE = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_METAL_HEAVY_SLICE = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_METAL_MEDIUM_BASH = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_METAL_HEAVY_BASH = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_METAL_MEDIUM_STAB = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_METAL_HEAVY_STAB = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_WOOD_LIGHT_SLICE = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_WOOD_MEDIUM_SLICE = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_WOOD_HEAVY_SLICE = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_WOOD_LIGHT_BASH = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_WOOD_MEDIUM_BASH = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_WOOD_HEAVY_BASH = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_WOOD_LIGHT_STAB = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_WOOD_MEDIUM_STAB = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_CLAW_LIGHT_SLICE = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_CLAW_MEDIUM_SLICE = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_CLAW_HEAVY_SLICE = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_AXE_MEDIUM_CHOP = nil
+
+---@type weapontype
+Native.WEAPON_TYPE_ROCK_HEAVY_BASH = nil
+
+---@type pathingtype
+Native.PATHING_TYPE_ANY = nil
+
+---@type pathingtype
+Native.PATHING_TYPE_WALKABILITY = nil
+
+---@type pathingtype
+Native.PATHING_TYPE_FLYABILITY = nil
+
+---@type pathingtype
+Native.PATHING_TYPE_BUILDABILITY = nil
+
+---@type pathingtype
+Native.PATHING_TYPE_PEONHARVESTPATHING = nil
+
+---@type pathingtype
+Native.PATHING_TYPE_BLIGHTPATHING = nil
+
+---@type pathingtype
+Native.PATHING_TYPE_FLOATABILITY = nil
+
+---@type pathingtype
+Native.PATHING_TYPE_AMPHIBIOUSPATHING = nil
+
+---@type mousebuttontype
+Native.MOUSE_BUTTON_TYPE_LEFT = nil
+
+---@type mousebuttontype
+Native.MOUSE_BUTTON_TYPE_MIDDLE = nil
+
+---@type mousebuttontype
+Native.MOUSE_BUTTON_TYPE_RIGHT = nil
+
+---@type animtype
+Native.ANIM_TYPE_BIRTH = nil
+
+---@type animtype
+Native.ANIM_TYPE_DEATH = nil
+
+---@type animtype
+Native.ANIM_TYPE_DECAY = nil
+
+---@type animtype
+Native.ANIM_TYPE_DISSIPATE = nil
+
+---@type animtype
+Native.ANIM_TYPE_STAND = nil
+
+---@type animtype
+Native.ANIM_TYPE_WALK = nil
+
+---@type animtype
+Native.ANIM_TYPE_ATTACK = nil
+
+---@type animtype
+Native.ANIM_TYPE_MORPH = nil
+
+---@type animtype
+Native.ANIM_TYPE_SLEEP = nil
+
+---@type animtype
+Native.ANIM_TYPE_SPELL = nil
+
+---@type animtype
+Native.ANIM_TYPE_PORTRAIT = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_ROOTED = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_ALTERNATE_EX = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_LOOPING = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_SLAM = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_THROW = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_SPIKED = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_FAST = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_SPIN = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_READY = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_CHANNEL = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_DEFEND = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_VICTORY = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_TURN = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_LEFT = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_RIGHT = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_FIRE = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_FLESH = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_HIT = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_WOUNDED = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_LIGHT = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_MODERATE = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_SEVERE = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_CRITICAL = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_COMPLETE = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_GOLD = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_LUMBER = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_WORK = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_TALK = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_FIRST = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_SECOND = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_THIRD = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_FOURTH = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_FIFTH = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_ONE = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_TWO = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_THREE = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_FOUR = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_FIVE = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_SMALL = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_MEDIUM = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_LARGE = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_UPGRADE = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_DRAIN = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_FILL = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_CHAINLIGHTNING = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_EATTREE = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_PUKE = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_FLAIL = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_OFF = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_SWIM = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_ENTANGLE = nil
+
+---@type subanimtype
+Native.SUBANIM_TYPE_BERSERK = nil
+
+---@type racepreference
+Native.RACE_PREF_HUMAN = nil
+
+---@type racepreference
+Native.RACE_PREF_ORC = nil
+
+---@type racepreference
+Native.RACE_PREF_NIGHTELF = nil
+
+---@type racepreference
+Native.RACE_PREF_UNDEAD = nil
+
+---@type racepreference
+Native.RACE_PREF_DEMON = nil
+
+---@type racepreference
+Native.RACE_PREF_RANDOM = nil
+
+---@type racepreference
+Native.RACE_PREF_USER_SELECTABLE = nil
+
+---@type mapcontrol
+Native.MAP_CONTROL_USER = nil
+
+---@type mapcontrol
+Native.MAP_CONTROL_COMPUTER = nil
+
+---@type mapcontrol
+Native.MAP_CONTROL_RESCUABLE = nil
+
+---@type mapcontrol
+Native.MAP_CONTROL_NEUTRAL = nil
+
+---@type mapcontrol
+Native.MAP_CONTROL_CREEP = nil
+
+---@type mapcontrol
+Native.MAP_CONTROL_NONE = nil
+
+---@type gametype
+Native.GAME_TYPE_MELEE = nil
+
+---@type gametype
+Native.GAME_TYPE_FFA = nil
+
+---@type gametype
+Native.GAME_TYPE_USE_MAP_SETTINGS = nil
+
+---@type gametype
+Native.GAME_TYPE_BLIZ = nil
+
+---@type gametype
+Native.GAME_TYPE_ONE_ON_ONE = nil
+
+---@type gametype
+Native.GAME_TYPE_TWO_TEAM_PLAY = nil
+
+---@type gametype
+Native.GAME_TYPE_THREE_TEAM_PLAY = nil
+
+---@type gametype
+Native.GAME_TYPE_FOUR_TEAM_PLAY = nil
+
+---@type mapflag
+Native.MAP_FOG_HIDE_TERRAIN = nil
+
+---@type mapflag
+Native.MAP_FOG_MAP_EXPLORED = nil
+
+---@type mapflag
+Native.MAP_FOG_ALWAYS_VISIBLE = nil
+
+---@type mapflag
+Native.MAP_USE_HANDICAPS = nil
+
+---@type mapflag
+Native.MAP_OBSERVERS = nil
+
+---@type mapflag
+Native.MAP_OBSERVERS_ON_DEATH = nil
+
+---@type mapflag
+Native.MAP_FIXED_COLORS = nil
+
+---@type mapflag
+Native.MAP_LOCK_RESOURCE_TRADING = nil
+
+---@type mapflag
+Native.MAP_RESOURCE_TRADING_ALLIES_ONLY = nil
+
+---@type mapflag
+Native.MAP_LOCK_ALLIANCE_CHANGES = nil
+
+---@type mapflag
+Native.MAP_ALLIANCE_CHANGES_HIDDEN = nil
+
+---@type mapflag
+Native.MAP_CHEATS = nil
+
+---@type mapflag
+Native.MAP_CHEATS_HIDDEN = nil
+
+---@type mapflag
+Native.MAP_LOCK_SPEED = nil
+
+---@type mapflag
+Native.MAP_LOCK_RANDOM_SEED = nil
+
+---@type mapflag
+Native.MAP_SHARED_ADVANCED_CONTROL = nil
+
+---@type mapflag
+Native.MAP_RANDOM_HERO = nil
+
+---@type mapflag
+Native.MAP_RANDOM_RACES = nil
+
+---@type mapflag
+Native.MAP_RELOADED = nil
+
+---@type placement
+Native.MAP_PLACEMENT_RANDOM = nil
+
+---@type placement
+Native.MAP_PLACEMENT_FIXED = nil
+
+---@type placement
+Native.MAP_PLACEMENT_USE_MAP_SETTINGS = nil
+
+---@type placement
+Native.MAP_PLACEMENT_TEAMS_TOGETHER = nil
+
+---@type startlocprio
+Native.MAP_LOC_PRIO_LOW = nil
+
+---@type startlocprio
+Native.MAP_LOC_PRIO_HIGH = nil
+
+---@type startlocprio
+Native.MAP_LOC_PRIO_NOT = nil
+
+---@type mapdensity
+Native.MAP_DENSITY_NONE = nil
+
+---@type mapdensity
+Native.MAP_DENSITY_LIGHT = nil
+
+---@type mapdensity
+Native.MAP_DENSITY_MEDIUM = nil
+
+---@type mapdensity
+Native.MAP_DENSITY_HEAVY = nil
+
+---@type gamedifficulty
+Native.MAP_DIFFICULTY_EASY = nil
+
+---@type gamedifficulty
+Native.MAP_DIFFICULTY_NORMAL = nil
+
+---@type gamedifficulty
+Native.MAP_DIFFICULTY_HARD = nil
+
+---@type gamedifficulty
+Native.MAP_DIFFICULTY_INSANE = nil
+
+---@type gamespeed
+Native.MAP_SPEED_SLOWEST = nil
+
+---@type gamespeed
+Native.MAP_SPEED_SLOW = nil
+
+---@type gamespeed
+Native.MAP_SPEED_NORMAL = nil
+
+---@type gamespeed
+Native.MAP_SPEED_FAST = nil
+
+---@type gamespeed
+Native.MAP_SPEED_FASTEST = nil
+
+---@type playerslotstate
+Native.PLAYER_SLOT_STATE_EMPTY = nil
+
+---@type playerslotstate
+Native.PLAYER_SLOT_STATE_PLAYING = nil
+
+---@type playerslotstate
+Native.PLAYER_SLOT_STATE_LEFT = nil
+
+---@type volumegroup
+Native.SOUND_VOLUMEGROUP_UNITMOVEMENT = nil
+
+---@type volumegroup
+Native.SOUND_VOLUMEGROUP_UNITSOUNDS = nil
+
+---@type volumegroup
+Native.SOUND_VOLUMEGROUP_COMBAT = nil
+
+---@type volumegroup
+Native.SOUND_VOLUMEGROUP_SPELLS = nil
+
+---@type volumegroup
+Native.SOUND_VOLUMEGROUP_UI = nil
+
+---@type volumegroup
+Native.SOUND_VOLUMEGROUP_MUSIC = nil
+
+---@type volumegroup
+Native.SOUND_VOLUMEGROUP_AMBIENTSOUNDS = nil
+
+---@type volumegroup
+Native.SOUND_VOLUMEGROUP_FIRE = nil
+
+---@type igamestate
+Native.GAME_STATE_DIVINE_INTERVENTION = nil
+
+---@type igamestate
+Native.GAME_STATE_DISCONNECTED = nil
+
+---@type fgamestate
+Native.GAME_STATE_TIME_OF_DAY = nil
+
+---@type playerstate
+Native.PLAYER_STATE_GAME_RESULT = nil
+
+---@type playerstate
+Native.PLAYER_STATE_RESOURCE_GOLD = nil
+
+---@type playerstate
+Native.PLAYER_STATE_RESOURCE_LUMBER = nil
+
+---@type playerstate
+Native.PLAYER_STATE_RESOURCE_HERO_TOKENS = nil
+
+---@type playerstate
+Native.PLAYER_STATE_RESOURCE_FOOD_CAP = nil
+
+---@type playerstate
+Native.PLAYER_STATE_RESOURCE_FOOD_USED = nil
+
+---@type playerstate
+Native.PLAYER_STATE_FOOD_CAP_CEILING = nil
+
+---@type playerstate
+Native.PLAYER_STATE_GIVES_BOUNTY = nil
+
+---@type playerstate
+Native.PLAYER_STATE_ALLIED_VICTORY = nil
+
+---@type playerstate
+Native.PLAYER_STATE_PLACED = nil
+
+---@type playerstate
+Native.PLAYER_STATE_OBSERVER_ON_DEATH = nil
+
+---@type playerstate
+Native.PLAYER_STATE_OBSERVER = nil
+
+---@type playerstate
+Native.PLAYER_STATE_UNFOLLOWABLE = nil
+
+---@type playerstate
+Native.PLAYER_STATE_GOLD_UPKEEP_RATE = nil
+
+---@type playerstate
+Native.PLAYER_STATE_LUMBER_UPKEEP_RATE = nil
+
+---@type playerstate
+Native.PLAYER_STATE_GOLD_GATHERED = nil
+
+---@type playerstate
+Native.PLAYER_STATE_LUMBER_GATHERED = nil
+
+---@type playerstate
+Native.PLAYER_STATE_NO_CREEP_SLEEP = nil
+
+---@type unitstate
+Native.UNIT_STATE_LIFE = nil
+
+---@type unitstate
+Native.UNIT_STATE_MAX_LIFE = nil
+
+---@type unitstate
+Native.UNIT_STATE_MANA = nil
+
+---@type unitstate
+Native.UNIT_STATE_MAX_MANA = nil
+
+---@type aidifficulty
+Native.AI_DIFFICULTY_NEWBIE = nil
+
+---@type aidifficulty
+Native.AI_DIFFICULTY_NORMAL = nil
+
+---@type aidifficulty
+Native.AI_DIFFICULTY_INSANE = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_UNITS_TRAINED = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_UNITS_KILLED = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_STRUCT_BUILT = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_STRUCT_RAZED = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_TECH_PERCENT = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_FOOD_MAXPROD = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_FOOD_MAXUSED = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_HEROES_KILLED = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_ITEMS_GAINED = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_MERCS_HIRED = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_GOLD_MINED_TOTAL = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_GOLD_MINED_UPKEEP = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_GOLD_LOST_UPKEEP = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_GOLD_LOST_TAX = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_GOLD_GIVEN = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_GOLD_RECEIVED = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_LUMBER_TOTAL = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_LUMBER_LOST_UPKEEP = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_LUMBER_LOST_TAX = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_LUMBER_GIVEN = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_LUMBER_RECEIVED = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_UNIT_TOTAL = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_HERO_TOTAL = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_RESOURCE_TOTAL = nil
+
+---@type playerscore
+Native.PLAYER_SCORE_TOTAL = nil
+
+---@type gameevent
+Native.EVENT_GAME_VICTORY = nil
+
+---@type gameevent
+Native.EVENT_GAME_END_LEVEL = nil
+
+---@type gameevent
+Native.EVENT_GAME_VARIABLE_LIMIT = nil
+
+---@type gameevent
+Native.EVENT_GAME_STATE_LIMIT = nil
+
+---@type gameevent
+Native.EVENT_GAME_TIMER_EXPIRED = nil
+
+---@type gameevent
+Native.EVENT_GAME_ENTER_REGION = nil
+
+---@type gameevent
+Native.EVENT_GAME_LEAVE_REGION = nil
+
+---@type gameevent
+Native.EVENT_GAME_TRACKABLE_HIT = nil
+
+---@type gameevent
+Native.EVENT_GAME_TRACKABLE_TRACK = nil
+
+---@type gameevent
+Native.EVENT_GAME_SHOW_SKILL = nil
+
+---@type gameevent
+Native.EVENT_GAME_BUILD_SUBMENU = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_STATE_LIMIT = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_ALLIANCE_CHANGED = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_DEFEAT = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_VICTORY = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_LEAVE = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_CHAT = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_END_CINEMATIC = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_ATTACKED = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_RESCUED = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_DEATH = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_DECAY = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_DETECTED = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_HIDDEN = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_SELECTED = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_DESELECTED = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_CONSTRUCT_START = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_CONSTRUCT_CANCEL = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_CONSTRUCT_FINISH = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_UPGRADE_START = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_UPGRADE_CANCEL = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_UPGRADE_FINISH = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_TRAIN_START = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_TRAIN_CANCEL = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_TRAIN_FINISH = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_RESEARCH_START = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_RESEARCH_CANCEL = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_RESEARCH_FINISH = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_ISSUED_ORDER = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_ISSUED_POINT_ORDER = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_ISSUED_UNIT_ORDER = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_HERO_LEVEL = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_HERO_SKILL = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_HERO_REVIVABLE = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_HERO_REVIVE_START = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_HERO_REVIVE_CANCEL = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_HERO_REVIVE_FINISH = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_SUMMON = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_DROP_ITEM = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_PICKUP_ITEM = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_USE_ITEM = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_LOADED = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_DAMAGED = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_DAMAGING = nil
+
+---@type unitevent
+Native.EVENT_UNIT_DAMAGED = nil
+
+---@type unitevent
+Native.EVENT_UNIT_DAMAGING = nil
+
+---@type unitevent
+Native.EVENT_UNIT_DEATH = nil
+
+---@type unitevent
+Native.EVENT_UNIT_DECAY = nil
+
+---@type unitevent
+Native.EVENT_UNIT_DETECTED = nil
+
+---@type unitevent
+Native.EVENT_UNIT_HIDDEN = nil
+
+---@type unitevent
+Native.EVENT_UNIT_SELECTED = nil
+
+---@type unitevent
+Native.EVENT_UNIT_DESELECTED = nil
+
+---@type unitevent
+Native.EVENT_UNIT_STATE_LIMIT = nil
+
+---@type unitevent
+Native.EVENT_UNIT_ACQUIRED_TARGET = nil
+
+---@type unitevent
+Native.EVENT_UNIT_TARGET_IN_RANGE = nil
+
+---@type unitevent
+Native.EVENT_UNIT_ATTACKED = nil
+
+---@type unitevent
+Native.EVENT_UNIT_RESCUED = nil
+
+---@type unitevent
+Native.EVENT_UNIT_CONSTRUCT_CANCEL = nil
+
+---@type unitevent
+Native.EVENT_UNIT_CONSTRUCT_FINISH = nil
+
+---@type unitevent
+Native.EVENT_UNIT_UPGRADE_START = nil
+
+---@type unitevent
+Native.EVENT_UNIT_UPGRADE_CANCEL = nil
+
+---@type unitevent
+Native.EVENT_UNIT_UPGRADE_FINISH = nil
+
+---@type unitevent
+Native.EVENT_UNIT_TRAIN_START = nil
+
+---@type unitevent
+Native.EVENT_UNIT_TRAIN_CANCEL = nil
+
+---@type unitevent
+Native.EVENT_UNIT_TRAIN_FINISH = nil
+
+---@type unitevent
+Native.EVENT_UNIT_RESEARCH_START = nil
+
+---@type unitevent
+Native.EVENT_UNIT_RESEARCH_CANCEL = nil
+
+---@type unitevent
+Native.EVENT_UNIT_RESEARCH_FINISH = nil
+
+---@type unitevent
+Native.EVENT_UNIT_ISSUED_ORDER = nil
+
+---@type unitevent
+Native.EVENT_UNIT_ISSUED_POINT_ORDER = nil
+
+---@type unitevent
+Native.EVENT_UNIT_ISSUED_TARGET_ORDER = nil
+
+---@type unitevent
+Native.EVENT_UNIT_HERO_LEVEL = nil
+
+---@type unitevent
+Native.EVENT_UNIT_HERO_SKILL = nil
+
+---@type unitevent
+Native.EVENT_UNIT_HERO_REVIVABLE = nil
+
+---@type unitevent
+Native.EVENT_UNIT_HERO_REVIVE_START = nil
+
+---@type unitevent
+Native.EVENT_UNIT_HERO_REVIVE_CANCEL = nil
+
+---@type unitevent
+Native.EVENT_UNIT_HERO_REVIVE_FINISH = nil
+
+---@type unitevent
+Native.EVENT_UNIT_SUMMON = nil
+
+---@type unitevent
+Native.EVENT_UNIT_DROP_ITEM = nil
+
+---@type unitevent
+Native.EVENT_UNIT_PICKUP_ITEM = nil
+
+---@type unitevent
+Native.EVENT_UNIT_USE_ITEM = nil
+
+---@type unitevent
+Native.EVENT_UNIT_LOADED = nil
+
+---@type widgetevent
+Native.EVENT_WIDGET_DEATH = nil
+
+---@type dialogevent
+Native.EVENT_DIALOG_BUTTON_CLICK = nil
+
+---@type dialogevent
+Native.EVENT_DIALOG_CLICK = nil
+
+---@type gameevent
+Native.EVENT_GAME_LOADED = nil
+
+---@type gameevent
+Native.EVENT_GAME_TOURNAMENT_FINISH_SOON = nil
+
+---@type gameevent
+Native.EVENT_GAME_TOURNAMENT_FINISH_NOW = nil
+
+---@type gameevent
+Native.EVENT_GAME_SAVE = nil
+
+---@type gameevent
+Native.EVENT_GAME_CUSTOM_UI_FRAME = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_ARROW_LEFT_DOWN = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_ARROW_LEFT_UP = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_ARROW_RIGHT_DOWN = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_ARROW_RIGHT_UP = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_ARROW_DOWN_DOWN = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_ARROW_DOWN_UP = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_ARROW_UP_DOWN = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_ARROW_UP_UP = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_MOUSE_DOWN = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_MOUSE_UP = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_MOUSE_MOVE = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_SYNC_DATA = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_KEY = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_KEY_DOWN = nil
+
+---@type playerevent
+Native.EVENT_PLAYER_KEY_UP = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_SELL = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_CHANGE_OWNER = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_SELL_ITEM = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_SPELL_CHANNEL = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_SPELL_CAST = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_SPELL_EFFECT = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_SPELL_FINISH = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_SPELL_ENDCAST = nil
+
+---@type playerunitevent
+Native.EVENT_PLAYER_UNIT_PAWN_ITEM = nil
+
+---@type unitevent
+Native.EVENT_UNIT_SELL = nil
+
+---@type unitevent
+Native.EVENT_UNIT_CHANGE_OWNER = nil
+
+---@type unitevent
+Native.EVENT_UNIT_SELL_ITEM = nil
+
+---@type unitevent
+Native.EVENT_UNIT_SPELL_CHANNEL = nil
+
+---@type unitevent
+Native.EVENT_UNIT_SPELL_CAST = nil
+
+---@type unitevent
+Native.EVENT_UNIT_SPELL_EFFECT = nil
+
+---@type unitevent
+Native.EVENT_UNIT_SPELL_FINISH = nil
+
+---@type unitevent
+Native.EVENT_UNIT_SPELL_ENDCAST = nil
+
+---@type unitevent
+Native.EVENT_UNIT_PAWN_ITEM = nil
+
+---@type limitop
+Native.LESS_THAN = nil
+
+---@type limitop
+Native.LESS_THAN_OR_EQUAL = nil
+
+---@type limitop
+Native.EQUAL = nil
+
+---@type limitop
+Native.GREATER_THAN_OR_EQUAL = nil
+
+---@type limitop
+Native.GREATER_THAN = nil
+
+---@type limitop
+Native.NOT_EQUAL = nil
+
+---@type unittype
+Native.UNIT_TYPE_HERO = nil
+
+---@type unittype
+Native.UNIT_TYPE_DEAD = nil
+
+---@type unittype
+Native.UNIT_TYPE_STRUCTURE = nil
+
+---@type unittype
+Native.UNIT_TYPE_FLYING = nil
+
+---@type unittype
+Native.UNIT_TYPE_GROUND = nil
+
+---@type unittype
+Native.UNIT_TYPE_ATTACKS_FLYING = nil
+
+---@type unittype
+Native.UNIT_TYPE_ATTACKS_GROUND = nil
+
+---@type unittype
+Native.UNIT_TYPE_MELEE_ATTACKER = nil
+
+---@type unittype
+Native.UNIT_TYPE_RANGED_ATTACKER = nil
+
+---@type unittype
+Native.UNIT_TYPE_GIANT = nil
+
+---@type unittype
+Native.UNIT_TYPE_SUMMONED = nil
+
+---@type unittype
+Native.UNIT_TYPE_STUNNED = nil
+
+---@type unittype
+Native.UNIT_TYPE_PLAGUED = nil
+
+---@type unittype
+Native.UNIT_TYPE_SNARED = nil
+
+---@type unittype
+Native.UNIT_TYPE_UNDEAD = nil
+
+---@type unittype
+Native.UNIT_TYPE_MECHANICAL = nil
+
+---@type unittype
+Native.UNIT_TYPE_PEON = nil
+
+---@type unittype
+Native.UNIT_TYPE_SAPPER = nil
+
+---@type unittype
+Native.UNIT_TYPE_TOWNHALL = nil
+
+---@type unittype
+Native.UNIT_TYPE_ANCIENT = nil
+
+---@type unittype
+Native.UNIT_TYPE_TAUREN = nil
+
+---@type unittype
+Native.UNIT_TYPE_POISONED = nil
+
+---@type unittype
+Native.UNIT_TYPE_POLYMORPHED = nil
+
+---@type unittype
+Native.UNIT_TYPE_SLEEPING = nil
+
+---@type unittype
+Native.UNIT_TYPE_RESISTANT = nil
+
+---@type unittype
+Native.UNIT_TYPE_ETHEREAL = nil
+
+---@type unittype
+Native.UNIT_TYPE_MAGIC_IMMUNE = nil
+
+---@type itemtype
+Native.ITEM_TYPE_PERMANENT = nil
+
+---@type itemtype
+Native.ITEM_TYPE_CHARGED = nil
+
+---@type itemtype
+Native.ITEM_TYPE_POWERUP = nil
+
+---@type itemtype
+Native.ITEM_TYPE_ARTIFACT = nil
+
+---@type itemtype
+Native.ITEM_TYPE_PURCHASABLE = nil
+
+---@type itemtype
+Native.ITEM_TYPE_CAMPAIGN = nil
+
+---@type itemtype
+Native.ITEM_TYPE_MISCELLANEOUS = nil
+
+---@type itemtype
+Native.ITEM_TYPE_UNKNOWN = nil
+
+---@type itemtype
+Native.ITEM_TYPE_ANY = nil
+
+---@type itemtype
+Native.ITEM_TYPE_TOME = nil
+
+---@type camerafield
+Native.CAMERA_FIELD_TARGET_DISTANCE = nil
+
+---@type camerafield
+Native.CAMERA_FIELD_FARZ = nil
+
+---@type camerafield
+Native.CAMERA_FIELD_ANGLE_OF_ATTACK = nil
+
+---@type camerafield
+Native.CAMERA_FIELD_FIELD_OF_VIEW = nil
+
+---@type camerafield
+Native.CAMERA_FIELD_ROLL = nil
+
+---@type camerafield
+Native.CAMERA_FIELD_ROTATION = nil
+
+---@type camerafield
+Native.CAMERA_FIELD_ZOFFSET = nil
+
+---@type camerafield
+Native.CAMERA_FIELD_NEARZ = nil
+
+---@type camerafield
+Native.CAMERA_FIELD_LOCAL_PITCH = nil
+
+---@type camerafield
+Native.CAMERA_FIELD_LOCAL_YAW = nil
+
+---@type camerafield
+Native.CAMERA_FIELD_LOCAL_ROLL = nil
+
+---@type blendmode
+Native.BLEND_MODE_NONE = nil
+
+---@type blendmode
+Native.BLEND_MODE_DONT_CARE = nil
+
+---@type blendmode
+Native.BLEND_MODE_KEYALPHA = nil
+
+---@type blendmode
+Native.BLEND_MODE_BLEND = nil
+
+---@type blendmode
+Native.BLEND_MODE_ADDITIVE = nil
+
+---@type blendmode
+Native.BLEND_MODE_MODULATE = nil
+
+---@type blendmode
+Native.BLEND_MODE_MODULATE_2X = nil
+
+---@type raritycontrol
+Native.RARITY_FREQUENT = nil
+
+---@type raritycontrol
+Native.RARITY_RARE = nil
+
+---@type texmapflags
+Native.TEXMAP_FLAG_NONE = nil
+
+---@type texmapflags
+Native.TEXMAP_FLAG_WRAP_U = nil
+
+---@type texmapflags
+Native.TEXMAP_FLAG_WRAP_V = nil
+
+---@type texmapflags
+Native.TEXMAP_FLAG_WRAP_UV = nil
+
+---@type fogstate
+Native.FOG_OF_WAR_MASKED = nil
+
+---@type fogstate
+Native.FOG_OF_WAR_FOGGED = nil
+
+---@type fogstate
+Native.FOG_OF_WAR_VISIBLE = nil
+
+---@type integer
+Native.CAMERA_MARGIN_LEFT = nil
+
+---@type integer
+Native.CAMERA_MARGIN_RIGHT = nil
+
+---@type integer
+Native.CAMERA_MARGIN_TOP = nil
+
+---@type integer
+Native.CAMERA_MARGIN_BOTTOM = nil
+
+---@type effecttype
+Native.EFFECT_TYPE_EFFECT = nil
+
+---@type effecttype
+Native.EFFECT_TYPE_TARGET = nil
+
+---@type effecttype
+Native.EFFECT_TYPE_CASTER = nil
+
+---@type effecttype
+Native.EFFECT_TYPE_SPECIAL = nil
+
+---@type effecttype
+Native.EFFECT_TYPE_AREA_EFFECT = nil
+
+---@type effecttype
+Native.EFFECT_TYPE_MISSILE = nil
+
+---@type effecttype
+Native.EFFECT_TYPE_LIGHTNING = nil
+
+---@type soundtype
+Native.SOUND_TYPE_EFFECT = nil
+
+---@type soundtype
+Native.SOUND_TYPE_EFFECT_LOOPED = nil
+
+---@type originframetype
+Native.ORIGIN_FRAME_GAME_UI = nil
+
+---@type originframetype
+Native.ORIGIN_FRAME_COMMAND_BUTTON = nil
+
+---@type originframetype
+Native.ORIGIN_FRAME_HERO_BAR = nil
+
+---@type originframetype
+Native.ORIGIN_FRAME_HERO_BUTTON = nil
+
+---@type originframetype
+Native.ORIGIN_FRAME_HERO_HP_BAR = nil
+
+---@type originframetype
+Native.ORIGIN_FRAME_HERO_MANA_BAR = nil
+
+---@type originframetype
+Native.ORIGIN_FRAME_HERO_BUTTON_INDICATOR = nil
+
+---@type originframetype
+Native.ORIGIN_FRAME_ITEM_BUTTON = nil
+
+---@type originframetype
+Native.ORIGIN_FRAME_MINIMAP = nil
+
+---@type originframetype
+Native.ORIGIN_FRAME_MINIMAP_BUTTON = nil
+
+---@type originframetype
+Native.ORIGIN_FRAME_SYSTEM_BUTTON = nil
+
+---@type originframetype
+Native.ORIGIN_FRAME_TOOLTIP = nil
+
+---@type originframetype
+Native.ORIGIN_FRAME_UBERTOOLTIP = nil
+
+---@type originframetype
+Native.ORIGIN_FRAME_CHAT_MSG = nil
+
+---@type originframetype
+Native.ORIGIN_FRAME_UNIT_MSG = nil
+
+---@type originframetype
+Native.ORIGIN_FRAME_TOP_MSG = nil
+
+---@type originframetype
+Native.ORIGIN_FRAME_PORTRAIT = nil
+
+---@type originframetype
+Native.ORIGIN_FRAME_WORLD_FRAME = nil
+
+---@type framepointtype
+Native.FRAMEPOINT_TOPLEFT = nil
+
+---@type framepointtype
+Native.FRAMEPOINT_TOP = nil
+
+---@type framepointtype
+Native.FRAMEPOINT_TOPRIGHT = nil
+
+---@type framepointtype
+Native.FRAMEPOINT_LEFT = nil
+
+---@type framepointtype
+Native.FRAMEPOINT_CENTER = nil
+
+---@type framepointtype
+Native.FRAMEPOINT_RIGHT = nil
+
+---@type framepointtype
+Native.FRAMEPOINT_BOTTOMLEFT = nil
+
+---@type framepointtype
+Native.FRAMEPOINT_BOTTOM = nil
+
+---@type framepointtype
+Native.FRAMEPOINT_BOTTOMRIGHT = nil
+
+---@type textaligntype
+Native.TEXT_JUSTIFY_TOP = nil
+
+---@type textaligntype
+Native.TEXT_JUSTIFY_MIDDLE = nil
+
+---@type textaligntype
+Native.TEXT_JUSTIFY_BOTTOM = nil
+
+---@type textaligntype
+Native.TEXT_JUSTIFY_LEFT = nil
+
+---@type textaligntype
+Native.TEXT_JUSTIFY_CENTER = nil
+
+---@type textaligntype
+Native.TEXT_JUSTIFY_RIGHT = nil
+
+---@type frameeventtype
+Native.FRAMEEVENT_CONTROL_CLICK = nil
+
+---@type frameeventtype
+Native.FRAMEEVENT_MOUSE_ENTER = nil
+
+---@type frameeventtype
+Native.FRAMEEVENT_MOUSE_LEAVE = nil
+
+---@type frameeventtype
+Native.FRAMEEVENT_MOUSE_UP = nil
+
+---@type frameeventtype
+Native.FRAMEEVENT_MOUSE_DOWN = nil
+
+---@type frameeventtype
+Native.FRAMEEVENT_MOUSE_WHEEL = nil
+
+---@type frameeventtype
+Native.FRAMEEVENT_CHECKBOX_CHECKED = nil
+
+---@type frameeventtype
+Native.FRAMEEVENT_CHECKBOX_UNCHECKED = nil
+
+---@type frameeventtype
+Native.FRAMEEVENT_EDITBOX_TEXT_CHANGED = nil
+
+---@type frameeventtype
+Native.FRAMEEVENT_POPUPMENU_ITEM_CHANGED = nil
+
+---@type frameeventtype
+Native.FRAMEEVENT_MOUSE_DOUBLECLICK = nil
+
+---@type frameeventtype
+Native.FRAMEEVENT_SPRITE_ANIM_UPDATE = nil
+
+---@type frameeventtype
+Native.FRAMEEVENT_SLIDER_VALUE_CHANGED = nil
+
+---@type frameeventtype
+Native.FRAMEEVENT_DIALOG_CANCEL = nil
+
+---@type frameeventtype
+Native.FRAMEEVENT_DIALOG_ACCEPT = nil
+
+---@type frameeventtype
+Native.FRAMEEVENT_EDITBOX_ENTER = nil
+
+---@type oskeytype
+Native.OSKEY_BACKSPACE = nil
+
+---@type oskeytype
+Native.OSKEY_TAB = nil
+
+---@type oskeytype
+Native.OSKEY_CLEAR = nil
+
+---@type oskeytype
+Native.OSKEY_RETURN = nil
+
+---@type oskeytype
+Native.OSKEY_SHIFT = nil
+
+---@type oskeytype
+Native.OSKEY_CONTROL = nil
+
+---@type oskeytype
+Native.OSKEY_ALT = nil
+
+---@type oskeytype
+Native.OSKEY_PAUSE = nil
+
+---@type oskeytype
+Native.OSKEY_CAPSLOCK = nil
+
+---@type oskeytype
+Native.OSKEY_KANA = nil
+
+---@type oskeytype
+Native.OSKEY_HANGUL = nil
+
+---@type oskeytype
+Native.OSKEY_JUNJA = nil
+
+---@type oskeytype
+Native.OSKEY_FINAL = nil
+
+---@type oskeytype
+Native.OSKEY_HANJA = nil
+
+---@type oskeytype
+Native.OSKEY_KANJI = nil
+
+---@type oskeytype
+Native.OSKEY_ESCAPE = nil
+
+---@type oskeytype
+Native.OSKEY_CONVERT = nil
+
+---@type oskeytype
+Native.OSKEY_NONCONVERT = nil
+
+---@type oskeytype
+Native.OSKEY_ACCEPT = nil
+
+---@type oskeytype
+Native.OSKEY_MODECHANGE = nil
+
+---@type oskeytype
+Native.OSKEY_SPACE = nil
+
+---@type oskeytype
+Native.OSKEY_PAGEUP = nil
+
+---@type oskeytype
+Native.OSKEY_PAGEDOWN = nil
+
+---@type oskeytype
+Native.OSKEY_END = nil
+
+---@type oskeytype
+Native.OSKEY_HOME = nil
+
+---@type oskeytype
+Native.OSKEY_LEFT = nil
+
+---@type oskeytype
+Native.OSKEY_UP = nil
+
+---@type oskeytype
+Native.OSKEY_RIGHT = nil
+
+---@type oskeytype
+Native.OSKEY_DOWN = nil
+
+---@type oskeytype
+Native.OSKEY_SELECT = nil
+
+---@type oskeytype
+Native.OSKEY_PRINT = nil
+
+---@type oskeytype
+Native.OSKEY_EXECUTE = nil
+
+---@type oskeytype
+Native.OSKEY_PRINTSCREEN = nil
+
+---@type oskeytype
+Native.OSKEY_INSERT = nil
+
+---@type oskeytype
+Native.OSKEY_DELETE = nil
+
+---@type oskeytype
+Native.OSKEY_HELP = nil
+
+---@type oskeytype
+Native.OSKEY_0 = nil
+
+---@type oskeytype
+Native.OSKEY_1 = nil
+
+---@type oskeytype
+Native.OSKEY_2 = nil
+
+---@type oskeytype
+Native.OSKEY_3 = nil
+
+---@type oskeytype
+Native.OSKEY_4 = nil
+
+---@type oskeytype
+Native.OSKEY_5 = nil
+
+---@type oskeytype
+Native.OSKEY_6 = nil
+
+---@type oskeytype
+Native.OSKEY_7 = nil
+
+---@type oskeytype
+Native.OSKEY_8 = nil
+
+---@type oskeytype
+Native.OSKEY_9 = nil
+
+---@type oskeytype
+Native.OSKEY_A = nil
+
+---@type oskeytype
+Native.OSKEY_B = nil
+
+---@type oskeytype
+Native.OSKEY_C = nil
+
+---@type oskeytype
+Native.OSKEY_D = nil
+
+---@type oskeytype
+Native.OSKEY_E = nil
+
+---@type oskeytype
+Native.OSKEY_F = nil
+
+---@type oskeytype
+Native.OSKEY_G = nil
+
+---@type oskeytype
+Native.OSKEY_H = nil
+
+---@type oskeytype
+Native.OSKEY_I = nil
+
+---@type oskeytype
+Native.OSKEY_J = nil
+
+---@type oskeytype
+Native.OSKEY_K = nil
+
+---@type oskeytype
+Native.OSKEY_L = nil
+
+---@type oskeytype
+Native.OSKEY_M = nil
+
+---@type oskeytype
+Native.OSKEY_N = nil
+
+---@type oskeytype
+Native.OSKEY_O = nil
+
+---@type oskeytype
+Native.OSKEY_P = nil
+
+---@type oskeytype
+Native.OSKEY_Q = nil
+
+---@type oskeytype
+Native.OSKEY_R = nil
+
+---@type oskeytype
+Native.OSKEY_S = nil
+
+---@type oskeytype
+Native.OSKEY_T = nil
+
+---@type oskeytype
+Native.OSKEY_U = nil
+
+---@type oskeytype
+Native.OSKEY_V = nil
+
+---@type oskeytype
+Native.OSKEY_W = nil
+
+---@type oskeytype
+Native.OSKEY_X = nil
+
+---@type oskeytype
+Native.OSKEY_Y = nil
+
+---@type oskeytype
+Native.OSKEY_Z = nil
+
+---@type oskeytype
+Native.OSKEY_LMETA = nil
+
+---@type oskeytype
+Native.OSKEY_RMETA = nil
+
+---@type oskeytype
+Native.OSKEY_APPS = nil
+
+---@type oskeytype
+Native.OSKEY_SLEEP = nil
+
+---@type oskeytype
+Native.OSKEY_NUMPAD0 = nil
+
+---@type oskeytype
+Native.OSKEY_NUMPAD1 = nil
+
+---@type oskeytype
+Native.OSKEY_NUMPAD2 = nil
+
+---@type oskeytype
+Native.OSKEY_NUMPAD3 = nil
+
+---@type oskeytype
+Native.OSKEY_NUMPAD4 = nil
+
+---@type oskeytype
+Native.OSKEY_NUMPAD5 = nil
+
+---@type oskeytype
+Native.OSKEY_NUMPAD6 = nil
+
+---@type oskeytype
+Native.OSKEY_NUMPAD7 = nil
+
+---@type oskeytype
+Native.OSKEY_NUMPAD8 = nil
+
+---@type oskeytype
+Native.OSKEY_NUMPAD9 = nil
+
+---@type oskeytype
+Native.OSKEY_MULTIPLY = nil
+
+---@type oskeytype
+Native.OSKEY_ADD = nil
+
+---@type oskeytype
+Native.OSKEY_SEPARATOR = nil
+
+---@type oskeytype
+Native.OSKEY_SUBTRACT = nil
+
+---@type oskeytype
+Native.OSKEY_DECIMAL = nil
+
+---@type oskeytype
+Native.OSKEY_DIVIDE = nil
+
+---@type oskeytype
+Native.OSKEY_F1 = nil
+
+---@type oskeytype
+Native.OSKEY_F2 = nil
+
+---@type oskeytype
+Native.OSKEY_F3 = nil
+
+---@type oskeytype
+Native.OSKEY_F4 = nil
+
+---@type oskeytype
+Native.OSKEY_F5 = nil
+
+---@type oskeytype
+Native.OSKEY_F6 = nil
+
+---@type oskeytype
+Native.OSKEY_F7 = nil
+
+---@type oskeytype
+Native.OSKEY_F8 = nil
+
+---@type oskeytype
+Native.OSKEY_F9 = nil
+
+---@type oskeytype
+Native.OSKEY_F10 = nil
+
+---@type oskeytype
+Native.OSKEY_F11 = nil
+
+---@type oskeytype
+Native.OSKEY_F12 = nil
+
+---@type oskeytype
+Native.OSKEY_F13 = nil
+
+---@type oskeytype
+Native.OSKEY_F14 = nil
+
+---@type oskeytype
+Native.OSKEY_F15 = nil
+
+---@type oskeytype
+Native.OSKEY_F16 = nil
+
+---@type oskeytype
+Native.OSKEY_F17 = nil
+
+---@type oskeytype
+Native.OSKEY_F18 = nil
+
+---@type oskeytype
+Native.OSKEY_F19 = nil
+
+---@type oskeytype
+Native.OSKEY_F20 = nil
+
+---@type oskeytype
+Native.OSKEY_F21 = nil
+
+---@type oskeytype
+Native.OSKEY_F22 = nil
+
+---@type oskeytype
+Native.OSKEY_F23 = nil
+
+---@type oskeytype
+Native.OSKEY_F24 = nil
+
+---@type oskeytype
+Native.OSKEY_NUMLOCK = nil
+
+---@type oskeytype
+Native.OSKEY_SCROLLLOCK = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_NEC_EQUAL = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_FJ_JISHO = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_FJ_MASSHOU = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_FJ_TOUROKU = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_FJ_LOYA = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_FJ_ROYA = nil
+
+---@type oskeytype
+Native.OSKEY_LSHIFT = nil
+
+---@type oskeytype
+Native.OSKEY_RSHIFT = nil
+
+---@type oskeytype
+Native.OSKEY_LCONTROL = nil
+
+---@type oskeytype
+Native.OSKEY_RCONTROL = nil
+
+---@type oskeytype
+Native.OSKEY_LALT = nil
+
+---@type oskeytype
+Native.OSKEY_RALT = nil
+
+---@type oskeytype
+Native.OSKEY_BROWSER_BACK = nil
+
+---@type oskeytype
+Native.OSKEY_BROWSER_FORWARD = nil
+
+---@type oskeytype
+Native.OSKEY_BROWSER_REFRESH = nil
+
+---@type oskeytype
+Native.OSKEY_BROWSER_STOP = nil
+
+---@type oskeytype
+Native.OSKEY_BROWSER_SEARCH = nil
+
+---@type oskeytype
+Native.OSKEY_BROWSER_FAVORITES = nil
+
+---@type oskeytype
+Native.OSKEY_BROWSER_HOME = nil
+
+---@type oskeytype
+Native.OSKEY_VOLUME_MUTE = nil
+
+---@type oskeytype
+Native.OSKEY_VOLUME_DOWN = nil
+
+---@type oskeytype
+Native.OSKEY_VOLUME_UP = nil
+
+---@type oskeytype
+Native.OSKEY_MEDIA_NEXT_TRACK = nil
+
+---@type oskeytype
+Native.OSKEY_MEDIA_PREV_TRACK = nil
+
+---@type oskeytype
+Native.OSKEY_MEDIA_STOP = nil
+
+---@type oskeytype
+Native.OSKEY_MEDIA_PLAY_PAUSE = nil
+
+---@type oskeytype
+Native.OSKEY_LAUNCH_MAIL = nil
+
+---@type oskeytype
+Native.OSKEY_LAUNCH_MEDIA_SELECT = nil
+
+---@type oskeytype
+Native.OSKEY_LAUNCH_APP1 = nil
+
+---@type oskeytype
+Native.OSKEY_LAUNCH_APP2 = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_1 = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_PLUS = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_COMMA = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_MINUS = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_PERIOD = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_2 = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_3 = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_4 = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_5 = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_6 = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_7 = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_8 = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_AX = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_102 = nil
+
+---@type oskeytype
+Native.OSKEY_ICO_HELP = nil
+
+---@type oskeytype
+Native.OSKEY_ICO_00 = nil
+
+---@type oskeytype
+Native.OSKEY_PROCESSKEY = nil
+
+---@type oskeytype
+Native.OSKEY_ICO_CLEAR = nil
+
+---@type oskeytype
+Native.OSKEY_PACKET = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_RESET = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_JUMP = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_PA1 = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_PA2 = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_PA3 = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_WSCTRL = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_CUSEL = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_ATTN = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_FINISH = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_COPY = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_AUTO = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_ENLW = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_BACKTAB = nil
+
+---@type oskeytype
+Native.OSKEY_ATTN = nil
+
+---@type oskeytype
+Native.OSKEY_CRSEL = nil
+
+---@type oskeytype
+Native.OSKEY_EXSEL = nil
+
+---@type oskeytype
+Native.OSKEY_EREOF = nil
+
+---@type oskeytype
+Native.OSKEY_PLAY = nil
+
+---@type oskeytype
+Native.OSKEY_ZOOM = nil
+
+---@type oskeytype
+Native.OSKEY_NONAME = nil
+
+---@type oskeytype
+Native.OSKEY_PA1 = nil
+
+---@type oskeytype
+Native.OSKEY_OEM_CLEAR = nil
+
+---@type abilityintegerfield
+Native.ABILITY_IF_BUTTON_POSITION_NORMAL_X = nil
+
+---@type abilityintegerfield
+Native.ABILITY_IF_BUTTON_POSITION_NORMAL_Y = nil
+
+---@type abilityintegerfield
+Native.ABILITY_IF_BUTTON_POSITION_ACTIVATED_X = nil
+
+---@type abilityintegerfield
+Native.ABILITY_IF_BUTTON_POSITION_ACTIVATED_Y = nil
+
+---@type abilityintegerfield
+Native.ABILITY_IF_BUTTON_POSITION_RESEARCH_X = nil
+
+---@type abilityintegerfield
+Native.ABILITY_IF_BUTTON_POSITION_RESEARCH_Y = nil
+
+---@type abilityintegerfield
+Native.ABILITY_IF_MISSILE_SPEED = nil
+
+---@type abilityintegerfield
+Native.ABILITY_IF_TARGET_ATTACHMENTS = nil
+
+---@type abilityintegerfield
+Native.ABILITY_IF_CASTER_ATTACHMENTS = nil
+
+---@type abilityintegerfield
+Native.ABILITY_IF_PRIORITY = nil
+
+---@type abilityintegerfield
+Native.ABILITY_IF_LEVELS = nil
+
+---@type abilityintegerfield
+Native.ABILITY_IF_REQUIRED_LEVEL = nil
+
+---@type abilityintegerfield
+Native.ABILITY_IF_LEVEL_SKIP_REQUIREMENT = nil
+
+---@type abilitybooleanfield
+Native.ABILITY_BF_HERO_ABILITY = nil
+
+---@type abilitybooleanfield
+Native.ABILITY_BF_ITEM_ABILITY = nil
+
+---@type abilitybooleanfield
+Native.ABILITY_BF_CHECK_DEPENDENCIES = nil
+
+---@type abilityrealfield
+Native.ABILITY_RF_ARF_MISSILE_ARC = nil
+
+---@type abilitystringfield
+Native.ABILITY_SF_NAME = nil
+
+---@type abilitystringfield
+Native.ABILITY_SF_ICON_ACTIVATED = nil
+
+---@type abilitystringfield
+Native.ABILITY_SF_ICON_RESEARCH = nil
+
+---@type abilitystringfield
+Native.ABILITY_SF_EFFECT_SOUND = nil
+
+---@type abilitystringfield
+Native.ABILITY_SF_EFFECT_SOUND_LOOPING = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MANA_COST = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_WAVES = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_SHARDS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_UNITS_TELEPORTED = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SUMMONED_UNIT_COUNT_HWE2 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_IMAGES = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_CORPSES_RAISED_UAN1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MORPHING_FLAGS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_STRENGTH_BONUS_NRG5 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DEFENSE_BONUS_NRG6 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_TARGETS_HIT = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DETECTION_TYPE_OFS1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_SUMMONED_UNITS_OSF2 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_SUMMONED_UNITS_EFN1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_CORPSES_RAISED_HRE1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_STACK_FLAGS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MINIMUM_NUMBER_OF_UNITS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAXIMUM_NUMBER_OF_UNITS_NDP3 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_UNITS_CREATED_NRC2 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SHIELD_LIFE = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MANA_LOSS_AMS4 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_GOLD_PER_INTERVAL_BGM1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAX_NUMBER_OF_MINERS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_CARGO_CAPACITY = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAXIMUM_CREEP_LEVEL_DEV3 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAX_CREEP_LEVEL_DEV1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_GOLD_PER_INTERVAL_EGM1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DEFENSE_REDUCTION = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DETECTION_TYPE_FLA1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_FLARE_COUNT = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAX_GOLD = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MINING_CAPACITY = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAXIMUM_NUMBER_OF_CORPSES_GYD1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DAMAGE_TO_TREE = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_LUMBER_CAPACITY = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_GOLD_CAPACITY = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DEFENSE_INCREASE_INF2 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_INTERACTION_TYPE = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_GOLD_COST_NDT1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_LUMBER_COST_NDT2 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DETECTION_TYPE_NDT3 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_STACKING_TYPE_POI4 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_STACKING_TYPE_POA5 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAXIMUM_CREEP_LEVEL_PLY1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAXIMUM_CREEP_LEVEL_POS1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MOVEMENT_UPDATE_FREQUENCY_PRG1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_ATTACK_UPDATE_FREQUENCY_PRG2 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MANA_LOSS_PRG6 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_UNITS_SUMMONED_TYPE_ONE = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_UNITS_SUMMONED_TYPE_TWO = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAX_UNITS_SUMMONED = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_ALLOW_WHEN_FULL_REJ3 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAXIMUM_UNITS_CHARGED_TO_CASTER = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAXIMUM_UNITS_AFFECTED = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DEFENSE_INCREASE_ROA2 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAX_UNITS_ROA7 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_ROOTED_WEAPONS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_UPROOTED_WEAPONS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_UPROOTED_DEFENSE_TYPE = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_ACCUMULATION_STEP = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_OWLS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_STACKING_TYPE_SPO4 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_UNITS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SPIDER_CAPACITY = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_INTERVALS_BEFORE_CHANGING_TREES = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_AGILITY_BONUS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_INTELLIGENCE_BONUS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_STRENGTH_BONUS_ISTR = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_ATTACK_BONUS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DEFENSE_BONUS_IDEF = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SUMMON_1_AMOUNT = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SUMMON_2_AMOUNT = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_EXPERIENCE_GAINED = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_HIT_POINTS_GAINED_IHPG = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MANA_POINTS_GAINED_IMPG = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_HIT_POINTS_GAINED_IHP2 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MANA_POINTS_GAINED_IMP2 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DAMAGE_BONUS_DICE = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_ARMOR_PENALTY_IARP = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_ENABLED_ATTACK_INDEX_IOB5 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_LEVELS_GAINED = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAX_LIFE_GAINED = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAX_MANA_GAINED = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_GOLD_GIVEN = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_LUMBER_GIVEN = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DETECTION_TYPE_IFA1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAXIMUM_CREEP_LEVEL_ICRE = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MOVEMENT_SPEED_BONUS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_HIT_POINTS_REGENERATED_PER_SECOND = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SIGHT_RANGE_BONUS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DAMAGE_PER_DURATION = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MANA_USED_PER_SECOND = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_EXTRA_MANA_REQUIRED = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DETECTION_RADIUS_IDET = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MANA_LOSS_PER_UNIT_IDIM = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DAMAGE_TO_SUMMONED_UNITS_IDID = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAXIMUM_NUMBER_OF_UNITS_IREC = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DELAY_AFTER_DEATH_SECONDS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_RESTORED_LIFE = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_RESTORED_MANA__1_FOR_CURRENT = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_HIT_POINTS_RESTORED = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MANA_POINTS_RESTORED = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAXIMUM_NUMBER_OF_UNITS_ITPM = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_CORPSES_RAISED_CAD1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_TERRAIN_DEFORMATION_DURATION_MS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAXIMUM_UNITS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DETECTION_TYPE_DET1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_GOLD_COST_PER_STRUCTURE = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_LUMBER_COST_PER_USE = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DETECTION_TYPE_NSP3 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_SWARM_UNITS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAX_SWARM_UNITS_PER_TARGET = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_SUMMONED_UNITS_NBA2 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAXIMUM_CREEP_LEVEL_NCH1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_ATTACKS_PREVENTED = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAXIMUM_NUMBER_OF_TARGETS_EFK3 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_SUMMONED_UNITS_ESV1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAXIMUM_NUMBER_OF_CORPSES_EXH1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_ITEM_CAPACITY = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAXIMUM_NUMBER_OF_TARGETS_SPL2 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_ALLOW_WHEN_FULL_IRL3 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAXIMUM_DISPELLED_UNITS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_LURES = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NEW_TIME_OF_DAY_HOUR = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NEW_TIME_OF_DAY_MINUTE = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_UNITS_CREATED_MEC1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MINIMUM_SPELLS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAXIMUM_SPELLS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DISABLED_ATTACK_INDEX = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_ENABLED_ATTACK_INDEX_GRA4 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAXIMUM_ATTACKS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_BUILDING_TYPES_ALLOWED_NPR1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_BUILDING_TYPES_ALLOWED_NSA1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_ATTACK_MODIFICATION = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SUMMONED_UNIT_COUNT_NPA5 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_UPGRADE_LEVELS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_SUMMONED_UNITS_NDO2 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_BEASTS_PER_SECOND = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_TARGET_TYPE = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_OPTIONS = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_ARMOR_PENALTY_NAB3 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_WAVE_COUNT_NHS6 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAX_CREEP_LEVEL_NTM3 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MISSILE_COUNT = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SPLIT_ATTACK_COUNT = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_GENERATION_COUNT = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_ROCK_RING_COUNT = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_WAVE_COUNT_NVC2 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_PREFER_HOSTILES_TAU1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_PREFER_FRIENDLIES_TAU2 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_MAX_UNITS_TAU3 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NUMBER_OF_PULSES = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SUMMONED_UNIT_TYPE_HWE1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SUMMONED_UNIT_UIN4 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SUMMONED_UNIT_OSF1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SUMMONED_UNIT_TYPE_EFNU = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SUMMONED_UNIT_TYPE_NBAU = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SUMMONED_UNIT_TYPE_NTOU = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SUMMONED_UNIT_TYPE_ESVU = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SUMMONED_UNIT_TYPES = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SUMMONED_UNIT_TYPE_NDOU = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_ALTERNATE_FORM_UNIT_EMEU = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_PLAGUE_WARD_UNIT_TYPE = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_ALLOWED_UNIT_TYPE_BTL1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_NEW_UNIT_TYPE = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_RESULTING_UNIT_TYPE_ENT1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_CORPSE_UNIT_TYPE = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_ALLOWED_UNIT_TYPE_LOA1 = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_UNIT_TYPE_FOR_LIMIT_CHECK = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_WARD_UNIT_TYPE_STAU = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_EFFECT_ABILITY = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_CONVERSION_UNIT = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_UNIT_TO_PRESERVE = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_UNIT_TYPE_ALLOWED = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SWARM_UNIT_TYPE = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_RESULTING_UNIT_TYPE_COAU = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_UNIT_TYPE_EXHU = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_WARD_UNIT_TYPE_HWDU = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_LURE_UNIT_TYPE = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_UNIT_TYPE_IPMU = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_FACTORY_UNIT_ID = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_SPAWN_UNIT_ID_NFYU = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_DESTRUCTIBLE_ID = nil
+
+---@type abilityintegerlevelfield
+Native.ABILITY_ILF_UPGRADE_TYPE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CASTING_TIME = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DURATION_NORMAL = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DURATION_HERO = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_COOLDOWN = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_AREA_OF_EFFECT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CAST_RANGE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_HBZ2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_BUILDING_REDUCTION_HBZ4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_SECOND_HBZ5 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAXIMUM_DAMAGE_PER_WAVE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MANA_REGENERATION_INCREASE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CASTING_DELAY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_SECOND_OWW1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAGIC_DAMAGE_REDUCTION_OWW2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CHANCE_TO_CRITICAL_STRIKE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_MULTIPLIER_OCR2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_BONUS_OCR3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CHANCE_TO_EVADE_OCR4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_DEALT_PERCENT_OMI2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_TAKEN_PERCENT_OMI3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ANIMATION_DELAY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_TRANSITION_TIME = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_INCREASE_PERCENT_OWK2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_BACKSTAB_DAMAGE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_AMOUNT_HEALED_DAMAGED_UDC1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LIFE_CONVERTED_TO_MANA = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LIFE_CONVERTED_TO_LIFE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_INCREASE_PERCENT_UAU1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LIFE_REGENERATION_INCREASE_PERCENT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CHANCE_TO_EVADE_EEV1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_INTERVAL = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MANA_DRAINED_PER_SECOND_EIM2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_BUFFER_MANA_REQUIRED = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAX_MANA_DRAINED = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_BOLT_DELAY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_BOLT_LIFETIME = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ALTITUDE_ADJUSTMENT_DURATION = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LANDING_DELAY_TIME = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ALTERNATE_FORM_HIT_POINT_BONUS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVE_SPEED_BONUS_INFO_PANEL_ONLY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_BONUS_INFO_PANEL_ONLY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LIFE_REGENERATION_RATE_PER_SECOND = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_STUN_DURATION_USL1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_DAMAGE_STOLEN_PERCENT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_UCS1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAX_DAMAGE_UCS2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DISTANCE_UCS3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_FINAL_AREA_UCS4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_UIN1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DURATION = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_IMPACT_DELAY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_TARGET_OCL1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_REDUCTION_PER_TARGET = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_EFFECT_DELAY_OEQ1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_SECOND_TO_BUILDINGS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_UNITS_SLOWED_PERCENT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_FINAL_AREA_OEQ4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_SECOND_EER1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_DEALT_TO_ATTACKERS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LIFE_HEALED = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HEAL_INTERVAL = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_BUILDING_REDUCTION_ETQ3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_INITIAL_IMMUNITY_DURATION = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAX_LIFE_DRAINED_PER_SECOND_PERCENT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_BUILDING_REDUCTION_UDD2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ARMOR_DURATION = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ARMOR_BONUS_UFA2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_AREA_OF_EFFECT_DAMAGE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SPECIFIC_TARGET_DAMAGE_UFN2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_BONUS_HFA1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_DEALT_ESF1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_INTERVAL_ESF2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_BUILDING_REDUCTION_ESF3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_BONUS_PERCENT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DEFENSE_BONUS_HAV1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HIT_POINT_BONUS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_BONUS_HAV3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAGIC_DAMAGE_REDUCTION_HAV4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CHANCE_TO_BASH = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_MULTIPLIER_HBH2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_BONUS_HBH3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CHANCE_TO_MISS_HBH4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_HTB1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_AOE_DAMAGE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SPECIFIC_TARGET_DAMAGE_HTC2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_REDUCTION_PERCENT_HTC3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_REDUCTION_PERCENT_HTC4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ARMOR_BONUS_HAD1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_AMOUNT_HEALED_DAMAGED_HHB1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_EXTRA_DAMAGE_HCA1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_FACTOR_HCA2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_FACTOR_HCA3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_INCREASE_PERCENT_OAE1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_INCREASE_PERCENT_OAE2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_REINCARNATION_DELAY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_OSH1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAXIMUM_DAMAGE_OSH2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DISTANCE_OSH3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_FINAL_AREA_OSH4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_GRAPHIC_DELAY_NFD1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_GRAPHIC_DURATION_NFD2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_NFD3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SUMMONED_UNIT_DAMAGE_AMS1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAGIC_DAMAGE_REDUCTION_AMS2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_AURA_DURATION = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_SECOND_APL2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DURATION_OF_PLAGUE_WARD = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_AMOUNT_OF_HIT_POINTS_REGENERATED = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_DAMAGE_INCREASE_AKB1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MANA_LOSS_ADM1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SUMMONED_UNIT_DAMAGE_ADM2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_EXPANSION_AMOUNT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_INTERVAL_DURATION_BGM2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_RADIUS_OF_MINING_RING = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_INCREASE_PERCENT_BLO1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_INCREASE_PERCENT_BLO2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SCALING_FACTOR = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HIT_POINTS_PER_SECOND_CAN1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAX_HIT_POINTS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_SECOND_DEV2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_UPDATE_FREQUENCY_CHD1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_UPDATE_FREQUENCY_CHD2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SUMMONED_UNIT_DAMAGE_CHD3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_REDUCTION_PERCENT_CRI1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_REDUCTION_PERCENT_CRI2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_REDUCTION_CRI3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CHANCE_TO_MISS_CRS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_FULL_DAMAGE_RADIUS_DDA1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_FULL_DAMAGE_AMOUNT_DDA2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_PARTIAL_DAMAGE_RADIUS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_PARTIAL_DAMAGE_AMOUNT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_BUILDING_DAMAGE_FACTOR_SDS1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAX_DAMAGE_UCO5 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVE_SPEED_BONUS_UCO6 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_TAKEN_PERCENT_DEF1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_DEALT_PERCENT_DEF2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_FACTOR_DEF3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_FACTOR_DEF4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAGIC_DAMAGE_REDUCTION_DEF5 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CHANCE_TO_DEFLECT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DEFLECT_DAMAGE_TAKEN_PIERCING = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DEFLECT_DAMAGE_TAKEN_SPELLS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_RIP_DELAY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_EAT_DELAY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HIT_POINTS_GAINED_EAT3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_AIR_UNIT_LOWER_DURATION = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_AIR_UNIT_HEIGHT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MELEE_ATTACK_RANGE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_INTERVAL_DURATION_EGM2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_EFFECT_DELAY_FLA2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MINING_DURATION = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_RADIUS_OF_GRAVESTONES = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_RADIUS_OF_CORPSES = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HIT_POINTS_GAINED_HEA1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_INCREASE_PERCENT_INF1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_AUTOCAST_RANGE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LIFE_REGEN_RATE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_GRAPHIC_DELAY_LIT1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_GRAPHIC_DURATION_LIT2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_SECOND_LSH1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MANA_GAINED = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HIT_POINTS_GAINED_MBT2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_AUTOCAST_REQUIREMENT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_WATER_HEIGHT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ACTIVATION_DELAY_MIN1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_INVISIBILITY_TRANSITION_TIME = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ACTIVATION_RADIUS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_AMOUNT_REGENERATED = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_SECOND_POI1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_FACTOR_POI2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_FACTOR_POI3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_EXTRA_DAMAGE_POA1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_SECOND_POA2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_FACTOR_POA3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_FACTOR_POA4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_AMPLIFICATION = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CHANCE_TO_STOMP_PERCENT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_DEALT_WAR2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_FULL_DAMAGE_RADIUS_WAR3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HALF_DAMAGE_RADIUS_WAR4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SUMMONED_UNIT_DAMAGE_PRG3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_UNIT_PAUSE_DURATION = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HERO_PAUSE_DURATION = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HIT_POINTS_GAINED_REJ1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MANA_POINTS_GAINED_REJ2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MINIMUM_LIFE_REQUIRED = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MINIMUM_MANA_REQUIRED = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_REPAIR_COST_RATIO = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_REPAIR_TIME_RATIO = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_POWERBUILD_COST = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_POWERBUILD_RATE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_NAVAL_RANGE_BONUS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_INCREASE_PERCENT_ROA1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LIFE_REGENERATION_RATE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MANA_REGEN = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_INCREASE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SALVAGE_COST_RATIO = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_IN_FLIGHT_SIGHT_RADIUS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HOVERING_SIGHT_RADIUS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HOVERING_HEIGHT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DURATION_OF_OWLS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_FADE_DURATION = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAY_NIGHT_DURATION = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ACTION_DURATION = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_FACTOR_SLO1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_FACTOR_SLO2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_SECOND_SPO1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_FACTOR_SPO2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_FACTOR_SPO3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ACTIVATION_DELAY_STA1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DETECTION_RADIUS_STA2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DETONATION_RADIUS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_STUN_DURATION_STA4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_BONUS_PERCENT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_SECOND_UHF2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LUMBER_PER_INTERVAL = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ART_ATTACHMENT_HEIGHT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_TELEPORT_AREA_WIDTH = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_TELEPORT_AREA_HEIGHT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LIFE_STOLEN_PER_ATTACK = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_BONUS_IDAM = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CHANCE_TO_HIT_UNITS_PERCENT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CHANCE_TO_HIT_HEROS_PERCENT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CHANCE_TO_HIT_SUMMONS_PERCENT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DELAY_FOR_TARGET_EFFECT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_DEALT_PERCENT_OF_NORMAL = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_RECEIVED_MULTIPLIER = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MANA_REGENERATION_BONUS_AS_FRACTION_OF_NORMAL = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_INCREASE_ISPI = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_SECOND_IDPS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_DAMAGE_INCREASE_CAC1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_SECOND_COR1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_INCREASE_ISX1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_WRS1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_TERRAIN_DEFORMATION_AMPLITUDE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_CTC1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_EXTRA_DAMAGE_TO_TARGET = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_REDUCTION_CTC3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_REDUCTION_CTC4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_CTB1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CASTING_DELAY_SECONDS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MANA_LOSS_PER_UNIT_DTN1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_TO_SUMMONED_UNITS_DTN2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_TRANSITION_TIME_SECONDS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MANA_DRAINED_PER_SECOND_NMR1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CHANCE_TO_REDUCE_DAMAGE_PERCENT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MINIMUM_DAMAGE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_IGNORED_DAMAGE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_FULL_DAMAGE_DEALT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_FULL_DAMAGE_INTERVAL = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HALF_DAMAGE_DEALT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HALF_DAMAGE_INTERVAL = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_BUILDING_REDUCTION_HFS5 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAXIMUM_DAMAGE_HFS6 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MANA_PER_HIT_POINT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_ABSORBED_PERCENT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_WAVE_DISTANCE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_WAVE_TIME_SECONDS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_DEALT_UIM3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_AIR_TIME_SECONDS_UIM4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_UNIT_RELEASE_INTERVAL_SECONDS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_RETURN_FACTOR = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_RETURN_THRESHOLD = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_RETURNED_DAMAGE_FACTOR = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_RECEIVED_DAMAGE_FACTOR = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DEFENSE_BONUS_UTS3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_BONUS_NBA1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SUMMONED_UNIT_DURATION_SECONDS_NBA3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MANA_PER_SUMMONED_HITPOINT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CHARGE_FOR_CURRENT_LIFE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HIT_POINTS_DRAINED = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MANA_POINTS_DRAINED = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DRAIN_INTERVAL_SECONDS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LIFE_TRANSFERRED_PER_SECOND = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MANA_TRANSFERRED_PER_SECOND = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_BONUS_LIFE_FACTOR = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_BONUS_LIFE_DECAY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_BONUS_MANA_FACTOR = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_BONUS_MANA_DECAY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CHANCE_TO_MISS_PERCENT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_MODIFIER = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_MODIFIER = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_SECOND_TDG1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MEDIUM_DAMAGE_RADIUS_TDG2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MEDIUM_DAMAGE_PER_SECOND = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SMALL_DAMAGE_RADIUS_TDG4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SMALL_DAMAGE_PER_SECOND = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_AIR_TIME_SECONDS_TSP1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MINIMUM_HIT_INTERVAL_SECONDS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_SECOND_NBF5 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAXIMUM_RANGE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MINIMUM_RANGE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_TARGET_EFK1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAXIMUM_TOTAL_DAMAGE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAXIMUM_SPEED_ADJUSTMENT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DECAYING_DAMAGE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_FACTOR_ESH2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_FACTOR_ESH3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DECAY_POWER = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_INITIAL_DAMAGE_ESH5 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAXIMUM_LIFE_ABSORBED = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAXIMUM_MANA_ABSORBED = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_INCREASE_BSK1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_INCREASE_BSK2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_TAKEN_INCREASE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LIFE_PER_UNIT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MANA_PER_UNIT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LIFE_PER_BUFF = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MANA_PER_BUFF = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SUMMONED_UNIT_DAMAGE_DVM5 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_BONUS_FAK1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MEDIUM_DAMAGE_FACTOR_FAK2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SMALL_DAMAGE_FACTOR_FAK3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_FULL_DAMAGE_RADIUS_FAK4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HALF_DAMAGE_RADIUS_FAK5 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_EXTRA_DAMAGE_PER_SECOND = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_REDUCTION_LIQ2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_REDUCTION_LIQ3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAGIC_DAMAGE_FACTOR = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_UNIT_DAMAGE_PER_MANA_POINT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HERO_DAMAGE_PER_MANA_POINT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_UNIT_MAXIMUM_DAMAGE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HERO_MAXIMUM_DAMAGE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_COOLDOWN = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DISTRIBUTED_DAMAGE_FACTOR_SPL1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LIFE_REGENERATED = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MANA_REGENERATED = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MANA_LOSS_PER_UNIT_IDC1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SUMMONED_UNIT_DAMAGE_IDC2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ACTIVATION_DELAY_IMO2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LURE_INTERVAL_SECONDS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_BONUS_ISR1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_REDUCTION_ISR2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_BONUS_IPV1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LIFE_STEAL_AMOUNT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LIFE_RESTORED_FACTOR = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MANA_RESTORED_FACTOR = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACH_DELAY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_REMOVE_DELAY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HERO_REGENERATION_DELAY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_UNIT_REGENERATION_DELAY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAGIC_DAMAGE_REDUCTION_NSA4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HIT_POINTS_PER_SECOND_NSA5 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_TO_SUMMONED_UNITS_IXS1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAGIC_DAMAGE_REDUCTION_IXS2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SUMMONED_UNIT_DURATION = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SHIELD_COOLDOWN_TIME = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_SECOND_NDO1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SUMMONED_UNIT_DURATION_SECONDS_NDO3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MEDIUM_DAMAGE_RADIUS_FLK1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SMALL_DAMAGE_RADIUS_FLK2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_FULL_DAMAGE_AMOUNT_FLK3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MEDIUM_DAMAGE_AMOUNT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SMALL_DAMAGE_AMOUNT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_REDUCTION_PERCENT_HBN1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_REDUCTION_PERCENT_HBN2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAX_MANA_DRAINED_UNITS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_RATIO_UNITS_PERCENT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAX_MANA_DRAINED_HEROS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_RATIO_HEROS_PERCENT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SUMMONED_DAMAGE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DISTRIBUTED_DAMAGE_FACTOR_NCA1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_INITIAL_DAMAGE_PXF1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_SECOND_PXF2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PER_SECOND_MLS1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_BEAST_COLLISION_RADIUS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_AMOUNT_NST3 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_RADIUS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_DELAY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_FOLLOW_THROUGH_TIME = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ART_DURATION = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_REDUCTION_PERCENT_NAB1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_REDUCTION_PERCENT_NAB2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_PRIMARY_DAMAGE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SECONDARY_DAMAGE = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_INTERVAL_NAB6 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_GOLD_COST_FACTOR = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LUMBER_COST_FACTOR = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVE_SPEED_BONUS_NEG1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_BONUS_NEG2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_AMOUNT_NCS1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_INTERVAL_NCS2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAX_DAMAGE_NCS4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_BUILDING_DAMAGE_FACTOR_NCS5 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_EFFECT_DURATION = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SPAWN_INTERVAL_NSY1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SPAWN_UNIT_DURATION = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SPAWN_UNIT_OFFSET = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LEASH_RANGE_NSY5 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SPAWN_INTERVAL_NFY1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LEASH_RANGE_NFY2 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_CHANCE_TO_DEMOLISH = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_MULTIPLIER_BUILDINGS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_MULTIPLIER_UNITS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_MULTIPLIER_HEROES = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_BONUS_DAMAGE_MULTIPLIER = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DEATH_DAMAGE_FULL_AMOUNT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DEATH_DAMAGE_FULL_AREA = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DEATH_DAMAGE_HALF_AMOUNT = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DEATH_DAMAGE_HALF_AREA = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DEATH_DAMAGE_DELAY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_AMOUNT_NSO1 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PERIOD = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_DAMAGE_PENALTY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MOVEMENT_SPEED_REDUCTION_PERCENT_NSO4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_ATTACK_SPEED_REDUCTION_PERCENT_NSO5 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_SPLIT_DELAY = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_MAX_HITPOINT_FACTOR = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_LIFE_DURATION_SPLIT_BONUS = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_WAVE_INTERVAL = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_BUILDING_DAMAGE_FACTOR_NVC4 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_FULL_DAMAGE_AMOUNT_NVC5 = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_HALF_DAMAGE_FACTOR = nil
+
+---@type abilityreallevelfield
+Native.ABILITY_RLF_INTERVAL_BETWEEN_PULSES = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_PERCENT_BONUS_HAB2 = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_USE_TELEPORT_CLUSTERING_HMT3 = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_NEVER_MISS_OCR5 = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_EXCLUDE_ITEM_DAMAGE = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_BACKSTAB_DAMAGE = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_INHERIT_UPGRADES_UAN3 = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_MANA_CONVERSION_AS_PERCENT = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_LIFE_CONVERSION_AS_PERCENT = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_LEAVE_TARGET_ALIVE = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_PERCENT_BONUS_UAU3 = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_DAMAGE_IS_PERCENT_RECEIVED = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_MELEE_BONUS = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_RANGED_BONUS = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_FLAT_BONUS = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_NEVER_MISS_HBH5 = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_PERCENT_BONUS_HAD2 = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_CAN_DEACTIVATE = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_RAISED_UNITS_ARE_INVULNERABLE = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_PERCENTAGE_OAR2 = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_SUMMON_BUSY_UNITS = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_CREATES_BLIGHT = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_EXPLODES_ON_DEATH = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_ALWAYS_AUTOCAST_FAE2 = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_REGENERATE_ONLY_AT_NIGHT = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_SHOW_SELECT_UNIT_BUTTON = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_SHOW_UNIT_INDICATOR = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_CHARGE_OWNING_PLAYER = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_PERCENTAGE_ARM2 = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_TARGET_IS_INVULNERABLE = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_TARGET_IS_MAGIC_IMMUNE = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_KILL_ON_CASTER_DEATH = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_NO_TARGET_REQUIRED_REJ4 = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_ACCEPTS_GOLD = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_ACCEPTS_LUMBER = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_PREFER_HOSTILES_ROA5 = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_PREFER_FRIENDLIES_ROA6 = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_ROOTED_TURNING = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_ALWAYS_AUTOCAST_SLO3 = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_HIDE_BUTTON = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_USE_TELEPORT_CLUSTERING_ITP2 = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_IMMUNE_TO_MORPH_EFFECTS = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_DOES_NOT_BLOCK_BUILDINGS = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_AUTO_ACQUIRE_ATTACK_TARGETS = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_IMMUNE_TO_MORPH_EFFECTS_GHO2 = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_DO_NOT_BLOCK_BUILDINGS = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_INCLUDE_RANGED_DAMAGE = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_INCLUDE_MELEE_DAMAGE = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_MOVE_TO_PARTNER = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_CAN_BE_DISPELLED = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_IGNORE_FRIENDLY_BUFFS = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_DROP_ITEMS_ON_DEATH = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_CAN_USE_ITEMS = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_CAN_GET_ITEMS = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_CAN_DROP_ITEMS = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_REPAIRS_ALLOWED = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_CASTER_ONLY_SPLASH = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_NO_TARGET_REQUIRED_IRL4 = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_DISPEL_ON_ATTACK = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_AMOUNT_IS_RAW_VALUE = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_SHARED_SPELL_COOLDOWN = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_SLEEP_ONCE = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_ALLOW_ON_ANY_PLAYER_SLOT = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_DISABLE_OTHER_ABILITIES = nil
+
+---@type abilitybooleanlevelfield
+Native.ABILITY_BLF_ALLOW_BOUNTY = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_ICON_NORMAL = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_CASTER = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_TARGET = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_SPECIAL = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_EFFECT = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_AREA_EFFECT = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_LIGHTNING_EFFECTS = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_MISSILE_ART = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_TOOLTIP_LEARN = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_TOOLTIP_LEARN_EXTENDED = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_TOOLTIP_NORMAL = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_TOOLTIP_TURN_OFF = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_TOOLTIP_NORMAL_EXTENDED = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_TOOLTIP_TURN_OFF_EXTENDED = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_NORMAL_FORM_UNIT_EME1 = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_SPAWNED_UNITS = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_ABILITY_FOR_UNIT_CREATION = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_NORMAL_FORM_UNIT_MIL1 = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_ALTERNATE_FORM_UNIT_MIL2 = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_BASE_ORDER_ID_ANS5 = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_MORPH_UNITS_GROUND = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_MORPH_UNITS_AIR = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_MORPH_UNITS_AMPHIBIOUS = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_MORPH_UNITS_WATER = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_UNIT_TYPE_ONE = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_UNIT_TYPE_TWO = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_UNIT_TYPE_SOD2 = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_SUMMON_1_UNIT_TYPE = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_SUMMON_2_UNIT_TYPE = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_RACE_TO_CONVERT = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_PARTNER_UNIT_TYPE = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_PARTNER_UNIT_TYPE_ONE = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_PARTNER_UNIT_TYPE_TWO = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_REQUIRED_UNIT_TYPE = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_CONVERTED_UNIT_TYPE = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_SPELL_LIST = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_BASE_ORDER_ID_SPB5 = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_BASE_ORDER_ID_NCL6 = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_ABILITY_UPGRADE_1 = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_ABILITY_UPGRADE_2 = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_ABILITY_UPGRADE_3 = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_ABILITY_UPGRADE_4 = nil
+
+---@type abilitystringlevelfield
+Native.ABILITY_SLF_SPAWN_UNIT_ID_NSY2 = nil
+
+---@type itemintegerfield
+Native.ITEM_IF_LEVEL = nil
+
+---@type itemintegerfield
+Native.ITEM_IF_NUMBER_OF_CHARGES = nil
+
+---@type itemintegerfield
+Native.ITEM_IF_COOLDOWN_GROUP = nil
+
+---@type itemintegerfield
+Native.ITEM_IF_MAX_HIT_POINTS = nil
+
+---@type itemintegerfield
+Native.ITEM_IF_HIT_POINTS = nil
+
+---@type itemintegerfield
+Native.ITEM_IF_PRIORITY = nil
+
+---@type itemintegerfield
+Native.ITEM_IF_ARMOR_TYPE = nil
+
+---@type itemintegerfield
+Native.ITEM_IF_TINTING_COLOR_RED = nil
+
+---@type itemintegerfield
+Native.ITEM_IF_TINTING_COLOR_GREEN = nil
+
+---@type itemintegerfield
+Native.ITEM_IF_TINTING_COLOR_BLUE = nil
+
+---@type itemintegerfield
+Native.ITEM_IF_TINTING_COLOR_ALPHA = nil
+
+---@type itemrealfield
+Native.ITEM_RF_SCALING_VALUE = nil
+
+---@type itembooleanfield
+Native.ITEM_BF_DROPPED_WHEN_CARRIER_DIES = nil
+
+---@type itembooleanfield
+Native.ITEM_BF_CAN_BE_DROPPED = nil
+
+---@type itembooleanfield
+Native.ITEM_BF_PERISHABLE = nil
+
+---@type itembooleanfield
+Native.ITEM_BF_INCLUDE_AS_RANDOM_CHOICE = nil
+
+---@type itembooleanfield
+Native.ITEM_BF_USE_AUTOMATICALLY_WHEN_ACQUIRED = nil
+
+---@type itembooleanfield
+Native.ITEM_BF_CAN_BE_SOLD_TO_MERCHANTS = nil
+
+---@type itembooleanfield
+Native.ITEM_BF_ACTIVELY_USED = nil
+
+---@type itemstringfield
+Native.ITEM_SF_MODEL_USED = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_DEFENSE_TYPE = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_ARMOR_TYPE = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_LOOPING_FADE_IN_RATE = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_LOOPING_FADE_OUT_RATE = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_AGILITY = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_INTELLIGENCE = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_STRENGTH = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_AGILITY_PERMANENT = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_INTELLIGENCE_PERMANENT = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_STRENGTH_PERMANENT = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_AGILITY_WITH_BONUS = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_INTELLIGENCE_WITH_BONUS = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_STRENGTH_WITH_BONUS = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_GOLD_BOUNTY_AWARDED_NUMBER_OF_DICE = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_GOLD_BOUNTY_AWARDED_BASE = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_GOLD_BOUNTY_AWARDED_SIDES_PER_DIE = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_LUMBER_BOUNTY_AWARDED_NUMBER_OF_DICE = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_LUMBER_BOUNTY_AWARDED_BASE = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_LUMBER_BOUNTY_AWARDED_SIDES_PER_DIE = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_LEVEL = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_FORMATION_RANK = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_ORIENTATION_INTERPOLATION = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_ELEVATION_SAMPLE_POINTS = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_TINTING_COLOR_RED = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_TINTING_COLOR_GREEN = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_TINTING_COLOR_BLUE = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_TINTING_COLOR_ALPHA = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_MOVE_TYPE = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_TARGETED_AS = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_UNIT_CLASSIFICATION = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_HIT_POINTS_REGENERATION_TYPE = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_PLACEMENT_PREVENTED_BY = nil
+
+---@type unitintegerfield
+Native.UNIT_IF_PRIMARY_ATTRIBUTE = nil
+
+---@type unitrealfield
+Native.UNIT_RF_STRENGTH_PER_LEVEL = nil
+
+---@type unitrealfield
+Native.UNIT_RF_AGILITY_PER_LEVEL = nil
+
+---@type unitrealfield
+Native.UNIT_RF_INTELLIGENCE_PER_LEVEL = nil
+
+---@type unitrealfield
+Native.UNIT_RF_HIT_POINTS_REGENERATION_RATE = nil
+
+---@type unitrealfield
+Native.UNIT_RF_MANA_REGENERATION = nil
+
+---@type unitrealfield
+Native.UNIT_RF_DEATH_TIME = nil
+
+---@type unitrealfield
+Native.UNIT_RF_FLY_HEIGHT = nil
+
+---@type unitrealfield
+Native.UNIT_RF_TURN_RATE = nil
+
+---@type unitrealfield
+Native.UNIT_RF_ELEVATION_SAMPLE_RADIUS = nil
+
+---@type unitrealfield
+Native.UNIT_RF_FOG_OF_WAR_SAMPLE_RADIUS = nil
+
+---@type unitrealfield
+Native.UNIT_RF_MAXIMUM_PITCH_ANGLE_DEGREES = nil
+
+---@type unitrealfield
+Native.UNIT_RF_MAXIMUM_ROLL_ANGLE_DEGREES = nil
+
+---@type unitrealfield
+Native.UNIT_RF_SCALING_VALUE = nil
+
+---@type unitrealfield
+Native.UNIT_RF_ANIMATION_RUN_SPEED = nil
+
+---@type unitrealfield
+Native.UNIT_RF_SELECTION_SCALE = nil
+
+---@type unitrealfield
+Native.UNIT_RF_SELECTION_CIRCLE_HEIGHT = nil
+
+---@type unitrealfield
+Native.UNIT_RF_SHADOW_IMAGE_HEIGHT = nil
+
+---@type unitrealfield
+Native.UNIT_RF_SHADOW_IMAGE_WIDTH = nil
+
+---@type unitrealfield
+Native.UNIT_RF_SHADOW_IMAGE_CENTER_X = nil
+
+---@type unitrealfield
+Native.UNIT_RF_SHADOW_IMAGE_CENTER_Y = nil
+
+---@type unitrealfield
+Native.UNIT_RF_ANIMATION_WALK_SPEED = nil
+
+---@type unitrealfield
+Native.UNIT_RF_DEFENSE = nil
+
+---@type unitrealfield
+Native.UNIT_RF_SIGHT_RADIUS = nil
+
+---@type unitrealfield
+Native.UNIT_RF_PRIORITY = nil
+
+---@type unitrealfield
+Native.UNIT_RF_SPEED = nil
+
+---@type unitrealfield
+Native.UNIT_RF_OCCLUDER_HEIGHT = nil
+
+---@type unitrealfield
+Native.UNIT_RF_HP = nil
+
+---@type unitrealfield
+Native.UNIT_RF_MANA = nil
+
+---@type unitrealfield
+Native.UNIT_RF_ACQUISITION_RANGE = nil
+
+---@type unitrealfield
+Native.UNIT_RF_CAST_BACK_SWING = nil
+
+---@type unitrealfield
+Native.UNIT_RF_CAST_POINT = nil
+
+---@type unitrealfield
+Native.UNIT_RF_MINIMUM_ATTACK_RANGE = nil
+
+---@type unitbooleanfield
+Native.UNIT_BF_RAISABLE = nil
+
+---@type unitbooleanfield
+Native.UNIT_BF_DECAYABLE = nil
+
+---@type unitbooleanfield
+Native.UNIT_BF_IS_A_BUILDING = nil
+
+---@type unitbooleanfield
+Native.UNIT_BF_USE_EXTENDED_LINE_OF_SIGHT = nil
+
+---@type unitbooleanfield
+Native.UNIT_BF_NEUTRAL_BUILDING_SHOWS_MINIMAP_ICON = nil
+
+---@type unitbooleanfield
+Native.UNIT_BF_HERO_HIDE_HERO_INTERFACE_ICON = nil
+
+---@type unitbooleanfield
+Native.UNIT_BF_HERO_HIDE_HERO_MINIMAP_DISPLAY = nil
+
+---@type unitbooleanfield
+Native.UNIT_BF_HERO_HIDE_HERO_DEATH_MESSAGE = nil
+
+---@type unitbooleanfield
+Native.UNIT_BF_HIDE_MINIMAP_DISPLAY = nil
+
+---@type unitbooleanfield
+Native.UNIT_BF_SCALE_PROJECTILES = nil
+
+---@type unitbooleanfield
+Native.UNIT_BF_SELECTION_CIRCLE_ON_WATER = nil
+
+---@type unitbooleanfield
+Native.UNIT_BF_HAS_WATER_SHADOW = nil
+
+---@type unitstringfield
+Native.UNIT_SF_NAME = nil
+
+---@type unitstringfield
+Native.UNIT_SF_PROPER_NAMES = nil
+
+---@type unitstringfield
+Native.UNIT_SF_GROUND_TEXTURE = nil
+
+---@type unitstringfield
+Native.UNIT_SF_SHADOW_IMAGE_UNIT = nil
+
+---@type unitweaponintegerfield
+Native.UNIT_WEAPON_IF_ATTACK_DAMAGE_NUMBER_OF_DICE = nil
+
+---@type unitweaponintegerfield
+Native.UNIT_WEAPON_IF_ATTACK_DAMAGE_BASE = nil
+
+---@type unitweaponintegerfield
+Native.UNIT_WEAPON_IF_ATTACK_DAMAGE_SIDES_PER_DIE = nil
+
+---@type unitweaponintegerfield
+Native.UNIT_WEAPON_IF_ATTACK_MAXIMUM_NUMBER_OF_TARGETS = nil
+
+---@type unitweaponintegerfield
+Native.UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE = nil
+
+---@type unitweaponintegerfield
+Native.UNIT_WEAPON_IF_ATTACK_WEAPON_SOUND = nil
+
+---@type unitweaponintegerfield
+Native.UNIT_WEAPON_IF_ATTACK_AREA_OF_EFFECT_TARGETS = nil
+
+---@type unitweaponintegerfield
+Native.UNIT_WEAPON_IF_ATTACK_TARGETS_ALLOWED = nil
+
+---@type unitweaponrealfield
+Native.UNIT_WEAPON_RF_ATTACK_BACKSWING_POINT = nil
+
+---@type unitweaponrealfield
+Native.UNIT_WEAPON_RF_ATTACK_DAMAGE_POINT = nil
+
+---@type unitweaponrealfield
+Native.UNIT_WEAPON_RF_ATTACK_BASE_COOLDOWN = nil
+
+---@type unitweaponrealfield
+Native.UNIT_WEAPON_RF_ATTACK_DAMAGE_LOSS_FACTOR = nil
+
+---@type unitweaponrealfield
+Native.UNIT_WEAPON_RF_ATTACK_DAMAGE_FACTOR_MEDIUM = nil
+
+---@type unitweaponrealfield
+Native.UNIT_WEAPON_RF_ATTACK_DAMAGE_FACTOR_SMALL = nil
+
+---@type unitweaponrealfield
+Native.UNIT_WEAPON_RF_ATTACK_DAMAGE_SPILL_DISTANCE = nil
+
+---@type unitweaponrealfield
+Native.UNIT_WEAPON_RF_ATTACK_DAMAGE_SPILL_RADIUS = nil
+
+---@type unitweaponrealfield
+Native.UNIT_WEAPON_RF_ATTACK_PROJECTILE_SPEED = nil
+
+---@type unitweaponrealfield
+Native.UNIT_WEAPON_RF_ATTACK_PROJECTILE_ARC = nil
+
+---@type unitweaponrealfield
+Native.UNIT_WEAPON_RF_ATTACK_AREA_OF_EFFECT_FULL_DAMAGE = nil
+
+---@type unitweaponrealfield
+Native.UNIT_WEAPON_RF_ATTACK_AREA_OF_EFFECT_MEDIUM_DAMAGE = nil
+
+---@type unitweaponrealfield
+Native.UNIT_WEAPON_RF_ATTACK_AREA_OF_EFFECT_SMALL_DAMAGE = nil
+
+---@type unitweaponrealfield
+Native.UNIT_WEAPON_RF_ATTACK_RANGE = nil
+
+---@type unitweaponbooleanfield
+Native.UNIT_WEAPON_BF_ATTACK_SHOW_UI = nil
+
+---@type unitweaponbooleanfield
+Native.UNIT_WEAPON_BF_ATTACKS_ENABLED = nil
+
+---@type unitweaponbooleanfield
+Native.UNIT_WEAPON_BF_ATTACK_PROJECTILE_HOMING_ENABLED = nil
+
+---@type unitweaponstringfield
+Native.UNIT_WEAPON_SF_ATTACK_PROJECTILE_ART = nil
+
+---@type movetype
+Native.MOVE_TYPE_UNKNOWN = nil
+
+---@type movetype
+Native.MOVE_TYPE_FOOT = nil
+
+---@type movetype
+Native.MOVE_TYPE_FLY = nil
+
+---@type movetype
+Native.MOVE_TYPE_HORSE = nil
+
+---@type movetype
+Native.MOVE_TYPE_HOVER = nil
+
+---@type movetype
+Native.MOVE_TYPE_FLOAT = nil
+
+---@type movetype
+Native.MOVE_TYPE_AMPHIBIOUS = nil
+
+---@type movetype
+Native.MOVE_TYPE_UNBUILDABLE = nil
+
+---@type targetflag
+Native.TARGET_FLAG_NONE = nil
+
+---@type targetflag
+Native.TARGET_FLAG_GROUND = nil
+
+---@type targetflag
+Native.TARGET_FLAG_AIR = nil
+
+---@type targetflag
+Native.TARGET_FLAG_STRUCTURE = nil
+
+---@type targetflag
+Native.TARGET_FLAG_WARD = nil
+
+---@type targetflag
+Native.TARGET_FLAG_ITEM = nil
+
+---@type targetflag
+Native.TARGET_FLAG_TREE = nil
+
+---@type targetflag
+Native.TARGET_FLAG_WALL = nil
+
+---@type targetflag
+Native.TARGET_FLAG_DEBRIS = nil
+
+---@type targetflag
+Native.TARGET_FLAG_DECORATION = nil
+
+---@type targetflag
+Native.TARGET_FLAG_BRIDGE = nil
+
+---@type defensetype
+Native.DEFENSE_TYPE_LIGHT = nil
+
+---@type defensetype
+Native.DEFENSE_TYPE_MEDIUM = nil
+
+---@type defensetype
+Native.DEFENSE_TYPE_LARGE = nil
+
+---@type defensetype
+Native.DEFENSE_TYPE_FORT = nil
+
+---@type defensetype
+Native.DEFENSE_TYPE_NORMAL = nil
+
+---@type defensetype
+Native.DEFENSE_TYPE_HERO = nil
+
+---@type defensetype
+Native.DEFENSE_TYPE_DIVINE = nil
+
+---@type defensetype
+Native.DEFENSE_TYPE_NONE = nil
+
+---@type heroattribute
+Native.HERO_ATTRIBUTE_STR = nil
+
+---@type heroattribute
+Native.HERO_ATTRIBUTE_INT = nil
+
+---@type heroattribute
+Native.HERO_ATTRIBUTE_AGI = nil
+
+---@type armortype
+Native.ARMOR_TYPE_WHOKNOWS = nil
+
+---@type armortype
+Native.ARMOR_TYPE_FLESH = nil
+
+---@type armortype
+Native.ARMOR_TYPE_METAL = nil
+
+---@type armortype
+Native.ARMOR_TYPE_WOOD = nil
+
+---@type armortype
+Native.ARMOR_TYPE_ETHREAL = nil
+
+---@type armortype
+Native.ARMOR_TYPE_STONE = nil
+
+---@type regentype
+Native.REGENERATION_TYPE_NONE = nil
+
+---@type regentype
+Native.REGENERATION_TYPE_ALWAYS = nil
+
+---@type regentype
+Native.REGENERATION_TYPE_BLIGHT = nil
+
+---@type regentype
+Native.REGENERATION_TYPE_DAY = nil
+
+---@type regentype
+Native.REGENERATION_TYPE_NIGHT = nil
+
+---@type unitcategory
+Native.UNIT_CATEGORY_GIANT = nil
+
+---@type unitcategory
+Native.UNIT_CATEGORY_UNDEAD = nil
+
+---@type unitcategory
+Native.UNIT_CATEGORY_SUMMONED = nil
+
+---@type unitcategory
+Native.UNIT_CATEGORY_MECHANICAL = nil
+
+---@type unitcategory
+Native.UNIT_CATEGORY_PEON = nil
+
+---@type unitcategory
+Native.UNIT_CATEGORY_SAPPER = nil
+
+---@type unitcategory
+Native.UNIT_CATEGORY_TOWNHALL = nil
+
+---@type unitcategory
+Native.UNIT_CATEGORY_ANCIENT = nil
+
+---@type unitcategory
+Native.UNIT_CATEGORY_NEUTRAL = nil
+
+---@type unitcategory
+Native.UNIT_CATEGORY_WARD = nil
+
+---@type unitcategory
+Native.UNIT_CATEGORY_STANDON = nil
+
+---@type unitcategory
+Native.UNIT_CATEGORY_TAUREN = nil
+
+---@type pathingflag
+Native.PATHING_FLAG_UNWALKABLE = nil
+
+---@type pathingflag
+Native.PATHING_FLAG_UNFLYABLE = nil
+
+---@type pathingflag
+Native.PATHING_FLAG_UNBUILDABLE = nil
+
+---@type pathingflag
+Native.PATHING_FLAG_UNPEONHARVEST = nil
+
+---@type pathingflag
+Native.PATHING_FLAG_BLIGHTED = nil
+
+---@type pathingflag
+Native.PATHING_FLAG_UNFLOATABLE = nil
+
+---@type pathingflag
+Native.PATHING_FLAG_UNAMPHIBIOUS = nil
+
+---@type pathingflag
+Native.PATHING_FLAG_UNITEMPLACABLE = nil
