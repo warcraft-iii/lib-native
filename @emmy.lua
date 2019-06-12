@@ -6748,6 +6748,11 @@ function Native.BlzFrameSetText(frame, text) end
 function Native.BlzFrameGetText(frame) end
 
 ---@param frame framehandle
+---@param text string
+---@return void
+function Native.BlzFrameAddText(frame, text) end
+
+---@param frame framehandle
 ---@param size integer
 ---@return void
 function Native.BlzFrameSetTextSizeLimit(frame, size) end
@@ -6895,6 +6900,12 @@ function Native.BlzGetTriggerFrame() end
 
 ---@return frameeventtype
 function Native.BlzGetTriggerFrameEvent() end
+
+---@return float
+function Native.BlzGetTriggerFrameValue() end
+
+---@return string
+function Native.BlzGetTriggerFrameText() end
 
 ---@param trigger trigger
 ---@param player player
